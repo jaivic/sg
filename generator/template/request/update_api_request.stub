@@ -1,0 +1,18 @@
+<?php
+namespace $NAMESPACE_API_REQUEST$;
+
+use App\Http\APIRequest;
+
+class Update$MODEL_NAME$APIRequest extends APIRequest
+{
+
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+           return [$APIRULES$];
+    }
+}

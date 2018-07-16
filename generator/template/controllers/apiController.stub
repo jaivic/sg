@@ -1,0 +1,36 @@
+<?php
+
+namespace $NAMESPACE_CONTROLLER_API$;
+
+use $NAMESPACE_MODEL$;
+use $NAMESPACE_REQUEST$\Create$MODAL_NAME$APIRequest;
+use $NAMESPACE_REQUEST$\Update$MODAL_NAME$APIRequest;
+use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
+use App\Http\Controllers\AppBaseController;
+
+class $MODAL_NAME$Controller extends AppBaseController
+{
+    public $service;
+  
+    public function __construct()
+    {
+      $this->service=new $MODAL_NAME$Service(); 
+    }
+    public function store(Create$MODAL_NAME$APIRequest $Request)
+    { 
+      $$MODAL_NAME$ = $this->service->create($Request->all());
+      return $this->sendResponse($$MODAL_NAME$->toArray(), '$MODAL_NAME$ guardado exitosamente');
+    }
+    public function update(Update$MODAL_NAME$APIRequest $Request,$id)
+    {
+       $$MODAL_NAME$ = $this->service->update($Request->all(),$id);
+       return $this->sendResponse($$MODAL_NAME$->toArray(), '$MODAL_NAME$ actualizado exitosamente');
+    }
+      public function delete($id)
+    {        
+      $this->service->delete($id);
+      return $this->sendResponse(null, '$MODAL_NAME$ eliminado correctamente');
+    }
+
+    
+}
