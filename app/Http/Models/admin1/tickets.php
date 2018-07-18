@@ -3,11 +3,11 @@
 namespace App\Http\Models\admin1;
 
 use Illuminate\Database\Eloquent\Model; 
-use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class tickets extends Model
 {
-    use SoftDeletes;
+   // use SoftDeletes;
     public $table = 'tickets';
     public $timestamps = false;
 
@@ -16,6 +16,7 @@ class tickets extends Model
     public $date = [ 
     'scheduled_at',
     'executed_at' ];
+
     public $fillable = [
         
     'id',

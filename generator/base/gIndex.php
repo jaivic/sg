@@ -16,6 +16,8 @@ use generator\base\gRequest;
 use generator\base\gService;
 use generator\base\gView;
 use generator\base\gRoute;
+use generator\base\gViewMenu;
+
 class gIndex extends BaseGenerator
 {
     public function __construct()
@@ -32,13 +34,14 @@ class gIndex extends BaseGenerator
             dd($column);
         }
         /**/
-        (new gRoute($config))->run();
-        (new gModel($config))->run();
-        (new gRequest($config))->run();
+       // (new gRoute($config))->run();
+        //(new gModel($config))->run();
+        //(new gRequest($config))->run();
 
-        (new gService($config))->run();
-        (new gController($config))->run();
-        (new gView($config))->run();
+       // (new gService($config))->run();
+       // (new gController($config))->run();
+       // (new gView($config))->run();
+            (new gView($config))->run();
     }
  
    

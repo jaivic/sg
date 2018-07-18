@@ -11,7 +11,7 @@ class FileUtil
         }
 
         $path = $path.$fileName;
-
+//dd($path);
         file_put_contents($path, $contents);
     }
 

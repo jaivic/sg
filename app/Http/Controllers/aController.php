@@ -7,8 +7,8 @@ class aController extends Controller
 {
     public function autonew()
     {
-        echo date("r");
-      //  $x = new gIndex();
+      //  echo date("r");
+        $x = new gIndex();
     }
 
 

@@ -67,7 +67,7 @@ public function __construct($config){
           if (!is_null($date)) {
             $dates[] = $this->lnTb($date);
           }
-        //  $rules[] = $this->lnTb($this->generateRule($field));
+        //$rules[] = $this->lnTb($this->generateRule($field));
          
       }
 
