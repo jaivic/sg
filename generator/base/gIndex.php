@@ -34,15 +34,27 @@ class gIndex extends BaseGenerator
             dd($column);
         }
         /**/
-       // (new gRoute($config))->run();
-        //(new gModel($config))->run();
-        //(new gRequest($config))->run();
+//$this->rollBackAll( $config);
+//dd("pues si");
+            (new gRoute($config))->run();
+            (new gModel($config))->run();
+            (new gRequest($config))->run();
 
-       // (new gService($config))->run();
-       // (new gController($config))->run();
-       // (new gView($config))->run();
+            (new gService($config))->run();
+            (new gController($config))->run();
             (new gView($config))->run();
+            (new gViewMenu($config))->run();
     }
  
-   
+   public function rollBackAll( $config){
+        $this->rollbackDir( $config->dirFinalApiController);
+        $this->rollbackDir( $config->dirFinalApiController);
+        $this->rollbackDir( $config->dirFinalModel);
+        $this->rollbackDir( $config->dirFinalRequest);
+        $this->rollbackDir( $config->dirFinalService);
+        $this->rollbackDir( $config->dirFinalBaseView);
+
+        $path = base_path("resources/views/layouts/");
+        $this->rollbackFile($path,"menu.blade.php");
+   }
 }

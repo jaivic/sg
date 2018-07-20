@@ -20,7 +20,7 @@ class gRequest extends BaseGenerator
       parent::__construct();
 
       $this->config = $config;
-
+    $this->rollbackDir( $this->config->dirFinalRequest);
     $this->variables=[
       '$NAMESPACE_API_REQUEST$' => $this->config->nameSpaceFinalRequest,
     ];

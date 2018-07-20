@@ -15,6 +15,7 @@ public function __construct($config){
     parent::__construct();
 
     $this->config = $config;
+    $this->rollbackDir( $this->config->dirFinalApiController);
 
   $this->variables=[
       '$NAMESPACE_CONTROLLER_API$' => $this->config->nameSpaceFinalApiController,

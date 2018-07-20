@@ -48,14 +48,19 @@ class BaseGenerator
       
         FileUtil::createFile($path, $filenName, $this->fillTemplate($variables, $templateData));
     }
+    public function rollbackDir($path)
+    {
+      
+            return FileUtil::deleteDir($path);
+    
 
+    }
     public function rollbackFile($path, $fileName)
     {
-        if (file_exists($path.$fileName)) {
+       
             return FileUtil::deleteFile($path, $fileName);
-        }
+        
 
-        return false;
     }
    
 }

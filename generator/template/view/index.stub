@@ -37,7 +37,7 @@
                                     <td>   
                                         {!! Form::open(['route' => ['$ROUTE$.delete',$row->$PRIMARY_KEY_NAME$], 'method' => 'delete']) !!}
                                         <div class='btn-group'>
-                                            <a href="{!! route('$ROUTE$.show', [$row->$PRIMARY_KEY_NAME$]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                                            <a href="{!! route('$ROUTE$.detail', [$row->$PRIMARY_KEY_NAME$]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                                             <a href="{!! route('$ROUTE$.edit', [$row->$PRIMARY_KEY_NAME$]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                                             {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('¿Estás seguro?')"]) !!}
                                         </div>

@@ -15,6 +15,7 @@ public function __construct($config){
     parent::__construct();
 
     $this->config = $config;
+  
 }
   public function run()
   {
@@ -27,7 +28,7 @@ public function __construct($config){
       $templateData = file_get_contents(base_path("generator/template/routes/api_routes_group.stub"));
       $variables = [
         '$ROUTE_PREFIX$' => Str::lower(Str::camel($Table->getName())),
-        '$PATH_PREFIX$' => $this->config->addDir. "\\",
+        '$PATH_PREFIX$' => $this->config->addDir,
         '$MODEL_NAME$' => Str::camel($Table->getName()),
       ];
       foreach ($variables as $variable => $value) {

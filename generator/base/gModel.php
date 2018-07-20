@@ -16,7 +16,7 @@ public function __construct($config){
   parent::__construct();
 
     $this->config= $config;
-
+    $this->rollbackDir( $this->config->dirFinalModel);
   
   $this->variables=[
     '$NAMESPACE_MODEL$'=> $this->config->nameSpaceFinalModel,
@@ -42,12 +42,15 @@ public function __construct($config){
       $fillables=[];
     //$rules=[];
       $dates = [];
-      $deleted_at=false;
+    /*  $deleted_at=false;
       $created_at=false;
-      $updated_at = false;
+      $updated_at = false;*/
 
       foreach ($Table->getColumns() as $field) {      
           $fieldName= $field->getName();
+          $deleted_at=false;
+          $created_at=false;
+          $updated_at = false;
           if ($fieldName =="created_at"){
             $created_at=true;
           }
@@ -58,11 +61,11 @@ public function __construct($config){
             $deleted_at=true;
           }
           $fillables[] = $this->lnTb("'" . $fieldName . "'");
-          /* $cast= $this->generateCasts($fieldName, $field->getType());
+           $cast= $this->generateCasts($fieldName, $field->getType());
             if (!is_null($cast)){
               $casts[] =   $cast;
-            }*/
-          $casts[] = $this->lnTb($this->generateCasts($fieldName, $field->getType()));
+            }
+        //  $casts[] = $this->lnTb($this->generateCasts($fieldName, $field->getType()));
           $date =  $this->generateDates($fieldName, $field->getType());
           if (!is_null($date)) {
             $dates[] = $this->lnTb($date);
@@ -80,6 +83,9 @@ public function __construct($config){
       if ($deleted_at == true) {
         $this->variables['$SOFT_DELETE_IMPORT$'] = "use Illuminate\Database\Eloquent\SoftDeletes;";
         $this->variables['$SOFT_DELETE$'] =  "use SoftDeletes;";
+      }else{
+        $this->variables['$SOFT_DELETE_IMPORT$'] = "";
+        $this->variables['$SOFT_DELETE$'] =  "";
       }
     
       $templateData = $this->getTemplate($this->config->pathTemplateModel);
