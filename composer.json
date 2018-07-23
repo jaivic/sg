@@ -23,7 +23,8 @@
         "classmap": [
             "database/seeds",
             "database/factories",
-            "generator/"
+            "generator/",
+            "app/Http/service"
           
         ],
         "psr-4": {

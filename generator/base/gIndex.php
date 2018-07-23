@@ -48,7 +48,7 @@ class gIndex extends BaseGenerator
  
    public function rollBackAll( $config){
         $this->rollbackDir( $config->dirFinalApiController);
-        $this->rollbackDir( $config->dirFinalApiController);
+        $this->rollbackDir( $config->dirFinalController);
         $this->rollbackDir( $config->dirFinalModel);
         $this->rollbackDir( $config->dirFinalRequest);
         $this->rollbackDir( $config->dirFinalService);

@@ -10,7 +10,7 @@ use generator\Utils\FileUtil;
 use generator\BaseGenerator;
 use \Doctrine\DBAL\Types\Type;
 
-class DbAnalyzer extends BaseGenerator
+class GenerateJson extends BaseGenerator
 {
     public $schemaManager;
     public $listTable;

@@ -29,8 +29,8 @@ class $MODAL_NAME$Controller extends AppBaseController
       return view('$ADD_FOLDER$.$MODAL_NAME$.edit',compact("$MODAL_NAME$"));
     }
      public function show($id){
-        $$MODAL_NAME$ = $MODAL_NAME$::find($id);
-        return view('$ADD_FOLDER$.$MODAL_NAME$.show',compact("$MODAL_NAME$"));
+        $row = $MODAL_NAME$::find($id);
+        return view('$ADD_FOLDER$.$MODAL_NAME$.show',compact("row"));
     }
     public function store(Create$MODAL_NAME$Request $request)
     { 

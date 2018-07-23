@@ -16,7 +16,7 @@ public function __construct($config){
   parent::__construct();
 
   $this->config= $config;
-  $this->rollbackDir( $this->config->dirFinalBaseView);
+  //$this->rollbackDir( $this->config->dirFinalBaseView);
   
 }
 
@@ -27,6 +27,7 @@ public function __construct($config){
     $this->generateViewCreateFields();
     $this->generateViewEdit();
     $this->generateViewEditFields();
+    $this->generateViewShowFields();
   }
   function generateViewCreate()
   {
@@ -169,6 +170,38 @@ public function __construct($config){
       $path = $this->config->dirFinalBaseView . Str::camel($Table->getName()) . "/";
       $name = "index.blade.php";
      
+      FileUtil::createFile($path, $name, $templateData);
+
+
+    }
+  }
+  function generateViewShowFields()
+  {
+    //Str::snake
+    /* fields*/
+    foreach ($this->config->listTable as $Table) {
+      $fieldsTotalCell = "";
+      $fieldsTotalHead = "";
+      $this->variables = [
+        '$MODEL_NAME_CAMEL$' => Str::camel($Table->getName()),
+      ];
+      foreach ($Table->getColumns() as $field) {
+        $templateField = $this->getTemplate("generator/template/view/showCell.stub");
+     
+        $this->variables['$FIELD_NAME$'] = $field->getName();
+        $this->variables['$FIELD_NAME_TITLE$'] = Str::snake(Str::camel($field->getName()), " ");
+        $fieldsTotalCell .= $this->fillTemplate($this->variables, $templateField);
+     
+      }
+      $templateData = $this->getTemplate("generator/template/view/show.stub");
+      
+      $variables = [
+        '$FIELD$' => $fieldsTotalCell,
+      ];
+      $templateData = $this->fillTemplate($variables, $templateData);
+      $path = $this->config->dirFinalBaseView . Str::camel($Table->getName()) . "/";
+      $name = "show.blade.php";
+
       FileUtil::createFile($path, $name, $templateData);
 
 

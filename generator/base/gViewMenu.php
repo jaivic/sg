@@ -27,7 +27,7 @@ class gViewMenu extends BaseGenerator
         $templateData = file_get_contents(base_path("generator/template/view/menu/menu.stub"));
       $this->variables = [
         '$URLNAME$' => Str::snake(Str::camel($Table->getName()), " "),
-        '$URL$' => url(Str::lower(Str::camel($Table->getName())) . "/index"),
+        '$URL$' => Str::lower(Str::camel($Table->getName())) . "/index",
       ];
       // dd($this->variables);
       $templateData = $this->fillTemplate($this->variables, $templateData);

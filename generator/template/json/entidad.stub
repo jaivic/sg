@@ -2,5 +2,4 @@
 "model":[$MODELS$],
 "request":[$REQUESTS$],
 "controller":[$CONTROLLER$]
-"view":[$VIEW$]
 }

@@ -1,19 +1,14 @@
-@extends('layouts.app')
-
-@section('content')
-    <section class="content-header">
-        <h1>
-            $MODEL_NAME_HUMAN$
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-
-            <div class="box-body">
-                <div class="row">
-                        @include('$VIEW_PREFIX$.fields')
-                </div>
-            </div>
-        </div>
-    </div>
+@extends('layouts.partForm')
+@section('formulario')
+<table class="table table-bordered">									
+  <thead>			                
+        <tr>
+           <th>Campo</th>
+            <th>información</th>
+        </tr>
+    </thead>
+    <tbody>
+        $FIELD$
+    </tbody>
+</table>
 @endsection

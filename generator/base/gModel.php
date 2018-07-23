@@ -16,7 +16,7 @@ public function __construct($config){
   parent::__construct();
 
     $this->config= $config;
-    $this->rollbackDir( $this->config->dirFinalModel);
+  //  $this->rollbackDir( $this->config->dirFinalModel);
   
   $this->variables=[
     '$NAMESPACE_MODEL$'=> $this->config->nameSpaceFinalModel,

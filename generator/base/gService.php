@@ -19,7 +19,7 @@ public function __construct($config){
   parent::__construct();
 
   $this->config = $config;
-  $this->rollbackDir( $this->config->dirFinalService);
+ // $this->rollbackDir( $this->config->dirFinalService);
   $this->variables=[
     '$NAMESPACE$'=>$this->config->nameSpaceFinalService
   ];
