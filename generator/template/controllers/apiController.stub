@@ -31,6 +31,9 @@ class $MODAL_NAME$Controller extends AppBaseController
       $this->service->delete($id);
       return $this->sendResponse(null, '$MODAL_NAME$ eliminado correctamente');
     }
-
+    public function show($id){
+        $row = $MODAL_NAME$::find($id);
+        return $this->sendResponse($row->toArray(), 'success');
+    }
     
 }
