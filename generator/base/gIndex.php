@@ -35,7 +35,7 @@ class gIndex extends BaseGenerator
             dd($column);
         }
         /**/
-        (new jsModel($config))->run();
+        (new jsModel())->run($config);
 //$this->rollBackAll( $config);
 //dd("pues si");
        /*     (new gRoute($config))->run();

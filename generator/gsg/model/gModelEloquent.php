@@ -8,7 +8,7 @@ use generator\base\BaseGenerator;
 use generator\Utils\FileUtil;
 use \Doctrine\DBAL\Types\Type;
 
-class gModel extends BaseGenerator
+class gModelEloquent extends BaseGenerator
 {
   public $config;
 
