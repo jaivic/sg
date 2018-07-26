@@ -17,6 +17,7 @@ use generator\base\gService;
 use generator\base\gView;
 use generator\base\gRoute;
 use generator\base\gViewMenu;
+use generator\base\jsModel;
 
 class gIndex extends BaseGenerator
 {
@@ -34,16 +35,17 @@ class gIndex extends BaseGenerator
             dd($column);
         }
         /**/
+        (new jsModel($config))->run();
 //$this->rollBackAll( $config);
 //dd("pues si");
-            (new gRoute($config))->run();
+       /*     (new gRoute($config))->run();
             (new gModel($config))->run();
             (new gRequest($config))->run();
 
             (new gService($config))->run();
             (new gController($config))->run();
             (new gView($config))->run();
-            (new gViewMenu($config))->run();
+            (new gViewMenu($config))->run();*/
     }
  
    public function rollBackAll( $config){

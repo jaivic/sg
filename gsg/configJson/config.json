@@ -17,7 +17,7 @@
 			"enable":true,
 			"template":"php-laravel",
 			"dir":"App\\Http\\service\\",
-			"namespace":"App\Http\service"
+			"namespace":"App\\Http\\service"
 		},
 		"api":{
 			"enable":true,
