@@ -13,28 +13,41 @@ use generator\gsg\oBase\fieldModel;
 class jsModel extends BaseGenerator
 {
 public $config;
-
+public $model;
 
     public function run($config)
   {
     $this->config=$config;
     $all=[];
     foreach($this->config->listTable as $Table){
-    $model= new model($Table->getName());
+    $this->model= new model($Table->getName());
       foreach ($Table->getColumns() as $field) {  
+      
         $fieldforSave=new fieldModel($field->getName(),$this->generateCasts($field->getType()) );
         $fieldforSave->addRule($this->generateRule($field));
         $fieldforSave->setWebView("text");
-        $model->addField($fieldforSave);
+        $this->model->addField($fieldforSave);
+        
+      
+     
       }
-      $all[]=$model;
-      dd ($all);
+      $this->model->addIndex($this->getIndex($Table));
+      $all[]=$this->model->x;
+    
     }
-  
+    dd ($all);
   }
+
+  public function setFieldCreatedUpdate($field){
+      $this->model->addFieldForCreatedUpdate($field->getName());
+  } 
+  public function setFieldShowList($field){
+    $this->model->addfieldShowList($field->getName());
+} 
+
   public  function generateRule($field)
   {
-  
+    $rule="";
     $item=[];
     if($field->getNotnull()==true){
       $item[] = "required";
@@ -43,10 +56,19 @@ public $config;
     if ($field->getType() == Type::getType('string')){
       $item[] = "max:".$field->getLength();
     }
-   
-    return $item;
+    $rule= implode('|', $item)."";
+    return $rule;
     
 
+  }
+  public function getIndex( $Table){
+    $primaryName=null;
+    $indice = $Table->getPrimaryKey();
+    if ($indice) {
+      $primaryName = $indice->getColumns();
+    }
+  
+return $primaryName;
   }
   public function generateCasts($type)
   {

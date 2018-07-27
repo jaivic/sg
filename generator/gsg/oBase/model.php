@@ -9,14 +9,14 @@ class model {
       $this->x->request = true;
       $this->x->name = Str::camel($table);
       $this->x->humanName = Str::snake(Str::camel($table));
-   /*   $this->x->timeStamp=true;
+
+      $this->x->field = [];
+     
+      $this->x->index = [];
+    /* $this->x->timeStamp=true;
       $this->x->softdelete = true;
       $this->x->fieldDelete = "delete_at";*/
-      $this->x->field = [];
-      $this->x->fieldCreatedUpdate = [];
-      $this->x->fieldShowlist = [];
-      $this->x->index = [];
-      $this->x->dates = [];
+   //   $this->x->dates = [];
   }
   public function addField($field){
     $this->x->field[]=$field;	
@@ -28,9 +28,9 @@ class model {
     $this->x->fieldShowList[] =$name;
   }
   public function addIndex($name){
-    $this->x->index[] = $name;
+    $this->x->index = $name;
   }
-  public function addDate($name){
+ /* public function addDate($name){
     $this->x->dates[] = $name;
-  }
+  }*/
 }
