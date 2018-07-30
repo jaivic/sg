@@ -46,6 +46,6 @@ return $this->belongsToMany("App\Http\Models\admin1\categories","post_category",
 **/
 public function tags()
 {
-return $this->belongsToMany("App\Http\Models\admin1\\tags","post_tag","post_id","tag_id");
+return $this->belongsToMany("App\Http\Models\admin1\tags","post_tag","post_id","tag_id");
 }
 }

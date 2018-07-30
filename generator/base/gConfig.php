@@ -29,10 +29,12 @@ class gConfig
         $this->pathTemplateAPICreate = "generator/template/request/create_api_request.stub";
         $this->pathTemplateAPIUpdate = "generator/template/request/update_api_request.stub";
         $this->pathTemplateController = "generator/template/controllers/Controller.stub";
+        $this->pathTemplateControllerPartResult = "generator/template/controllers/partResult.stub";
+        
         $this->pathTemplateApiController = "generator/template/controllers/apiController.stub";
         $this->pathTemplateViewCreate = "generator/template/view/create.stub";
         $this->pathTemplateViewUpdate = "generator/template/view/edit.stub";
-      
+        
         $this->dirFinalModel = base_path("App\Http\Models\\");
         $this->nameSpaceFinalModel = "App\Http\Models";
         $this->dirFinalController = base_path("App\Http\Controllers\\");

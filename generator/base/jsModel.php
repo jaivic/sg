@@ -35,13 +35,13 @@ public $model;
       }
         $this->model->addIndex($this->getIndex($Table));
         
-        if ($Table->getName()=="tickets"){
+      /*  if ($Table->getName()=="tickets"){
         dd($this->model);
-        }
+        }*/
         $all[]=$this->model;
     
     }
-   dd($all);
+   //dd($all);
     FileUtil::createFile($this->config->dirJsonFile,"model.json", json_encode($all));
   }
 

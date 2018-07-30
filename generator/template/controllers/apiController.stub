@@ -33,7 +33,12 @@ class $MODAL_NAME$Controller extends AppBaseController
     }
     public function show($id){
         $row = $MODAL_NAME$::find($id);
-        return $this->sendResponse($row->toArray(), 'success');
+        $result= $row->toArray();
+        
+        /*$ADDMODELS$*/
+        
+          return $this->sendResponse($result, 'success');
+      //  return $this->sendResponse($row->toArray(), 'success');
     }
     
 }

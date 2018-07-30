@@ -11,19 +11,32 @@ class users extends Model
     public $table = 'users';
     public $timestamps = false;
 
-
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    
+    
     public $date = [  ];
     public $fillable = [
         
     'name',
     'email',
     'password',
-    'remember_token'
+    'github_account',
+    'timezone',
+    'remember_token',
+    'slack_user_id'
     ];
 
 
-    
+    /**
+* @return \Illuminate\Database\Eloquent\Relations\HasMany
+**/
+public function applications()
+{
+return $this->hasMany("App\Http\Models\admin1\applications","application_id","user_id");
+}/**
+* @return \Illuminate\Database\Eloquent\Relations\HasMany
+**/
+public function roles()
+{
+return $this->hasMany("App\Http\Models\admin1\roles","role_id","user_id");
+}
 }

@@ -29,14 +29,15 @@ class gIndex extends BaseGenerator
 
         $platform->registerDoctrineTypeMapping('enum', 'string');
         $platform->registerDoctrineTypeMapping('json', 'text');
-        $this->listTable = $this->schemaManager->listTables();
+      /*  $this->listTable = $this->schemaManager->listTables();
         $config = new gConfig($this->listTable, "admin1");
            (new jsModel())->run($config,"");
-    dd(1);
-        $this->listTable= json_decode(file_get_contents(base_path("generator/gsg/configJson/model.json")));
-    
-        $config=new gConfig($this->listTable,"admin1");
-          (new gModelEloquent($config))->run();
+    dd(1);*/
+            $this->listTable= json_decode(file_get_contents(base_path("generator/gsg/configJson/model.json")));
+
+            $config=new gConfig($this->listTable,"admin1");
+            (new gModelEloquent($config))->run();
+            
        // (new jsModel())->run($config,"");
 //$this->rollBackAll( $config);
 //dd("pues si");
