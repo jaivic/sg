@@ -19,7 +19,10 @@ class gConfig
     {
         $this->listTable = $listTable;
         $this->addDir= $addDir;
+        $this->dirJsonFile = base_path("generator/gsg/configJson/");
         $this->pathTemplateModel = "generator/template/model/model.stub";
+        $this->pathTemplateModelRelate = "generator/template/model/relationship.stub";
+        $this->pathTemplateModelRelateMTOM = "generator/template/model/relationshipMTOM.stub";
         $this->pathTemplateService = "generator/template/service/service.stub";
         $this->pathTemplateCreate = "generator/template/request/create_request.stub";
         $this->pathTemplateUpdate = "generator/template/request/update_request.stub";

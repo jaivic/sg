@@ -4,7 +4,7 @@ namespace $NAMESPACE_MODEL$;
 
 $NAMESPACE_MODEL_EXTEND$; 
 $SOFT_DELETE_IMPORT$
-$DOCS$
+
 class $MODEL_NAME$ extends Model
 {
     $SOFT_DELETE$
@@ -17,9 +17,6 @@ class $MODEL_NAME$ extends Model
         $FIELDS$
     ];
 
-    protected $casts = [
-        $CAST$
-    ];
 
     $RELATIONS$
 }

@@ -14,35 +14,140 @@ class jsModel extends BaseGenerator
 {
 public $config;
 public $model;
-
+//https://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/Column.html#method_getAutoincrement
     public function run($config)
   {
     $this->config=$config;
     $all=[];
     foreach($this->config->listTable as $Table){
-    $this->model= new model($Table->getName());
-      foreach ($Table->getColumns() as $field) {  
+      $this->model= new model($Table->getName());
+      $this->setForeignKeys($Table);
+      
+      foreach ($Table->getColumns() as $field) {
       
         $fieldforSave=new fieldModel($field->getName(),$this->generateCasts($field->getType()) );
         $fieldforSave->addRule($this->generateRule($field));
         $fieldforSave->setWebView("text");
         $this->model->addField($fieldforSave);
-        
-      
-     
+        $this->setFieldImportantForRelate($field->getName());
+        $this->setFieldCreatedUpdate($field);
+        $this->setFieldShowList("this",$field->getName());
       }
-      $this->model->addIndex($this->getIndex($Table));
-      $all[]=$this->model->x;
+        $this->model->addIndex($this->getIndex($Table));
+        
+        if ($Table->getName()=="tickets"){
+        dd($this->model);
+        }
+        $all[]=$this->model;
     
     }
-    dd ($all);
+   dd($all);
+    FileUtil::createFile($this->config->dirJsonFile,"model.json", json_encode($all));
   }
 
-  public function setFieldCreatedUpdate($field){
+  public function setFieldImportantForRelate($field){
+   
+    $nombre = "";
+    $tabla = "";
+    if (stripos($field, "_id")!=false){
+     
+      $post= stripos($field, "_id");
+      $this->schemaManager = DB::getDoctrineSchemaManager();
+      $nombreTabla= substr($field, 0, $post);
+      $tabla = $this->schemaManager->listTableColumns($nombreTabla);
+      if (count($tabla) == 0) {
+       
+          $tabla = $this->schemaManager->listTableColumns(Str::plural($nombreTabla) );
+      }
+      if(count($tabla)>0){
+        foreach ($tabla as $field) {
+          $this->setFieldShowList(Str::plural($nombreTabla), $field->getName());
+           // if(($field->getName() == "title")&& ($field->getName() == "name")){
+             // $nombre= $field->getName();
+           
+          //  }
+        }
+     
+ /*       if ($nombre ==""){
+        
+          foreach ($tabla as $field) {
+         
+            if (($nombre == "") && ($field->getType() == Type::getType('string'))) {
+              $nombre = $field->getName();
+            
+            }
+          }
+        }
+      */
+     /*   if ($nombre != "") {
+        
+          
+         
+        //  $this->model->addfieldImportantRelate(Str::plural($nombreTabla). ":" . $nombre);
+        }*/
+      }
+    }
+    
+
+  }
+
+  public function setForeignKeys($Table){
+   // https ://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/ForeignKeyConstraint.html
+  /** buscando relaciones de foreingkeys */
+   foreach ($Table->getForeignKeys() as $key => $value) {
+          $this->model->addForeignKeys($key,$value->getLocalColumns(),
+          $value->getForeignTableName(),
+          $value->getForeignColumns());
+    }
+    /*buscando tablas intermedias para relaciones */
+    foreach ($this->config->listTable as $table2) {
+     
+      if (stripos($table2->getName(), "_". str::singular($Table->getName())) != false) {
+        $position=stripos($table2->getName(), "_" . str::singular($Table->getName()));
+       $nameTableForeign= substr($table2->getName(), 0, $position);
+        
+//$key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""
+        $this->model->addForeignKeys(
+          "hasMany". $nameTableForeign,
+          [str::singular($Table->getName())."_id"],
+          $nameTableForeign,
+          [$nameTableForeign . "_id"],
+          "1tm"
+        );
+      }
+     
+     
+      if (stripos($table2->getName(),  str::singular($Table->getName())."_") !== false) {
+        $nameTableForeign = substr($table2->getName(), strlen(str::singular($Table->getName()) . "_"));
+        $this->model->addForeignKeys(
+          "belongsToMany" . $nameTableForeign,
+          [str::singular($Table->getName()) . "_id"],
+          $nameTableForeign,
+          [$nameTableForeign . "_id"],
+          "mtm",
+          $table2->getName()
+        );
+        $this->schemaManager = DB::getDoctrineSchemaManager();
+        $tablaForshowList = $this->schemaManager->listTableColumns(Str::plural($nameTableForeign));
+        foreach ($tablaForshowList as $field) {
+          $this->setFieldShowList(Str::plural($nameTableForeign), $field->getName());
+        }
+      
+
+      //  $this->model->addfieldImportantRelate("mtm_".Str::plural($nameTableForeign) . ":" . $nameTableForeign . "_id");
+      }
+      //str::singular
+  /*    $nombreTabla = substr($table2->getName(), 0, $post);
+        if (count($nombreTabla) == 0) {
+    }
+*/
+    }
+}
+  public function setFieldCreatedUpdate( $field){
       $this->model->addFieldForCreatedUpdate($field->getName());
   } 
-  public function setFieldShowList($field){
-    $this->model->addfieldShowList($field->getName());
+  public function setFieldShowList($table, $field){
+    $this->model->addfieldShowList($table, $field);
 } 
 
   public  function generateRule($field)

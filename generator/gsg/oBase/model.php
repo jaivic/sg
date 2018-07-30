@@ -1,36 +1,45 @@
 <?php
 namespace generator\gsg\oBase;
 use Illuminate\Support\Str;
-class model {
-  public $x;
+class model extends \stdClass {
+  /***https://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/Column.html#method_getAutoincrement */
   public function __construct($table){
-      $this->x = new \stdClass();
-      $this->x->enable = true;
-      $this->x->request = true;
-      $this->x->name = Str::camel($table);
-      $this->x->humanName = Str::snake(Str::camel($table));
-
-      $this->x->field = [];
-     
-      $this->x->index = [];
-    /* $this->x->timeStamp=true;
-      $this->x->softdelete = true;
-      $this->x->fieldDelete = "delete_at";*/
-   //   $this->x->dates = [];
+    
+      $this->enable = true;
+      $this->request = true;
+      $this->realName = $table;
+      $this->name = Str::camel($table);
+      $this->humanName = Str::snake(Str::camel($table));
+      $this->field = [];
+      $this->index = [];
+      $this->foreignKeys=[];
+      $this->fieldImportantRelate =[];
   }
   public function addField($field){
-    $this->x->field[]=$field;	
+    $this->field[]=$field;	
+  }
+  public function addForeignKeys($key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""){
+
+    $x = new \stdClass();
+    $x->name= $key;
+    $x->localIndex = $idLocal;
+    $x->fkTable = $tabla;
+    $x->fkIndex= $idforeign;
+    $x->relation= $relate;
+    $x->interTable=$interTable;
+    $this->foreignKeys[] = $x ;
   }
   public function addFieldForCreatedUpdate($name){
-    $this->x->fieldCreatedUpdate[] =$name;
+    $this->fieldCreatedUpdate[] =$name;
   }
-  public function addfieldShowList($name){
-    $this->x->fieldShowList[] =$name;
+  public function addfieldShowList($table,$name){
+    $this->fieldShowList[$table][] =$name;
+  }
+  public function addfieldImportantRelate($name)
+  {
+    $this->fieldImportantRelate[] = $name;
   }
   public function addIndex($name){
-    $this->x->index = $name;
+    $this->index = $name;
   }
- /* public function addDate($name){
-    $this->x->dates[] = $name;
-  }*/
 }

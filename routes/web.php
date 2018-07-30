@@ -1,6 +1,7 @@
 <?php
 //Route::get('/', "pruebaController@autoModel");
 Route::get('/new', "aController@autonew");
+Route::get('/pruebadepost', "aController@pruebademodelo");
 /*
 Route::group(['prefix' => 'analisisAplicaciones'], function () {
     Route::get('index', 'admin1\analisisAplicacionesController@index')->name("analisisaplicaciones.index");

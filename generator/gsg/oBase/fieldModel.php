@@ -4,28 +4,28 @@ namespace generator\gsg\oBase;
 use Illuminate\Support\Str;
 
 
-class fieldModel{
+class fieldModel extends \stdClass {
   
-  public  $field;
+ // public  $field;
   
   public function __construct($name,$type){
-      $this->field = new \stdClass();
-      $this->field->name = $name;
-      $this->field->type = $type;
-      $this->field->humanName = Str::snake(Str::camel($name));
+     // $this = new \stdClass();
+      $this->name = $name;
+      $this->type = $type;
+      $this->humanName = Str::snake(Str::camel($name));
   }
   public function addRule($rule){
-      $this->field->rule =$rule;
+      $this->rule =$rule;
   }
   public function addWebViewFill($name="text",$data=""){
     $a = new \stdClass();
     $a->name=$name;
     $a->data=$data;
-    $this->field->viewFill =$a;
+    $this->viewFill =$a;
   }
 
   public function adddWebViewShow($name="text"){
-    $this->field->viewShow =$name;
+    $this->viewShow =$name;
   }
 
   public function setWebView($type){
