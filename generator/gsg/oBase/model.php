@@ -14,11 +14,14 @@ class model extends \stdClass {
       $this->index = [];
       $this->foreignKeys=[];
       $this->fieldImportantRelate =[];
+    $this->foreignKeysname = [];
   }
   public function addField($field){
     $this->field[]=$field;	
   }
   public function addForeignKeys($key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""){
+
+    
 
     $x = new \stdClass();
     $x->name= $key;
@@ -27,6 +30,15 @@ class model extends \stdClass {
     $x->fkIndex= $idforeign;
     $x->relation= $relate;
     $x->interTable=$interTable;
+
+    if (!in_array($key, $this->foreignKeysname)) {
+      $this->foreignKeysname[] = $key;
+    } else {
+      $this->foreignKeysname[] = $key. $idforeign;
+      $x->name = $key . $idforeign;
+     
+    }
+   
     $this->foreignKeys[] = $x ;
   }
   public function addFieldForCreatedUpdate($name){

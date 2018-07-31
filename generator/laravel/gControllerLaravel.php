@@ -1,5 +1,5 @@
 <?php
-namespace generator\base;
+namespace generator\laravel;
 use DB;
 
 use Illuminate\Support\Str;
@@ -8,7 +8,7 @@ use generator\base\BaseGenerator;
 use generator\Utils\FileUtil;
 use \Doctrine\DBAL\Types\Type;
 
-class gController extends BaseGenerator
+class gControllerLaravel extends BaseGenerator
 {
 
 public function __construct($config){
@@ -29,33 +29,41 @@ public function __construct($config){
   public function run()
   {
     $this->generateApi();
-    $this->generateController();
+   // $this->generateController();
   }
   public function generateApi()
   {
     foreach ($this->config->listTable as $Table) {
+      if ($Table->enable == true) {
       $name =  $Table->name;
       $this->variables['$NAMESPACE_MODEL$'] = $this->config->nameSpaceFinalModel . "\\" . $name;
       $this->variables['$MODAL_NAME$'] = $name;
       $this->variables['$SERVICE_NAME$'] = $name;
       $this->variables['$ROUTE$'] = Str::lower($name);
-      $name .= "Controller.php";
-     // $Table->fieldShowList
+        $this->variables['//*$ADDMODELS$*/']="";  
    
+      $this->generateShowfunction($Table);
+        $name .= "Controller.php";
+     // dd($this->variables);
       $templateData = $this->getTemplate($this->config->pathTemplateApiController);
       $this->createFileWithTemplate($this->config->dirFinalApiController, $name, $this->variables, $templateData);
+      }
     }
 
 
   }
-  public function generateShowfunction(){
-    foreach($Table->fieldShowList as $model){
-
+  public function generateShowfunction($Table){
+    foreach($Table->fieldShowList as $key=> $model){
+    if ($key!="this"){
+        $templateData = $this->getTemplate($this->config->pathTemplateControllerPartResult);
+     
+        $this->variables['$MODEL$']=$key;
+        $this->variables['$MODELFUNCTION$']=Str::plural($key);
+        $this->variables['//*$ADDMODELS$*/'] .= $this->fillTemplate($this->variables, $templateData);
     }
-$templateData = $this->getTemplate($this->config->pathTemplateControllerPartResult);
-$this->variables['$MODEL$']
-$this->variables['$MODELFUNCTION$']
-$this->variables['$MODELFUNCTION$']
+    
+    }
+
 
 
   }

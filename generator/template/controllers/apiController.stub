@@ -35,7 +35,7 @@ class $MODAL_NAME$Controller extends AppBaseController
         $row = $MODAL_NAME$::find($id);
         $result= $row->toArray();
         
-        /*$ADDMODELS$*/
+        //*$ADDMODELS$*/
         
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');

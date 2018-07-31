@@ -41,7 +41,7 @@ public $model;
         $all[]=$this->model;
     
     }
-   //dd($all);
+  // dd($all);
     FileUtil::createFile($this->config->dirJsonFile,"model.json", json_encode($all));
   }
 
@@ -95,7 +95,9 @@ public $model;
    // https ://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/ForeignKeyConstraint.html
   /** buscando relaciones de foreingkeys */
    foreach ($Table->getForeignKeys() as $key => $value) {
-          $this->model->addForeignKeys($key,$value->getLocalColumns(),
+          $this->model->addForeignKeys(
+        Str::plural( $value->getForeignTableName()),
+        $value->getLocalColumns(),
           $value->getForeignTableName(),
           $value->getForeignColumns());
     }
@@ -108,7 +110,7 @@ public $model;
         
 //$key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""
         $this->model->addForeignKeys(
-          "hasMany". $nameTableForeign,
+          Str::plural($nameTableForeign),
           [str::singular($Table->getName())."_id"],
           $nameTableForeign,
           [$nameTableForeign . "_id"],
@@ -120,7 +122,7 @@ public $model;
       if (stripos($table2->getName(),  str::singular($Table->getName())."_") !== false) {
         $nameTableForeign = substr($table2->getName(), strlen(str::singular($Table->getName()) . "_"));
         $this->model->addForeignKeys(
-          "belongsToMany" . $nameTableForeign,
+          Str::plural($nameTableForeign),
           [str::singular($Table->getName()) . "_id"],
           $nameTableForeign,
           [$nameTableForeign . "_id"],

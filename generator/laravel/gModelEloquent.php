@@ -34,6 +34,8 @@ public function __construct($config){
   {
     foreach($this->config->listTable as $Table){
      // dd($Table);
+     if ($Table->enable==true){
+ 
       $this->variables['$MODEL_NAME$'] = $Table->realName;
       $this->variables['$TABLE_NAME$'] = $Table->name;
       $fillables = [];
@@ -94,6 +96,8 @@ public function __construct($config){
       $this->createFileWithTemplate($this->config->dirFinalModel, Str::camel($Table->name) . ".php", $this->variables, $templateData);
 
     }
+
+    }
      
   }
  
@@ -113,7 +117,7 @@ public function __construct($config){
     $arrayName=[];
     foreach ($Table->foreignKeys as $relate) {
    
-      $modelName = $relate->fkTable;
+      $modelName = Str::plural($relate->fkTable);
       $INTERMEDIA= $relate->interTable;
       $FKEY= $relate->fkIndex[0];
       $LKEY= $relate->localIndex[0];
@@ -125,31 +129,31 @@ public function __construct($config){
           $arrayName[] = $relate->name;
           $modelName= $relate->name;
         }
-
+      ;
 
       switch ($relate->relation) {
         case '1to1':
-          $functionName = camel_case($modelName);
+          $functionName = camel_case($relate->name);
           $relation = 'hasOne';
           $relationClass = 'HasOne';
           break;
         case '1tm':
-          $functionName = str_plural($modelName);
+          $functionName = str_plural($relate->name);
           $relation = 'hasMany';
           $relationClass = 'HasMany';
           break;
         case 'mt1':
-          $functionName = camel_case($modelName);
+          $functionName = camel_case($relate->name);
           $relation = 'belongsTo';
           $relationClass = 'BelongsTo';
           break;
         case 'mtm':
-          $functionName = str_plural($modelName);
+          $functionName = str_plural($relate->name);
           $relation = 'belongsToMany';
           $relationClass = 'BelongsToMany';
           break;
         case 'hmt':
-          $functionName = str_plural($modelName);
+          $functionName = str_plural($relate->name);
           $relation = 'hasManyThrough';
           $relationClass = 'HasManyThrough';
           break;
@@ -172,7 +176,7 @@ public function __construct($config){
         $template = str_replace('$RELATIONSHIP_CLASS$', $relationClass, $template);
         $template = str_replace('$FUNCTION_NAME$', $functionName, $template);
         $template = str_replace('$RELATION$', $relation, $template);
-        $template = str_replace('$RELATION_MODEL_NAME$', $functionName, $template);
+        $template = str_replace('$RELATION_MODEL_NAME$', $modelName, $template);
         $template = str_replace('$NAMESPACE_MODEL$', $this->variables['$NAMESPACE_MODEL$'], $template);
         $template = str_replace('$TABLEINTERMEDIA$', $INTERMEDIA, $template);
         $template = str_replace('$FKEY$', $FKEY, $template);

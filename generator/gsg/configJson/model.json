@@ -1,1 +1,1042 @@
-[{"enable":true,"request":true,"realName":"aaa","name":"aaa","humanName":"aaa","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"id2","type":"'integer'","humanName":"id2","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id","id2"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","id2"],"fieldShowList":{"this":["id","id2"]}},{"enable":true,"request":true,"realName":"analisis_aplicaciones","name":"analisisAplicaciones","humanName":"analisis_aplicaciones","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aplicacion_id","type":"'integer'","humanName":"aplicacion_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aplicacion_nombre","type":"'string'","humanName":"aplicacion_nombre","rule":"max:150","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aplicacion_url","type":"'string'","humanName":"aplicacion_url","rule":"max:150","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_bytes","type":"'integer'","humanName":"page_bytes","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_bytes_text","type":"'float'","humanName":"page_bytes_text","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_load_time","type":"'integer'","humanName":"page_load_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_load_time_text","type":"'float'","humanName":"page_load_time_text","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"pagespeed_score","type":"'float'","humanName":"pagespeed_score","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"pagespeed_score_text","type":"'float'","humanName":"pagespeed_score_text","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"yslow_score","type":"'integer'","humanName":"yslow_score","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"yslow_score_text","type":"'float'","humanName":"yslow_score_text","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_index","type":"'integer'","humanName":"sqale_index","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_index_text","type":"'string'","humanName":"sqale_index_text","rule":"max:255","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_index_trend","type":"'string'","humanName":"sqale_index_trend","rule":"max:2","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_debt_ratio","type":"'float'","humanName":"sqale_debt_ratio","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_debt_ratio_text","type":"'float'","humanName":"sqale_debt_ratio_text","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_debt_ratio_trend","type":"'string'","humanName":"sqale_debt_ratio_trend","rule":"max:2","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"performance","type":"'float'","humanName":"performance","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"performance_qualification","type":"'string'","humanName":"performance_qualification","rule":"max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aplicacion_sonar_key","type":"'string'","humanName":"aplicacion_sonar_key","rule":"max:150","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"fecha","type":"'datetime'","humanName":"fecha","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","aplicacion_id","aplicacion_nombre","aplicacion_url","page_bytes","page_bytes_text","page_load_time","page_load_time_text","pagespeed_score","pagespeed_score_text","yslow_score","yslow_score_text","sqale_index","sqale_index_text","sqale_index_trend","sqale_debt_ratio","sqale_debt_ratio_text","sqale_debt_ratio_trend","performance","performance_qualification","aplicacion_sonar_key","fecha","created_at","updated_at"],"fieldShowList":{"this":["id","aplicacion_id","aplicacion_nombre","aplicacion_url","page_bytes","page_bytes_text","page_load_time","page_load_time_text","pagespeed_score","pagespeed_score_text","yslow_score","yslow_score_text","sqale_index","sqale_index_text","sqale_index_trend","sqale_debt_ratio","sqale_debt_ratio_text","sqale_debt_ratio_trend","performance","performance_qualification","aplicacion_sonar_key","fecha","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"analisis_aplicaciones_promedios","name":"analisisAplicacionesPromedios","humanName":"analisis_aplicaciones_promedios","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"total_aplicaciones","type":"'integer'","humanName":"total_aplicaciones","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_index","type":"'float'","humanName":"sqale_index","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_load_time","type":"'float'","humanName":"page_load_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_bytes","type":"'float'","humanName":"page_bytes","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_debt_ratio","type":"'float'","humanName":"sqale_debt_ratio","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"performance","type":"'float'","humanName":"performance","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"performance_qualification","type":"'string'","humanName":"performance_qualification","rule":"max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"pagespeed_score","type":"'float'","humanName":"pagespeed_score","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"yslow_score","type":"'float'","humanName":"yslow_score","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"fecha","type":"'datetime'","humanName":"fecha","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","total_aplicaciones","sqale_index","page_load_time","page_bytes","sqale_debt_ratio","performance","performance_qualification","pagespeed_score","yslow_score","fecha","created_at","updated_at"],"fieldShowList":{"this":["id","total_aplicaciones","sqale_index","page_load_time","page_bytes","sqale_debt_ratio","performance","performance_qualification","pagespeed_score","yslow_score","fecha","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"analisis_aplicaciones_promedios_mensuales","name":"analisisAplicacionesPromediosMensuales","humanName":"analisis_aplicaciones_promedios_mensuales","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"month","type":"'integer'","humanName":"month","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"year","type":"'integer'","humanName":"year","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_index","type":"'float'","humanName":"sqale_index","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sqale_debt_ratio","type":"'float'","humanName":"sqale_debt_ratio","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"performance","type":"'float'","humanName":"performance","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"page_load_time","type":"'float'","humanName":"page_load_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","month","year","sqale_index","sqale_debt_ratio","performance","page_load_time","created_at","updated_at"],"fieldShowList":{"this":["id","month","year","sqale_index","sqale_debt_ratio","performance","page_load_time","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"application_user","name":"applicationUser","humanName":"application_user","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","application_id","user_id"],"fieldShowList":{"this":["id","application_id","user_id"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}},{"enable":true,"request":true,"realName":"applications","name":"applications","humanName":"applications","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aws_account_id","type":"'integer'","humanName":"aws_account_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"repository","type":"'string'","humanName":"repository","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_type","type":"'string'","humanName":"deployment_type","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"url","type":"'string'","humanName":"url","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sonar_key","type":"'string'","humanName":"sonar_key","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"json_rules","type":"'string'","humanName":"json_rules","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"belongsToManyuser","localIndex":["application_id"],"fkTable":"user","fkIndex":["user_id"],"relation":"mtm","interTable":"application_user"},{"name":"hasManybackup","localIndex":["application_id"],"fkTable":"backup","fkIndex":["backup_id"],"relation":"1tm","interTable":""},{"name":"hasManybackup_detail","localIndex":["application_id"],"fkTable":"backup_detail","fkIndex":["backup_detail_id"],"relation":"1tm","interTable":""},{"name":"hasManyschedule_backup","localIndex":["application_id"],"fkTable":"schedule_backup","fkIndex":["schedule_backup_id"],"relation":"1tm","interTable":""}],"fieldImportantRelate":[],"fieldShowList":{"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"],"this":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"aws_accounts":["id","name","access_key","secret_key","region","created_at","updated_at","nlb"]},"fieldCreatedUpdate":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"]},{"enable":true,"request":true,"realName":"auto_test_detalles","name":"autoTestDetalles","humanName":"auto_test_detalles","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"auto_test_id","type":"'integer'","humanName":"auto_test_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"url_prueba","type":"'string'","humanName":"url_prueba","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","auto_test_id","name","created_at","updated_at","url_prueba"],"fieldShowList":{"this":["id","auto_test_id","name","created_at","updated_at","url_prueba"],"auto_tests":["id","application_id","environment_id","auto_test_repo_id","created_at","updated_at","user_id"]}},{"enable":true,"request":true,"realName":"auto_test_repos","name":"autoTestRepos","humanName":"auto_test_repos","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","application_id","created_at","updated_at"],"fieldShowList":{"this":["id","name","application_id","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"auto_tests","name":"autoTests","humanName":"auto_tests","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"auto_test_repo_id","type":"'integer'","humanName":"auto_test_repo_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'string'","humanName":"user_id","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"auto_tests_auto_test_repo_id_foreign","localIndex":["auto_test_repo_id"],"fkTable":"auto_test_repos","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"belongsToManydetalles","localIndex":["auto_test_id"],"fkTable":"detalles","fkIndex":["detalles_id"],"relation":"mtm","interTable":"auto_test_detalles"},{"name":"belongsToManyrepos","localIndex":["auto_test_id"],"fkTable":"repos","fkIndex":["repos_id"],"relation":"mtm","interTable":"auto_test_repos"},{"name":"hasManyticket","localIndex":["auto_test_id"],"fkTable":"ticket","fkIndex":["ticket_id"],"relation":"1tm","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","auto_test_repo_id","application_id","environment_id","created_at","updated_at","user_id"],"fieldShowList":{"this":["id","auto_test_repo_id","application_id","environment_id","created_at","updated_at","user_id"],"auto_test_repos":["id","name","application_id","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}},{"enable":true,"request":true,"realName":"aws_accounts","name":"awsAccounts","humanName":"aws_accounts","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"access_key","type":"'string'","humanName":"access_key","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"secret_key","type":"'string'","humanName":"secret_key","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"region","type":"'string'","humanName":"region","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"nlb","type":"'string'","humanName":"nlb","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","access_key","secret_key","region","created_at","updated_at","nlb"],"fieldShowList":{"this":["id","name","access_key","secret_key","region","created_at","updated_at","nlb"]}},{"enable":true,"request":true,"realName":"backup_applications","name":"backupApplications","humanName":"backup_applications","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"schedule_id","type":"'integer'","humanName":"schedule_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_name","type":"'string'","humanName":"instance_name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"completed_time","type":"'datetime'","humanName":"completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"origin","type":"'string'","humanName":"origin","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"error","type":"'string'","humanName":"error","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"backup_type","type":"'string'","humanName":"backup_type","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"execution_time","type":null,"humanName":"execution_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"observations","type":"'string'","humanName":"observations","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"backup_applications_schedule_id_foreign","localIndex":["schedule_id"],"fkTable":"schedule_backup_applications","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"hasManyschedule","localIndex":["backup_application_id"],"fkTable":"schedule","fkIndex":["schedule_id"],"relation":"1tm","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","schedule_id","instance_name","start_time","completed_time","status","origin","error","backup_type","execution_time","observations","ticket_id","created_at","updated_at"],"fieldShowList":{"this":["id","schedule_id","instance_name","start_time","completed_time","status","origin","error","backup_type","execution_time","observations","ticket_id","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"backup_detail_applications","name":"backupDetailApplications","humanName":"backup_detail_applications","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"backup_application_id","type":"'integer'","humanName":"backup_application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"folder_name","type":"'string'","humanName":"folder_name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mode","type":"'string'","humanName":"mode","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"size_in_gb","type":"'bigint'","humanName":"size_in_gb","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"files","type":"'integer'","humanName":"files","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_path","type":"'string'","humanName":"s3_path","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"completed_time","type":"'datetime'","humanName":"completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"duration","type":null,"humanName":"duration","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"zip_start_time","type":"'datetime'","humanName":"zip_start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"zip_completed_time","type":"'datetime'","humanName":"zip_completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_start_time","type":"'datetime'","humanName":"s3_start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_completed_time","type":"'datetime'","humanName":"s3_completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"log_error","type":"'string'","humanName":"log_error","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"observations","type":"'string'","humanName":"observations","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"backup_detail_applications_backup_application_id_foreign","localIndex":["backup_application_id"],"fkTable":"backup_applications","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","backup_application_id","folder_name","status","mode","size_in_gb","files","s3_path","start_time","completed_time","duration","zip_start_time","zip_completed_time","s3_start_time","s3_completed_time","log_error","observations","created_at","updated_at"],"fieldShowList":{"this":["id","backup_application_id","folder_name","status","mode","size_in_gb","files","s3_path","start_time","completed_time","duration","zip_start_time","zip_completed_time","s3_start_time","s3_completed_time","log_error","observations","created_at","updated_at"],"backup_applications":["id","instance_name","start_time","completed_time","status","origin","error","backup_type","execution_time","observations","schedule_id","ticket_id","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"backup_details","name":"backupDetails","humanName":"backup_details","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"backup_id","type":"'integer'","humanName":"backup_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"database_name","type":"'string'","humanName":"database_name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mode","type":"'string'","humanName":"mode","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"files","type":"'integer'","humanName":"files","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_path","type":"'string'","humanName":"s3_path","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"completed_time","type":"'datetime'","humanName":"completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"duration","type":null,"humanName":"duration","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"log_error","type":"'string'","humanName":"log_error","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"zip_start_time","type":"'datetime'","humanName":"zip_start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"zip_completed_time","type":"'datetime'","humanName":"zip_completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_start_time","type":"'datetime'","humanName":"s3_start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_completed_time","type":"'datetime'","humanName":"s3_completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"size_in_gb","type":"'bigint'","humanName":"size_in_gb","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"observations","type":"'string'","humanName":"observations","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"relaunch","type":"'integer'","humanName":"relaunch","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"relanzar","type":"'integer'","humanName":"relanzar","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"backup_details_backup_id_foreign","localIndex":["backup_id"],"fkTable":"backups","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"belongsToManyapplications","localIndex":["backup_detail_id"],"fkTable":"applications","fkIndex":["applications_id"],"relation":"mtm","interTable":"backup_detail_applications"}],"fieldImportantRelate":[],"fieldShowList":{"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"this":["id","backup_id","database_name","status","mode","files","s3_path","start_time","completed_time","duration","log_error","zip_start_time","zip_completed_time","s3_start_time","s3_completed_time","size_in_gb","observations","created_at","updated_at","relaunch","relanzar"],"backups":["id","instance_name","backup_type","status","start_time","completed_time","origin","log_error","execution_time","observations","is_mirror","mirror_instance","schedule_id","ticket_id","created_at","updated_at","relanzar"]},"fieldCreatedUpdate":["id","backup_id","database_name","status","mode","files","s3_path","start_time","completed_time","duration","log_error","zip_start_time","zip_completed_time","s3_start_time","s3_completed_time","size_in_gb","observations","created_at","updated_at","relaunch","relanzar"]},{"enable":true,"request":true,"realName":"backup_reporte_politicas","name":"backupReportePoliticas","humanName":"backup_reporte_politicas","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file_name","type":"'string'","humanName":"file_name","rule":"required|max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file_type","type":"'string'","humanName":"file_type","rule":"required|max:10","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file_size","type":"'string'","humanName":"file_size","rule":"required|max:30","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file_path","type":"'string'","humanName":"file_path","rule":"required|max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","file_name","file_type","file_size","file_path","created_at","updated_at"],"fieldShowList":{"this":["id","file_name","file_type","file_size","file_path","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"backups","name":"backups","humanName":"backups","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"schedule_id","type":"'integer'","humanName":"schedule_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_name","type":"'string'","humanName":"instance_name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"backup_type","type":"'string'","humanName":"backup_type","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"completed_time","type":"'datetime'","humanName":"completed_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"origin","type":"'string'","humanName":"origin","rule":"required|max:0","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"log_error","type":"'string'","humanName":"log_error","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"execution_time","type":null,"humanName":"execution_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"observations","type":"'string'","humanName":"observations","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_mirror","type":"'boolean'","humanName":"is_mirror","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mirror_instance","type":"'string'","humanName":"mirror_instance","rule":"required|max:60","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"relanzar","type":"'integer'","humanName":"relanzar","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"backups_schedule_id_foreign","localIndex":["schedule_id"],"fkTable":"schedule_backups","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"belongsToManyapplications","localIndex":["backup_id"],"fkTable":"applications","fkIndex":["applications_id"],"relation":"mtm","interTable":"backup_applications"},{"name":"belongsToManydetail_applications","localIndex":["backup_id"],"fkTable":"detail_applications","fkIndex":["detail_applications_id"],"relation":"mtm","interTable":"backup_detail_applications"},{"name":"belongsToManydetails","localIndex":["backup_id"],"fkTable":"details","fkIndex":["details_id"],"relation":"mtm","interTable":"backup_details"},{"name":"belongsToManyreporte_politicas","localIndex":["backup_id"],"fkTable":"reporte_politicas","fkIndex":["reporte_politicas_id"],"relation":"mtm","interTable":"backup_reporte_politicas"},{"name":"hasManyschedule","localIndex":["backup_id"],"fkTable":"schedule","fkIndex":["schedule_id"],"relation":"1tm","interTable":""},{"name":"belongsToManye_backup_applications","localIndex":["backup_id"],"fkTable":"e_backup_applications","fkIndex":["e_backup_applications_id"],"relation":"mtm","interTable":"schedule_backup_applications"},{"name":"hasManyschedule","localIndex":["backup_id"],"fkTable":"schedule","fkIndex":["schedule_id"],"relation":"1tm","interTable":""},{"name":"belongsToManye_backup_databases","localIndex":["backup_id"],"fkTable":"e_backup_databases","fkIndex":["e_backup_databases_id"],"relation":"mtm","interTable":"schedule_backup_databases"},{"name":"hasManyschedule","localIndex":["backup_id"],"fkTable":"schedule","fkIndex":["schedule_id"],"relation":"1tm","interTable":""},{"name":"belongsToManye_backup_folders","localIndex":["backup_id"],"fkTable":"e_backup_folders","fkIndex":["e_backup_folders_id"],"relation":"mtm","interTable":"schedule_backup_folders"},{"name":"hasManyschedule","localIndex":["backup_id"],"fkTable":"schedule","fkIndex":["schedule_id"],"relation":"1tm","interTable":""},{"name":"hasManyticket","localIndex":["backup_id"],"fkTable":"ticket","fkIndex":["ticket_id"],"relation":"1tm","interTable":""},{"name":"belongsToManybackup_databases","localIndex":["backup_id"],"fkTable":"backup_databases","fkIndex":["backup_databases_id"],"relation":"mtm","interTable":"ticket_backup_databases"}],"fieldImportantRelate":[],"fieldShowList":{"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"this":["id","schedule_id","instance_name","backup_type","status","start_time","completed_time","origin","log_error","execution_time","observations","is_mirror","mirror_instance","ticket_id","created_at","updated_at","relanzar"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]},"fieldCreatedUpdate":["id","schedule_id","instance_name","backup_type","status","start_time","completed_time","origin","log_error","execution_time","observations","is_mirror","mirror_instance","ticket_id","created_at","updated_at","relanzar"]},{"enable":true,"request":true,"realName":"cloudwatchlogdir","name":"cloudwatchlogdir","humanName":"cloudwatchlogdir","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","application_id","name","created_at","updated_at"],"fieldShowList":{"this":["id","application_id","name","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"deployment_informations","name":"deploymentInformations","humanName":"deployment_informations","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_id","type":"'string'","humanName":"deployment_id","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_name","type":"'string'","humanName":"application_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_group_name","type":"'string'","humanName":"deployment_group_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_config_name","type":"'string'","humanName":"deployment_config_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"creator","type":"'string'","humanName":"creator","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"complete_time","type":"'datetime'","humanName":"complete_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_overview","type":"'string'","humanName":"deployment_overview","rule":"required|max:0","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"error_information_code","type":"'string'","humanName":"error_information_code","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"error_information_message","type":"'string'","humanName":"error_information_message","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ignore_application_stop_failures","type":"'boolean'","humanName":"ignore_application_stop_failures","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"revision_github_location_commitId","type":"'string'","humanName":"revision_github_location_commit_id","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"revision_github_location_repository","type":"'string'","humanName":"revision_github_location_repository","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"revision_type","type":"'string'","humanName":"revision_type","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_location_bucket","type":"'string'","humanName":"s3_location_bucket","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_location_bundle_type","type":"'string'","humanName":"s3_location_bundle_type","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_location_etag","type":"'string'","humanName":"s3_location_etag","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_location_key","type":"'string'","humanName":"s3_location_key","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"s3_location_version","type":"'string'","humanName":"s3_location_version","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'boolean'","humanName":"status","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","deployment_id","application_name","deployment_group_name","deployment_config_name","creator","start_time","complete_time","deployment_overview","description","error_information_code","error_information_message","ignore_application_stop_failures","revision_github_location_commitId","revision_github_location_repository","revision_type","s3_location_bucket","s3_location_bundle_type","s3_location_etag","s3_location_key","s3_location_version","status","created_at","updated_at"],"fieldShowList":{"this":["id","deployment_id","application_name","deployment_group_name","deployment_config_name","creator","start_time","complete_time","deployment_overview","description","error_information_code","error_information_message","ignore_application_stop_failures","revision_github_location_commitId","revision_github_location_repository","revision_type","s3_location_bucket","s3_location_bundle_type","s3_location_etag","s3_location_key","s3_location_version","status","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"deployment_instance_summaries","name":"deploymentInstanceSummaries","humanName":"deployment_instance_summaries","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_information_id","type":"'integer'","humanName":"deployment_information_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_id","type":"'string'","humanName":"instance_id","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'boolean'","humanName":"status","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"dp_info_foreign_id","localIndex":["deployment_information_id"],"fkTable":"deployment_informations","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","deployment_information_id","instance_id","status","created_at","updated_at"],"fieldShowList":{"this":["id","deployment_information_id","instance_id","status","created_at","updated_at"],"deployment_informations":["id","deployment_id","application_name","deployment_group_name","deployment_config_name","creator","start_time","complete_time","deployment_overview","description","error_information_code","error_information_message","ignore_application_stop_failures","revision_github_location_commitId","revision_github_location_repository","revision_type","s3_location_bucket","s3_location_bundle_type","s3_location_etag","s3_location_key","s3_location_version","status","created_at","updated_at"],"instances":["id","environment_id","type","name","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"deployment_life_cycle_events","name":"deploymentLifeCycleEvents","humanName":"deployment_life_cycle_events","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deployment_instance_summary_id","type":"'integer'","humanName":"deployment_instance_summary_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"diagnostics_error_code","type":"'string'","humanName":"diagnostics_error_code","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"diagnostics_log_tail","type":"'string'","humanName":"diagnostics_log_tail","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"diagnostics_message","type":"'string'","humanName":"diagnostics_message","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"diagnostics_script_name","type":"'string'","humanName":"diagnostics_script_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"lifecycle_event_name","type":"'string'","humanName":"lifecycle_event_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"start_time","type":"'datetime'","humanName":"start_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"end_time","type":"'datetime'","humanName":"end_time","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'boolean'","humanName":"status","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"dep_inst_sum_id_foreign","localIndex":["deployment_instance_summary_id"],"fkTable":"deployment_instance_summaries","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","deployment_instance_summary_id","diagnostics_error_code","diagnostics_log_tail","diagnostics_message","diagnostics_script_name","lifecycle_event_name","start_time","end_time","status","created_at","updated_at"],"fieldShowList":{"this":["id","deployment_instance_summary_id","diagnostics_error_code","diagnostics_log_tail","diagnostics_message","diagnostics_script_name","lifecycle_event_name","start_time","end_time","status","created_at","updated_at"],"deployment_instance_summaries":["id","deployment_information_id","instance_id","status","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"environments","name":"environments","humanName":"environments","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deleted_at","type":"'datetime'","humanName":"deleted_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"environments_application_id_foreign","localIndex":["application_id"],"fkTable":"applications","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","application_id","name","created_at","updated_at","deleted_at"],"fieldShowList":{"this":["id","application_id","name","created_at","updated_at","deleted_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"file_config_catalog_ticket","name":"fileConfigCatalogTicket","humanName":"file_config_catalog_ticket","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file_config_catalog_id","type":"'integer'","humanName":"file_config_catalog_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","file_config_catalog_id","ticket_id"],"fieldShowList":{"this":["id","file_config_catalog_id","ticket_id"],"file_config_catalogs":["id","application_id","environment_id","storage","filename","created_at","updated_at","deleted_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"file_config_catalogs","name":"fileConfigCatalogs","humanName":"file_config_catalogs","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"storage","type":"'string'","humanName":"storage","rule":"required|max:5","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"filename","type":"'string'","humanName":"filename","rule":"required|max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"deleted_at","type":"'datetime'","humanName":"deleted_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"file_config_catalogs_application_id_foreign","localIndex":["application_id"],"fkTable":"applications","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"belongsToManyticket","localIndex":["file_config_catalog_id"],"fkTable":"ticket","fkIndex":["ticket_id"],"relation":"mtm","interTable":"file_config_catalog_ticket"}],"fieldImportantRelate":[],"fieldShowList":{"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"this":["id","application_id","environment_id","storage","filename","created_at","updated_at","deleted_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"]},"fieldCreatedUpdate":["id","application_id","environment_id","storage","filename","created_at","updated_at","deleted_at"]},{"enable":true,"request":true,"realName":"global_notification_mail_bds","name":"globalNotificationMailBds","humanName":"global_notification_mail_bds","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"email","type":"'string'","humanName":"email","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","email","created_at","updated_at"],"fieldShowList":{"this":["id","name","email","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"global_notification_mails","name":"globalNotificationMails","humanName":"global_notification_mails","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"email","type":"'string'","humanName":"email","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"belongsToManybds","localIndex":["global_notification_mail_id"],"fkTable":"bds","fkIndex":["bds_id"],"relation":"mtm","interTable":"global_notification_mail_bds"}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","email","created_at","updated_at"],"fieldShowList":{"this":["id","name","email","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"instances","name":"instances","humanName":"instances","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"type","type":"'string'","humanName":"type","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"instances_environment_id_foreign","localIndex":["environment_id"],"fkTable":"environments","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"hasManydeployment","localIndex":["instance_id"],"fkTable":"deployment","fkIndex":["deployment_id"],"relation":"1tm","interTable":""},{"name":"belongsToManyt_instance_summaries","localIndex":["instance_id"],"fkTable":"t_instance_summaries","fkIndex":["t_instance_summaries_id"],"relation":"mtm","interTable":"deployment_instance_summaries"}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","environment_id","type","name","created_at","updated_at"],"fieldShowList":{"this":["id","environment_id","type","name","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"]}},{"enable":true,"request":true,"realName":"jenkins_builds","name":"jenkinsBuilds","humanName":"jenkins_builds","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"number","type":"'integer'","humanName":"number","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"bucket","type":"'string'","humanName":"bucket","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"key","type":"'string'","humanName":"key","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"bundle_type","type":"'string'","humanName":"bundle_type","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"commit_id","type":"'string'","humanName":"commit_id","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"jenkins_builds_application_id_foreign","localIndex":["application_id"],"fkTable":"applications","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","application_id","environment_id","number","bucket","key","bundle_type","commit_id","status","created_at","updated_at"],"fieldShowList":{"this":["id","application_id","environment_id","number","bucket","key","bundle_type","commit_id","status","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"]}},{"enable":true,"request":true,"realName":"jobs","name":"jobs","humanName":"jobs","field":[{"name":"id","type":"'bigint'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"queue","type":"'string'","humanName":"queue","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"payload","type":"'string'","humanName":"payload","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"attempts","type":"'boolean'","humanName":"attempts","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"reserved_at","type":"'integer'","humanName":"reserved_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"available_at","type":"'integer'","humanName":"available_at","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'integer'","humanName":"created_at","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","queue","payload","attempts","reserved_at","available_at","created_at"],"fieldShowList":{"this":["id","queue","payload","attempts","reserved_at","available_at","created_at"]}},{"enable":true,"request":true,"realName":"mailing_list_ticket","name":"mailingListTicket","humanName":"mailing_list_ticket","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mailing_list_id","type":"'integer'","humanName":"mailing_list_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","mailing_list_id","ticket_id","created_at","updated_at"],"fieldShowList":{"this":["id","mailing_list_id","ticket_id","created_at","updated_at"],"mailing_lists":["id","name","user_id","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"mailing_lists","name":"mailingLists","humanName":"mailing_lists","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"mailing_lists_user_id_foreign","localIndex":["user_id"],"fkTable":"users","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"belongsToManyticket","localIndex":["mailing_list_id"],"fkTable":"ticket","fkIndex":["ticket_id"],"relation":"mtm","interTable":"mailing_list_ticket"}],"fieldImportantRelate":[],"fieldShowList":{"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"this":["id","user_id","name","created_at","updated_at"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]},"fieldCreatedUpdate":["id","user_id","name","created_at","updated_at"]},{"enable":true,"request":true,"realName":"mails","name":"mails","humanName":"mails","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mailing_list_id","type":"'integer'","humanName":"mailing_list_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mail","type":"'string'","humanName":"mail","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"mails_mailing_list_id_foreign","localIndex":["mailing_list_id"],"fkTable":"mailing_lists","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"hasManyglobal_notification","localIndex":["mail_id"],"fkTable":"global_notification","fkIndex":["global_notification_id"],"relation":"1tm","interTable":""},{"name":"belongsToManyl_notification_mail_bds","localIndex":["mail_id"],"fkTable":"l_notification_mail_bds","fkIndex":["l_notification_mail_bds_id"],"relation":"mtm","interTable":"global_notification_mail_bds"},{"name":"hasManyglobal_notification","localIndex":["mail_id"],"fkTable":"global_notification","fkIndex":["global_notification_id"],"relation":"1tm","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","mailing_list_id","mail","created_at","updated_at"],"fieldShowList":{"this":["id","mailing_list_id","mail","created_at","updated_at"],"mailing_lists":["id","name","user_id","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"migrations","name":"migrations","humanName":"migrations","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"migration","type":"'string'","humanName":"migration","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"batch","type":"'integer'","humanName":"batch","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","migration","batch"],"fieldShowList":{"this":["id","migration","batch"]}},{"enable":true,"request":true,"realName":"password_resets","name":"passwordResets","humanName":"password_resets","field":[{"name":"email","type":"'string'","humanName":"email","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"token","type":"'string'","humanName":"token","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":null,"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["email","token","created_at"],"fieldShowList":{"this":["email","token","created_at"]}},{"enable":true,"request":true,"realName":"permission_role","name":"permissionRole","humanName":"permission_role","field":[{"name":"permission_id","type":"'integer'","humanName":"permission_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"role_id","type":"'integer'","humanName":"role_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["permission_id","role_id"],"foreignKeys":[{"name":"permission_role_permission_id_foreign","localIndex":["permission_id"],"fkTable":"permissions","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"permission_role_role_id_foreign","localIndex":["role_id"],"fkTable":"roles","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldShowList":{"permissions":["id","name","display_name","description","created_at","updated_at"],"this":["permission_id","role_id"],"roles":["id","name","display_name","description","created_at","updated_at"]},"fieldCreatedUpdate":["permission_id","role_id"]},{"enable":true,"request":true,"realName":"permissions","name":"permissions","humanName":"permissions","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"display_name","type":"'string'","humanName":"display_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"belongsToManyrole","localIndex":["permission_id"],"fkTable":"role","fkIndex":["role_id"],"relation":"mtm","interTable":"permission_role"}],"fieldImportantRelate":[],"fieldShowList":{"roles":["id","name","display_name","description","created_at","updated_at"],"this":["id","name","display_name","description","created_at","updated_at"]},"fieldCreatedUpdate":["id","name","display_name","description","created_at","updated_at"]},{"enable":true,"request":true,"realName":"quality_tests","name":"qualityTests","humanName":"quality_tests","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file","type":"'string'","humanName":"file","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","file","application_id","environment_id","user_id","description","created_at","updated_at"],"fieldShowList":{"this":["id","name","file","application_id","environment_id","user_id","description","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}},{"enable":true,"request":true,"realName":"quality_tests_nodes","name":"qualityTestsNodes","humanName":"quality_tests_nodes","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ip","type":"'string'","humanName":"ip","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"url","type":"'string'","humanName":"url","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"qualitytest_id","type":"'integer'","humanName":"qualitytest_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ip","url","qualitytest_id","created_at","updated_at"],"fieldShowList":{"this":["id","ip","url","qualitytest_id","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"report_emails","name":"reportEmails","humanName":"report_emails","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"email","type":"'string'","humanName":"email","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","email","created_at","updated_at"],"fieldShowList":{"this":["id","name","email","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"retentions","name":"retentions","humanName":"retentions","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"day","type":"'integer'","humanName":"day","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"route","type":"'string'","humanName":"route","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","day","route","created_at","updated_at"],"fieldShowList":{"this":["id","day","route","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"role_user","name":"roleUser","humanName":"role_user","field":[{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"role_id","type":"'integer'","humanName":"role_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["user_id","role_id"],"foreignKeys":[{"name":"role_user_role_id_foreign","localIndex":["role_id"],"fkTable":"roles","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"role_user_user_id_foreign","localIndex":["user_id"],"fkTable":"users","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldShowList":{"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"],"this":["user_id","role_id"],"roles":["id","name","display_name","description","created_at","updated_at"]},"fieldCreatedUpdate":["user_id","role_id"]},{"enable":true,"request":true,"realName":"roles","name":"roles","humanName":"roles","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"display_name","type":"'string'","humanName":"display_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"hasManypermission","localIndex":["role_id"],"fkTable":"permission","fkIndex":["permission_id"],"relation":"1tm","interTable":""},{"name":"belongsToManyuser","localIndex":["role_id"],"fkTable":"user","fkIndex":["user_id"],"relation":"mtm","interTable":"role_user"}],"fieldImportantRelate":[],"fieldShowList":{"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"],"this":["id","name","display_name","description","created_at","updated_at"]},"fieldCreatedUpdate":["id","name","display_name","description","created_at","updated_at"]},{"enable":true,"request":true,"realName":"schedule_backup_applications","name":"scheduleBackupApplications","humanName":"schedule_backup_applications","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_name","type":"'string'","humanName":"instance_name","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"lunes","type":"'boolean'","humanName":"lunes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"martes","type":"'boolean'","humanName":"martes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"miercoles","type":"'boolean'","humanName":"miercoles","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"jueves","type":"'boolean'","humanName":"jueves","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"viernes","type":"'boolean'","humanName":"viernes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sabado","type":"'boolean'","humanName":"sabado","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"domingo","type":"'boolean'","humanName":"domingo","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"hora_programada","type":null,"humanName":"hora_programada","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'boolean'","humanName":"status","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_linea_base","type":"'boolean'","humanName":"is_linea_base","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_type","type":"'string'","humanName":"instance_type","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_ansible","type":"'boolean'","humanName":"is_ansible","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aplicacion_id","type":"'integer'","humanName":"aplicacion_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instancia_id","type":"'integer'","humanName":"instancia_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"domain","type":"'string'","humanName":"domain","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"forward_time","type":null,"humanName":"forward_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aws_account_id","type":"'integer'","humanName":"aws_account_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","instance_name","lunes","martes","miercoles","jueves","viernes","sabado","domingo","hora_programada","description","status","is_linea_base","instance_type","is_ansible","aplicacion_id","environment_id","instancia_id","domain","forward_time","created_at","updated_at","aws_account_id"],"fieldShowList":{"this":["id","instance_name","lunes","martes","miercoles","jueves","viernes","sabado","domingo","hora_programada","description","status","is_linea_base","instance_type","is_ansible","aplicacion_id","environment_id","instancia_id","domain","forward_time","created_at","updated_at","aws_account_id"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"],"aws_accounts":["id","name","access_key","secret_key","region","created_at","updated_at","nlb"]}},{"enable":true,"request":true,"realName":"schedule_backup_databases","name":"scheduleBackupDatabases","humanName":"schedule_backup_databases","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"schedule_backup_id","type":"'integer'","humanName":"schedule_backup_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"orden","type":"'integer'","humanName":"orden","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"schedule_backup_databases_schedule_backup_id_foreign","localIndex":["schedule_backup_id"],"fkTable":"schedule_backups","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","schedule_backup_id","name","created_at","updated_at","orden"],"fieldShowList":{"this":["id","schedule_backup_id","name","created_at","updated_at","orden"],"schedule_backups":["id","instance_name","instance_type","instance_id","lunes","martes","miercoles","jueves","viernes","sabado","domingo","hora_programada","status","description","mode","is_mirror","is_linea_base","is_ansible","domain","mirror_instance","mirror_instance_id","forward_time","created_at","updated_at","aws_account_id"]}},{"enable":true,"request":true,"realName":"schedule_backup_folders","name":"scheduleBackupFolders","humanName":"schedule_backup_folders","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"backups_aplicacion_id","type":"'integer'","humanName":"backups_aplicacion_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"schedule_backup_folders_backups_aplicacion_id_foreign","localIndex":["backups_aplicacion_id"],"fkTable":"schedule_backup_applications","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","backups_aplicacion_id","name","description","created_at","updated_at"],"fieldShowList":{"this":["id","backups_aplicacion_id","name","description","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"schedule_backups","name":"scheduleBackups","humanName":"schedule_backups","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_name","type":"'string'","humanName":"instance_name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_type","type":"'string'","humanName":"instance_type","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"instance_id","type":"'integer'","humanName":"instance_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"lunes","type":"'boolean'","humanName":"lunes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"martes","type":"'boolean'","humanName":"martes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"miercoles","type":"'boolean'","humanName":"miercoles","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"jueves","type":"'boolean'","humanName":"jueves","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"viernes","type":"'boolean'","humanName":"viernes","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"sabado","type":"'boolean'","humanName":"sabado","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"domingo","type":"'boolean'","humanName":"domingo","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"hora_programada","type":null,"humanName":"hora_programada","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'boolean'","humanName":"status","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mode","type":"'string'","humanName":"mode","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_mirror","type":"'boolean'","humanName":"is_mirror","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_linea_base","type":"'boolean'","humanName":"is_linea_base","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"is_ansible","type":"'boolean'","humanName":"is_ansible","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"domain","type":"'string'","humanName":"domain","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mirror_instance","type":"'string'","humanName":"mirror_instance","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"mirror_instance_id","type":"'integer'","humanName":"mirror_instance_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"forward_time","type":null,"humanName":"forward_time","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aws_account_id","type":"'integer'","humanName":"aws_account_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"belongsToManyapplications","localIndex":["schedule_backup_id"],"fkTable":"applications","fkIndex":["applications_id"],"relation":"mtm","interTable":"schedule_backup_applications"},{"name":"belongsToManydatabases","localIndex":["schedule_backup_id"],"fkTable":"databases","fkIndex":["databases_id"],"relation":"mtm","interTable":"schedule_backup_databases"},{"name":"belongsToManyfolders","localIndex":["schedule_backup_id"],"fkTable":"folders","fkIndex":["folders_id"],"relation":"mtm","interTable":"schedule_backup_folders"}],"fieldImportantRelate":[],"fieldShowList":{"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"this":["id","instance_name","instance_type","instance_id","lunes","martes","miercoles","jueves","viernes","sabado","domingo","hora_programada","status","description","mode","is_mirror","is_linea_base","is_ansible","domain","mirror_instance","mirror_instance_id","forward_time","created_at","updated_at","aws_account_id"],"instances":["id","environment_id","type","name","created_at","updated_at"],"aws_accounts":["id","name","access_key","secret_key","region","created_at","updated_at","nlb"]},"fieldCreatedUpdate":["id","instance_name","instance_type","instance_id","lunes","martes","miercoles","jueves","viernes","sabado","domingo","hora_programada","status","description","mode","is_mirror","is_linea_base","is_ansible","domain","mirror_instance","mirror_instance_id","forward_time","created_at","updated_at","aws_account_id"]},{"enable":true,"request":true,"realName":"slack_channels","name":"slackChannels","humanName":"slack_channels","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"slack_channels_application_id_foreign","localIndex":["application_id"],"fkTable":"applications","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","application_id","name","created_at","updated_at"],"fieldShowList":{"this":["id","application_id","name","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"sql_databases","name":"sqlDatabases","humanName":"sql_databases","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"server_id","type":"'integer'","humanName":"server_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'integer'","humanName":"status","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","server_id","status","name","created_at","updated_at"],"fieldShowList":{"this":["id","server_id","status","name","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"stress_tests","name":"stressTests","humanName":"stress_tests","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"file","type":"'string'","humanName":"file","rule":"required|max:256","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","file","application_id","environment_id","user_id","description","created_at","updated_at"],"fieldShowList":{"this":["id","name","file","application_id","environment_id","user_id","description","created_at","updated_at"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}},{"enable":true,"request":true,"realName":"ticket_auto_tests","name":"ticketAutoTests","humanName":"ticket_auto_tests","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"grep","type":"'string'","humanName":"grep","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:12","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"auto_test_repo_id","type":"'integer'","humanName":"auto_test_repo_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ruta_zip","type":"'string'","humanName":"ruta_zip","rule":"required|max:255","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ruta_web","type":"'string'","humanName":"ruta_web","rule":"required|max:255","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"detalle","type":"'string'","humanName":"detalle","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"url_prueba","type":"'string'","humanName":"url_prueba","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","grep","status","auto_test_repo_id","ruta_zip","ruta_web","detalle","created_at","updated_at","url_prueba"],"fieldShowList":{"this":["id","ticket_id","grep","status","auto_test_repo_id","ruta_zip","ruta_web","detalle","created_at","updated_at","url_prueba"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"auto_test_repos":["id","name","application_id","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"ticket_backup_databases","name":"ticketBackupDatabases","humanName":"ticket_backup_databases","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"database_id","type":"'integer'","humanName":"database_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"server_id","type":"'integer'","humanName":"server_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"database_name","type":"'string'","humanName":"database_name","rule":"required|max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"url","type":"'string'","humanName":"url","rule":"max:250","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"size","type":"'string'","humanName":"size","rule":"max:10","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"executed_at","type":"'datetime'","humanName":"executed_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_backup_databases_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","database_id","server_id","database_name","url","size","status","executed_at","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","database_id","server_id","database_name","url","size","status","executed_at","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"ticket_details","name":"ticketDetails","humanName":"ticket_details","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"value","type":"'string'","humanName":"value","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_details_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","name","value","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","name","value","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"ticket_details_tests","name":"ticketDetailsTests","humanName":"ticket_details_tests","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"quality_tests_id","type":"'integer'","humanName":"quality_tests_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"details","type":"'string'","humanName":"details","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_details_tests_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","quality_tests_id","status","details","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","quality_tests_id","status","details","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"quality_tests":["id","name","file","application_id","environment_id","user_id","description","created_at","updated_at"]}},{"enable":true,"request":true,"realName":"ticket_restore_databases","name":"ticketRestoreDatabases","humanName":"ticket_restore_databases","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"production_server_id","type":"'integer'","humanName":"production_server_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"production_database","type":"'string'","humanName":"production_database","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"server_id","type":"'integer'","humanName":"server_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"database","type":"'string'","humanName":"database","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"log","type":"'string'","humanName":"log","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_restore_databases_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","production_server_id","production_database","environment_id","server_id","database","created_at","updated_at","status","log"],"fieldShowList":{"this":["id","ticket_id","production_server_id","production_database","environment_id","server_id","database","created_at","updated_at","status","log"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"]}},{"enable":true,"request":true,"realName":"ticket_sql_files","name":"ticketSqlFiles","humanName":"ticket_sql_files","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"order","type":"'integer'","humanName":"order","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_sql_files_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","name","order","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","name","order","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"ticket_statistics","name":"ticketStatistics","humanName":"ticket_statistics","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"value","type":"'string'","humanName":"value","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"ticket_statistics_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","name","value","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","name","value","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]}},{"enable":true,"request":true,"realName":"tickets","name":"tickets","humanName":"tickets","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"aproved_by","type":"'integer'","humanName":"aproved_by","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"application_id","type":"'integer'","humanName":"application_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"environment_id","type":"'integer'","humanName":"environment_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"old_id","type":"'integer'","humanName":"old_id","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"type","type":"'string'","humanName":"type","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"status","type":"'string'","humanName":"status","rule":"required|max:1","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"scheduled_at","type":"'datetime'","humanName":"scheduled_at","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"executed_at","type":"'datetime'","humanName":"executed_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"description","type":"'string'","humanName":"description","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"observation","type":"'string'","humanName":"observation","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"emergency_level","type":"'boolean'","humanName":"emergency_level","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"tickets_application_id_foreign","localIndex":["application_id"],"fkTable":"applications","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"tickets_aproved_by_foreign","localIndex":["aproved_by"],"fkTable":"users","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"tickets_environment_id_foreign","localIndex":["environment_id"],"fkTable":"environments","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"tickets_user_id_foreign","localIndex":["user_id"],"fkTable":"users","fkIndex":["id"],"relation":"1to1","interTable":""},{"name":"hasManyfile_config_catalog","localIndex":["ticket_id"],"fkTable":"file_config_catalog","fkIndex":["file_config_catalog_id"],"relation":"1tm","interTable":""},{"name":"hasManymailing_list","localIndex":["ticket_id"],"fkTable":"mailing_list","fkIndex":["mailing_list_id"],"relation":"1tm","interTable":""},{"name":"belongsToManyauto_tests","localIndex":["ticket_id"],"fkTable":"auto_tests","fkIndex":["auto_tests_id"],"relation":"mtm","interTable":"ticket_auto_tests"},{"name":"belongsToManybackup_databases","localIndex":["ticket_id"],"fkTable":"backup_databases","fkIndex":["backup_databases_id"],"relation":"mtm","interTable":"ticket_backup_databases"},{"name":"belongsToManydetails","localIndex":["ticket_id"],"fkTable":"details","fkIndex":["details_id"],"relation":"mtm","interTable":"ticket_details"},{"name":"belongsToManydetails_tests","localIndex":["ticket_id"],"fkTable":"details_tests","fkIndex":["details_tests_id"],"relation":"mtm","interTable":"ticket_details_tests"},{"name":"belongsToManyrestore_databases","localIndex":["ticket_id"],"fkTable":"restore_databases","fkIndex":["restore_databases_id"],"relation":"mtm","interTable":"ticket_restore_databases"},{"name":"belongsToManysql_files","localIndex":["ticket_id"],"fkTable":"sql_files","fkIndex":["sql_files_id"],"relation":"mtm","interTable":"ticket_sql_files"},{"name":"belongsToManystatistics","localIndex":["ticket_id"],"fkTable":"statistics","fkIndex":["statistics_id"],"relation":"mtm","interTable":"ticket_statistics"}],"fieldImportantRelate":[],"fieldShowList":{"auto_tests":["id","application_id","environment_id","auto_test_repo_id","created_at","updated_at","user_id"],"this":["id","user_id","aproved_by","application_id","environment_id","old_id","type","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"],"applications":["id","name","aws_account_id","repository","deployment_type","url","sonar_key","json_rules","created_at","updated_at"],"environments":["id","name","application_id","created_at","updated_at","deleted_at"]},"fieldCreatedUpdate":["id","user_id","aproved_by","application_id","environment_id","old_id","type","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"]},{"enable":true,"request":true,"realName":"users","name":"users","humanName":"users","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"name","type":"'string'","humanName":"name","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"email","type":"'string'","humanName":"email","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"password","type":"'string'","humanName":"password","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"github_account","type":"'string'","humanName":"github_account","rule":"max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"timezone","type":"'string'","humanName":"timezone","rule":"required|max:191","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"remember_token","type":"'string'","humanName":"remember_token","rule":"max:100","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"slack_user_id","type":"'string'","humanName":"slack_user_id","rule":"max:250","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"hasManyapplication","localIndex":["user_id"],"fkTable":"application","fkIndex":["application_id"],"relation":"1tm","interTable":""},{"name":"hasManyrole","localIndex":["user_id"],"fkTable":"role","fkIndex":["role_id"],"relation":"1tm","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"],"fieldShowList":{"this":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}},{"enable":true,"request":true,"realName":"workflows","name":"workflows","humanName":"workflows","field":[{"name":"id","type":"'integer'","humanName":"id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"ticket_id","type":"'integer'","humanName":"ticket_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"user_id","type":"'integer'","humanName":"user_id","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"approved","type":"'boolean'","humanName":"approved","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"approved_at","type":"'datetime'","humanName":"approved_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"condition","type":"'boolean'","humanName":"condition","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"group","type":"'integer'","humanName":"group","rule":"required","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"created_at","type":"'datetime'","humanName":"created_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"},{"name":"updated_at","type":"'datetime'","humanName":"updated_at","rule":"","viewFill":{"name":"text","data":""},"viewShow":"text"}],"index":["id"],"foreignKeys":[{"name":"workflows_ticket_id_foreign","localIndex":["ticket_id"],"fkTable":"tickets","fkIndex":["id"],"relation":"1to1","interTable":""}],"fieldImportantRelate":[],"fieldCreatedUpdate":["id","ticket_id","user_id","approved","approved_at","condition","group","created_at","updated_at"],"fieldShowList":{"this":["id","ticket_id","user_id","approved","approved_at","condition","group","created_at","updated_at"],"tickets":["id","old_id","type","user_id","aproved_by","application_id","environment_id","status","scheduled_at","executed_at","description","observation","created_at","updated_at","emergency_level"],"users":["id","name","email","password","github_account","timezone","remember_token","created_at","updated_at","slack_user_id"]}}]
+[
+    {
+        "enable": true,
+        "request": true,
+        "realName": "categories",
+        "name": "categories",
+        "humanName": "categories",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "category_id"
+                ],
+                "fkTable": "post",
+                "fkIndex": [
+                    "post_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "comments",
+        "name": "comments",
+        "humanName": "comments",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "user_id",
+                "type": "'integer'",
+                "humanName": "user_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "comment",
+                "type": "'string'",
+                "humanName": "comment",
+                "rule": "required|max:250",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "approved",
+                "type": "'boolean'",
+                "humanName": "approved",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "users",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "users",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts",
+            "users"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "user_id",
+            "comment",
+            "approved",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "user_id",
+                "comment",
+                "approved",
+                "created_at",
+                "updated_at"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "migrations",
+        "name": "migrations",
+        "humanName": "migrations",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "migration",
+                "type": "'string'",
+                "humanName": "migration",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "batch",
+                "type": "'integer'",
+                "humanName": "batch",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "id",
+            "migration",
+            "batch"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "migration",
+                "batch"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "password_resets",
+        "name": "passwordResets",
+        "humanName": "password_resets",
+        "field": [
+            {
+                "name": "email",
+                "type": "'string'",
+                "humanName": "email",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "token",
+                "type": "'string'",
+                "humanName": "token",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": null,
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "email",
+            "token",
+            "created_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "email",
+                "token",
+                "created_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "post_category",
+        "name": "postCategory",
+        "humanName": "post_category",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "category_id",
+                "type": "'integer'",
+                "humanName": "category_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "categories",
+                "localIndex": [
+                    "category_id"
+                ],
+                "fkTable": "categories",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "categories",
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "category_id"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "category_id"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "categories": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": false,
+        "request": true,
+        "realName": "post_tag",
+        "name": "postTag",
+        "humanName": "post_tag",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "tag_id",
+                "type": "'integer'",
+                "humanName": "tag_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "tags",
+                "localIndex": [
+                    "tag_id"
+                ],
+                "fkTable": "tags",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts",
+            "tags"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "tag_id"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "tag_id"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "tags": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "posts",
+        "name": "posts",
+        "humanName": "posts",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "user_id",
+                "type": "'integer'",
+                "humanName": "user_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "title",
+                "type": "'string'",
+                "humanName": "title",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "slug",
+                "type": "'string'",
+                "humanName": "slug",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "body",
+                "type": "'string'",
+                "humanName": "body",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "type",
+                "type": "'boolean'",
+                "humanName": "type",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "image",
+                "type": "'string'",
+                "humanName": "image",
+                "rule": "max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "postback",
+                "type": "'string'",
+                "humanName": "postback",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "visits",
+                "type": "'integer'",
+                "humanName": "visits",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "likes",
+                "type": "'integer'",
+                "humanName": "likes",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "status",
+                "type": "'boolean'",
+                "humanName": "status",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "users",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "users",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "categories",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "category",
+                "fkIndex": [
+                    "category_id"
+                ],
+                "relation": "mtm",
+                "interTable": "post_category"
+            },
+            {
+                "name": "tags",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "tag",
+                "fkIndex": [
+                    "tag_id"
+                ],
+                "relation": "mtm",
+                "interTable": "post_tag"
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "users",
+            "categories",
+            "tags"
+        ],
+        "fieldShowList": {
+            "categories": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ],
+            "tags": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ],
+            "this": [
+                "id",
+                "user_id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "created_at",
+                "updated_at"
+            ],
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "id",
+            "user_id",
+            "title",
+            "slug",
+            "body",
+            "type",
+            "image",
+            "postback",
+            "visits",
+            "likes",
+            "status",
+            "created_at",
+            "updated_at"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "tags",
+        "name": "tags",
+        "humanName": "tags",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "tag_id"
+                ],
+                "fkTable": "post",
+                "fkIndex": [
+                    "post_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "users",
+        "name": "users",
+        "humanName": "users",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "email",
+                "type": "'string'",
+                "humanName": "email",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "password",
+                "type": "'string'",
+                "humanName": "password",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "remember_token",
+                "type": "'string'",
+                "humanName": "remember_token",
+                "rule": "max:100",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "email",
+            "password",
+            "remember_token",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    }
+]

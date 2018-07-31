@@ -15,13 +15,34 @@ class aController extends AppBaseController
     }
 
 public function pruebademodelo(){
-$x= posts::find(1);
+/*$x= posts::find(1);
 $result["post"] = $x;
 // $result["post"]->user_id= $x->users()->get()[0]->name;
 $result["user"] = $x->users()->get();
 $result["categories"] = $x->categories()->get();
 $result["tags"] = $x->tags()->get();
-return $this->sendResponse($result, "") ;
+return $this->sendResponse($result, "") ;*/
 
+        $row = posts::find(1);
+        $result = $row->toArray();
+      
+
+        $result["categories"] = [];
+        if ($row->categories()) {
+            $result["categories"] = $row->categories()->get();
+        }
+
+        $result["tags"] = [];
+        if ($row->tags()) {
+            $result["tags"] = $row->tags()->get();
+        }
+
+        $result["users"] = [];
+        if ($row->users()) {
+            $result["users"] = $row->users()->get();
+        }
+
+
+        return $this->sendResponse($result, 'success');
 }
 }

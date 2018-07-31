@@ -19,24 +19,9 @@ class users extends Model
     'name',
     'email',
     'password',
-    'github_account',
-    'timezone',
-    'remember_token',
-    'slack_user_id'
+    'remember_token'
     ];
 
 
-    /**
-* @return \Illuminate\Database\Eloquent\Relations\HasMany
-**/
-public function applications()
-{
-return $this->hasMany("App\Http\Models\admin1\applications","application_id","user_id");
-}/**
-* @return \Illuminate\Database\Eloquent\Relations\HasMany
-**/
-public function roles()
-{
-return $this->hasMany("App\Http\Models\admin1\roles","role_id","user_id");
-}
+    
 }
