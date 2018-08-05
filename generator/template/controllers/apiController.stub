@@ -3,8 +3,9 @@
 namespace $NAMESPACE_CONTROLLER_API$;
 
 use $NAMESPACE_MODEL$;
-use $NAMESPACE_REQUEST$\Create$MODAL_NAME$APIRequest;
-use $NAMESPACE_REQUEST$\Update$MODAL_NAME$APIRequest;
+use Illuminate\Http\Request;
+$USECREATEREQUEST$
+$USEUPDATEREQUEST$
 use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
 use App\Http\Controllers\AppBaseController;
 
@@ -16,14 +17,14 @@ class $MODAL_NAME$Controller extends AppBaseController
     {
       $this->service=new $MODAL_NAME$Service(); 
     }
-    public function store(Create$MODAL_NAME$APIRequest $Request)
+    public function store($CREATEREQUEST$ $request)
     { 
-      $$MODAL_NAME$ = $this->service->create($Request->all());
+      $$MODAL_NAME$ = $this->service->create($request->all());
       return $this->sendResponse($$MODAL_NAME$->toArray(), '$MODAL_NAME$ guardado exitosamente');
     }
-    public function update(Update$MODAL_NAME$APIRequest $Request,$id)
+    public function update($UPDATEREQUEST$ $request,$id)
     {
-       $$MODAL_NAME$ = $this->service->update($Request->all(),$id);
+       $$MODAL_NAME$ = $this->service->update($request->all(),$id);
        return $this->sendResponse($$MODAL_NAME$->toArray(), '$MODAL_NAME$ actualizado exitosamente');
     }
       public function delete($id)
@@ -39,6 +40,16 @@ class $MODAL_NAME$Controller extends AppBaseController
         
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
+    }
+     public function all()
+    {
+        $row = $MODAL_NAME$::all();
+        $result = $row->toArray();
+        foreach ($row as $key => $value) {
+           //*$ADDMODELSARRAY$*/
+        }
+        
+        return $this->sendResponse($result, 'success');
     }
     
 }

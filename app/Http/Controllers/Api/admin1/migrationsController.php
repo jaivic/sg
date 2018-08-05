@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\admin1;
 
 use App\Http\Models\admin1\migrations;
-use App\Http\Requests\CreatemigrationsAPIRequest;
-use App\Http\Requests\UpdatemigrationsAPIRequest;
+use Illuminate\Http\Request;
+
+
 use App\Http\service\admin1\migrationsService;
 use App\Http\Controllers\AppBaseController;
 
@@ -14,24 +15,25 @@ class migrationsController extends AppBaseController
   
     public function __construct()
     {
-      $this->service=new migrationsService(); 
+        $this->service=new migrationsService();
     }
-    public function store(CreatemigrationsAPIRequest $Request)
-    { 
-      $migrations = $this->service->create($Request->all());
-      return $this->sendResponse($migrations->toArray(), 'migrations guardado exitosamente');
-    }
-    public function update(UpdatemigrationsAPIRequest $Request,$id)
+    public function store(Request $request)
     {
-       $migrations = $this->service->update($Request->all(),$id);
-       return $this->sendResponse($migrations->toArray(), 'migrations actualizado exitosamente');
+        $migrations = $this->service->create($request->all());
+        return $this->sendResponse($migrations->toArray(), 'migrations guardado exitosamente');
     }
-      public function delete($id)
-    {        
-      $this->service->delete($id);
-      return $this->sendResponse(null, 'migrations eliminado correctamente');
+    public function update(Request $request, $id)
+    {
+        $migrations = $this->service->update($request->all(), $id);
+        return $this->sendResponse($migrations->toArray(), 'migrations actualizado exitosamente');
     }
-    public function show($id){
+    public function delete($id)
+    {
+        $this->service->delete($id);
+        return $this->sendResponse(null, 'migrations eliminado correctamente');
+    }
+    public function show($id)
+    {
         $row = migrations::find($id);
         $result= $row->toArray();
         
@@ -40,5 +42,13 @@ class migrationsController extends AppBaseController
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
     }
-    
+    public function all()
+    {
+        $row = migrations::all();
+        $result = $row->toArray();
+        foreach ($row as $key => $value) {
+        }
+        
+        return $this->sendResponse($result, 'success');
+    }
 }

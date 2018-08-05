@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\admin1;
 
 use App\Http\Models\admin1\categories;
-use App\Http\Requests\CreatecategoriesAPIRequest;
-use App\Http\Requests\UpdatecategoriesAPIRequest;
+use Illuminate\Http\Request;
+
+
 use App\Http\service\admin1\categoriesService;
 use App\Http\Controllers\AppBaseController;
 
@@ -14,24 +15,25 @@ class categoriesController extends AppBaseController
   
     public function __construct()
     {
-      $this->service=new categoriesService(); 
+        $this->service=new categoriesService();
     }
-    public function store(CreatecategoriesAPIRequest $Request)
-    { 
-      $categories = $this->service->create($Request->all());
-      return $this->sendResponse($categories->toArray(), 'categories guardado exitosamente');
-    }
-    public function update(UpdatecategoriesAPIRequest $Request,$id)
+    public function store(Request $request)
     {
-       $categories = $this->service->update($Request->all(),$id);
-       return $this->sendResponse($categories->toArray(), 'categories actualizado exitosamente');
+        $categories = $this->service->create($request->all());
+        return $this->sendResponse($categories->toArray(), 'categories guardado exitosamente');
     }
-      public function delete($id)
-    {        
-      $this->service->delete($id);
-      return $this->sendResponse(null, 'categories eliminado correctamente');
+    public function update(Request $request, $id)
+    {
+        $categories = $this->service->update($request->all(), $id);
+        return $this->sendResponse($categories->toArray(), 'categories actualizado exitosamente');
     }
-    public function show($id){
+    public function delete($id)
+    {
+        $this->service->delete($id);
+        return $this->sendResponse(null, 'categories eliminado correctamente');
+    }
+    public function show($id)
+    {
         $row = categories::find($id);
         $result= $row->toArray();
         
@@ -40,5 +42,13 @@ class categoriesController extends AppBaseController
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
     }
-    
+    public function all()
+    {
+        $row = categories::all();
+        $result = $row->toArray();
+        foreach ($row as $key => $value) {
+        }
+        
+        return $this->sendResponse($result, 'success');
+    }
 }

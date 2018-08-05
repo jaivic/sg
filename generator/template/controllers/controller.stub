@@ -3,8 +3,8 @@
 namespace $NAMESPACE_CONTROLLER$;
 
 use $NAMESPACE_MODEL$;
-use $NAMESPACE_REQUEST$\Create$MODAL_NAME$Request;
-use $NAMESPACE_REQUEST$\Update$MODAL_NAME$Request;
+$USECREATEREQUEST$
+$USEUPDATEREQUEST$
 use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
 use App\Http\Controllers\AppBaseController;
 
@@ -32,13 +32,13 @@ class $MODAL_NAME$Controller extends AppBaseController
         $row = $MODAL_NAME$::find($id);
         return view('$ADD_FOLDER$.$MODAL_NAME$.show',compact("row"));
     }
-    public function store(Create$MODAL_NAME$Request $request)
+    public function store($CREATEREQUEST$ $request)
     { 
         $$MODAL_NAME$ = $this->service->create($request->all());
         return redirect("$ROUTE$/edit/$$MODAL_NAME$->id")
         ->with('status', 'Cambios agregada correctamente');
     }
-    public function update(Update$MODAL_NAME$Request $request,$id)
+    public function update($UPDATEREQUEST$ $request,$id)
     {
         $$MODAL_NAME$ = $this->service->update($request->all(),$id);
         return redirect("$ROUTE$/edit/$$MODAL_NAME$->id")

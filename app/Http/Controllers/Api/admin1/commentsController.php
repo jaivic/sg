@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Api\admin1;
 
 use App\Http\Models\admin1\comments;
-use App\Http\Requests\CreatecommentsAPIRequest;
-use App\Http\Requests\UpdatecommentsAPIRequest;
+use Illuminate\Http\Request;
+
+
 use App\Http\service\admin1\commentsService;
 use App\Http\Controllers\AppBaseController;
 
@@ -14,41 +15,61 @@ class commentsController extends AppBaseController
   
     public function __construct()
     {
-      $this->service=new commentsService(); 
+        $this->service=new commentsService();
     }
-    public function store(CreatecommentsAPIRequest $Request)
-    { 
-      $comments = $this->service->create($Request->all());
-      return $this->sendResponse($comments->toArray(), 'comments guardado exitosamente');
-    }
-    public function update(UpdatecommentsAPIRequest $Request,$id)
+    public function store(Request $request)
     {
-       $comments = $this->service->update($Request->all(),$id);
-       return $this->sendResponse($comments->toArray(), 'comments actualizado exitosamente');
+        $comments = $this->service->create($request->all());
+        return $this->sendResponse($comments->toArray(), 'comments guardado exitosamente');
     }
-      public function delete($id)
-    {        
-      $this->service->delete($id);
-      return $this->sendResponse(null, 'comments eliminado correctamente');
+    public function update(Request $request, $id)
+    {
+        $comments = $this->service->update($request->all(), $id);
+        return $this->sendResponse($comments->toArray(), 'comments actualizado exitosamente');
     }
-    public function show($id){
+    public function delete($id)
+    {
+        $this->service->delete($id);
+        return $this->sendResponse(null, 'comments eliminado correctamente');
+    }
+    public function show($id)
+    {
         $row = comments::find($id);
         $result= $row->toArray();
         
         
-$result["posts"]=[];
-if($row->posts()){
-  $result["posts"]= $row->posts()->get();
-}
+        $result["posts"]=[];
+        if ($row->posts()) {
+            $result["posts"]= $row->posts()->get();
+        }
 
-$result["users"]=[];
-if($row->users()){
-  $result["users"]= $row->users()->get();
-}
+        $result["users"]=[];
+        if ($row->users()) {
+            $result["users"]= $row->users()->get();
+        }
 
         
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
     }
-    
+    public function all()
+    {
+        $row = comments::all();
+        $result = $row->toArray();
+        foreach ($row as $key => $value) {
+            $result[$key]["posts"] = [];
+            if ($value->posts()) {
+                $result[$key]["posts"]= $value->posts()->get();
+            }
+ 
+
+
+            $result[$key]["users"] = [];
+            if ($value->users()) {
+                $result[$key]["users"]= $value->users()->get();
+            }
+        }
+        
+        return $this->sendResponse($result, 'success');
+    }
 }

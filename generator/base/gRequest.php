@@ -1,5 +1,6 @@
 <?php
 namespace generator\base;
+
 use DB;
 
 use Illuminate\Support\Str;
@@ -14,107 +15,103 @@ class gRequest extends BaseGenerator
 {
 
 
-  public $pathTemplate;
+    public $pathTemplate;
 
-  public function __construct($config){
-      parent::__construct();
+    public function __construct($config)
+    {
+        parent::__construct();
 
-      $this->config = $config;
-   // $this->rollbackDir( $this->config->dirFinalRequest);
-    $this->variables=[
-      '$NAMESPACE_API_REQUEST$' => $this->config->nameSpaceFinalRequest,
-    ];
-  }
-
-  public function run(){
-    foreach ($this->config->listTable as $Table) {
-      $this->generateCreateRequest($Table);
-      $this->generateUpdateRequest($Table);
-      $this->generateCreateAPIRequest($Table);
-      $this->generateUpdateAPIRequest($Table);
-   
+        $this->config = $config;
+     // $this->rollbackDir( $this->config->dirFinalRequest);
+        $this->variables=[
+        '$NAMESPACE_API_REQUEST$' => $this->config->nameSpaceFinalRequest,
+        ];
     }
-  }
 
-  private function generateCreateRequest($Table)
-  {
-    $rules=[];
+    public function run()
+    {
+        foreach ($this->config->listTable as $Table) {
+            $this->generateCreateRequest($Table);
+            $this->generateUpdateRequest($Table);
+            $this->generateCreateAPIRequest($Table);
+            $this->generateUpdateAPIRequest($Table);
+        }
+    }
+
+    private function generateCreateRequest($Table)
+    {
+        $rules=[];
   
 
-    foreach ($Table->getColumns() as $field) {
-      $rules[] = $this->lnTb($this->generateRule($field));
+        foreach ($Table->getColumns() as $field) {
+            $rules[] = $this->lnTb($this->generateRule($field));
+        }
+        $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
+        $this->variables['$APIRULES$'] = implode(',', $rules);
+
+        $nameApi = "Create" . Str::camel($Table->getName()) . "Request.php";
+        $templateData = $this->getTemplate($this->config->pathTemplateCreate);
+
+        $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
     }
-    $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
-    $this->variables['$APIRULES$'] = implode(',', $rules);
 
-    $nameApi = "Create" . Str::camel($Table->getName()) . "Request.php";
-    $templateData = $this->getTemplate($this->config->pathTemplateCreate);
+    private function generateUpdateRequest($Table)
+    {
+        $rules=[];
+        $this->variables['$MODEL_NAME$']= Str::camel($Table->getName());
+        foreach ($Table->getColumns() as $field) {
+            $rules[] = $this->lnTb($this->generateRule($field));
+        }
+        $this->variables['$APIRULES$'] = implode(',', $rules);
+        $nameApi = "Update" . Str::camel($Table->getName()) . "Request.php";
+        $templateData = $this->getTemplate($this->config->pathTemplateUpdate);
 
-    $this->createFileWithTemplate($this->config->dirFinalRequest,$nameApi,$this->variables,$templateData);
-  }
+        $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
+    }
 
-  private function generateUpdateRequest($Table)
-  {
-    $rules=[];
-    $this->variables['$MODEL_NAME$']= Str::camel($Table->getName());
-      foreach ($Table->getColumns() as $field) {
-        $rules[] = $this->lnTb($this->generateRule($field));
-      }
-      $this->variables['$APIRULES$'] = implode(',', $rules);
-      $nameApi = "Update" . Str::camel($Table->getName()) . "Request.php";
-      $templateData = $this->getTemplate($this->config->pathTemplateUpdate);
-
-      $this->createFileWithTemplate($this->config->dirFinalRequest,$nameApi,$this->variables,$templateData);
-    
-  }
-
-private function generateCreateAPIRequest($Table)
-{
-  $rules = [];
+    private function generateCreateAPIRequest($Table)
+    {
+        $rules = [];
 
 
-  foreach ($Table->getColumns() as $field) {
-    $rules[] = $this->lnTb($this->generateRule($field));
-  }
-  $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
-  $this->variables['$APIRULES$'] = implode(',', $rules);
+        foreach ($Table->getColumns() as $field) {
+            $rules[] = $this->lnTb($this->generateRule($field));
+        }
+        $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
+        $this->variables['$APIRULES$'] = implode(',', $rules);
 
-  $nameApi = "Create" . Str::camel($Table->getName()) . "APIRequest.php";
-  $templateData = $this->getTemplate($this->config->pathTemplateAPICreate);
+        $nameApi = "Create" . Str::camel($Table->getName()) . "APIRequest.php";
+        $templateData = $this->getTemplate($this->config->pathTemplateAPICreate);
 
-  $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
-}
+        $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
+    }
 
-private function generateUpdateAPIRequest($Table)
-{
-  $rules = [];
-  $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
-  foreach ($Table->getColumns() as $field) {
-    $rules[] = $this->lnTb($this->generateRule($field));
-  }
-  $this->variables['$APIRULES$'] = implode(',', $rules);
-  $nameApi = "Update" . Str::camel($Table->getName()) . "APIRequest.php";
-  $templateData = $this->getTemplate($this->config->pathTemplateAPIUpdate);
+    private function generateUpdateAPIRequest($Table)
+    {
+        $rules = [];
+        $this->variables['$MODEL_NAME$'] = Str::camel($Table->getName());
+        foreach ($Table->getColumns() as $field) {
+            $rules[] = $this->lnTb($this->generateRule($field));
+        }
+        $this->variables['$APIRULES$'] = implode(',', $rules);
+        $nameApi = "Update" . Str::camel($Table->getName()) . "APIRequest.php";
+        $templateData = $this->getTemplate($this->config->pathTemplateAPIUpdate);
 
-  $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
-
-}
-  public  function generateRule($field)
-  {
+        $this->createFileWithTemplate($this->config->dirFinalRequest, $nameApi, $this->variables, $templateData);
+    }
+    public function generateRule($field)
+    {
   
-    $item=[];
-    $rule = "'" . $field->getName() . "' => '";
-    if($field->getNotnull()==true){
-      $item[] = "required";
-    }
+        $item=[];
+        $rule = "'" . $field->getName() . "' => '";
+        if ($field->getNotnull()==true) {
+            $item[] = "required";
+        }
 
-    if ($field->getType() == Type::getType('string')){
-      $item[] = "max:".$field->getLength();
+        if ($field->getType() == Type::getType('string')) {
+            $item[] = "max:".$field->getLength();
+        }
+        $rule.= implode('|', $item)."'";
+        return $rule;
     }
-    $rule.= implode('|', $item)."'";
-    return $rule;
-    
-
-  }
-  
 }

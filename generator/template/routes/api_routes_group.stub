@@ -12,6 +12,7 @@ Route::group(['prefix' => '$ROUTE_PREFIX$'], function () {
         Route::post('update/{id}', 'Api\$PATH_PREFIX$\$MODEL_NAME$Controller@update')->name('api.$ROUTE_PREFIX$.update');
         Route::post('delete/{id}', 'Api\$PATH_PREFIX$\$MODEL_NAME$Controller@delete')->name('api.$ROUTE_PREFIX$.delete');   
         Route::get('detail/{id}', 'Api\$PATH_PREFIX$\$MODEL_NAME$Controller@show')->name('api.$ROUTE_PREFIX$.detail');   
+        Route::get('all', 'Api\$PATH_PREFIX$\$MODEL_NAME$Controller@all')->name('api.$ROUTE_PREFIX$.all');
     });  
 });
 
