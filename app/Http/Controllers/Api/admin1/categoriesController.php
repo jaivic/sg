@@ -15,25 +15,24 @@ class categoriesController extends AppBaseController
   
     public function __construct()
     {
-        $this->service=new categoriesService();
+      $this->service=new categoriesService(); 
     }
     public function store(Request $request)
-    {
-        $categories = $this->service->create($request->all());
-        return $this->sendResponse($categories->toArray(), 'categories guardado exitosamente');
+    { 
+      $categories = $this->service->create($request->all());
+      return $this->sendResponse($categories->toArray(), 'categories guardado exitosamente');
     }
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        $categories = $this->service->update($request->all(), $id);
-        return $this->sendResponse($categories->toArray(), 'categories actualizado exitosamente');
+       $categories = $this->service->update($request->all(),$id);
+       return $this->sendResponse($categories->toArray(), 'categories actualizado exitosamente');
     }
-    public function delete($id)
-    {
-        $this->service->delete($id);
-        return $this->sendResponse(null, 'categories eliminado correctamente');
+      public function delete($id)
+    {        
+      $this->service->delete($id);
+      return $this->sendResponse(null, 'categories eliminado correctamente');
     }
-    public function show($id)
-    {
+    public function show($id){
         $row = categories::find($id);
         $result= $row->toArray();
         
@@ -42,13 +41,15 @@ class categoriesController extends AppBaseController
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
     }
-    public function all()
+     public function all()
     {
         $row = categories::all();
         $result = $row->toArray();
         foreach ($row as $key => $value) {
+           
         }
         
         return $this->sendResponse($result, 'success');
     }
+    
 }

@@ -15,25 +15,24 @@ class migrationsController extends AppBaseController
   
     public function __construct()
     {
-        $this->service=new migrationsService();
+      $this->service=new migrationsService(); 
     }
     public function store(Request $request)
-    {
-        $migrations = $this->service->create($request->all());
-        return $this->sendResponse($migrations->toArray(), 'migrations guardado exitosamente');
+    { 
+      $migrations = $this->service->create($request->all());
+      return $this->sendResponse($migrations->toArray(), 'migrations guardado exitosamente');
     }
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        $migrations = $this->service->update($request->all(), $id);
-        return $this->sendResponse($migrations->toArray(), 'migrations actualizado exitosamente');
+       $migrations = $this->service->update($request->all(),$id);
+       return $this->sendResponse($migrations->toArray(), 'migrations actualizado exitosamente');
     }
-    public function delete($id)
-    {
-        $this->service->delete($id);
-        return $this->sendResponse(null, 'migrations eliminado correctamente');
+      public function delete($id)
+    {        
+      $this->service->delete($id);
+      return $this->sendResponse(null, 'migrations eliminado correctamente');
     }
-    public function show($id)
-    {
+    public function show($id){
         $row = migrations::find($id);
         $result= $row->toArray();
         
@@ -42,13 +41,15 @@ class migrationsController extends AppBaseController
           return $this->sendResponse($result, 'success');
       //  return $this->sendResponse($row->toArray(), 'success');
     }
-    public function all()
+     public function all()
     {
         $row = migrations::all();
         $result = $row->toArray();
         foreach ($row as $key => $value) {
+           
         }
         
         return $this->sendResponse($result, 'success');
     }
+    
 }
