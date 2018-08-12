@@ -37,8 +37,8 @@ class gModelEloquent extends BaseGenerator
         foreach ($this->config->listTable as $Table) {
          // dd($Table);
             if ($Table->enable==true) {
-                $this->variables['$MODEL_NAME$'] = $Table->realName;
-                $this->variables['$TABLE_NAME$'] = $Table->name;
+                $this->variables['$MODEL_NAME$'] = $Table->name;
+                $this->variables['$TABLE_NAME$'] = $Table->realName;
                 $fillables = [];
                 foreach ($Table->field as $field) {
                        $fieldName = $field->name;
@@ -54,7 +54,7 @@ class gModelEloquent extends BaseGenerator
                     if ($fieldName == "deleted_at") {
                         $deleted_at = true;
                     }
-                     
+                      
       
                     if (!in_array($fieldName, $this->config->noColumn)) {
                         $fillables[] = $this->lnTb("'" . $fieldName . "'");
@@ -92,7 +92,7 @@ class gModelEloquent extends BaseGenerator
                 }
 
                 $templateData = $this->getTemplate($this->config->pathTemplateModel);
-                $this->createFileWithTemplate($this->config->dirFinalModel, Str::camel($Table->name) . ".php", $this->variables, $templateData);
+                $this->createFileWithTemplate($this->config->dirFinalModel, $Table->name . ".php", $this->variables, $templateData);
             }
         }
     }
@@ -182,3 +182,9 @@ class gModelEloquent extends BaseGenerator
         return $templatetotal;
     }
 }
+/* public function getStatusAttribute()
+    {
+       
+     return   ($this->attributes['status']==1)?true:false;
+
+    } */

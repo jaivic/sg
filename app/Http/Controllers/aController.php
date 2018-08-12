@@ -12,8 +12,15 @@ class aController extends AppBaseController
     {
       //  echo date("r");
         $x = new gIndex();
+        $x->crear();
+      
     }
-
+    public function rollback()
+    {
+      //  echo date("r");
+        $x = new gIndex();
+        $x->rollback();
+    }
 public function pruebademodelo(){
 /*$x= posts::find(1);
 $result["post"] = $x;

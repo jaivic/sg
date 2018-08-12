@@ -26,6 +26,8 @@ use generator\laravel\gModelIOS;
 use generator\laravel\gRequestLaravel;
 
 use generator\laravel\gServiceLaravel;
+use generator\laravel\gViewLaravel;
+use generator\laravel\gViewMenuLaravel;
 
 class gIndex extends BaseGenerator
 {
@@ -40,19 +42,26 @@ class gIndex extends BaseGenerator
         $platform->registerDoctrineTypeMapping('enum', 'string');
         $platform->registerDoctrineTypeMapping('json', 'text');
       /* $this->listTable = $this->schemaManager->listTables();
-        $config = new gConfig($this->listTable, "admin1");
+            $config = new gConfig($this->listTable, "admin1");
            (new jsModel())->run($config,"");
-    dd(1);*/
+        dd(1);*/
         $this->listTable= json_decode(file_get_contents(base_path("generator/gsg/configJson/model.json")));
 
-        $config=new gConfig($this->listTable, "admin1");
+      
+    }
+    public function crear(){
+        $config = new gConfig($this->listTable, "admin1");
+
+
+
         (new gModelEloquent($config))->run();
         (new gControllerLaravel($config))->run();
         (new gModelIOS($config))->run();
         (new gRequestLaravel($config))->run();
         (new gRouteLaravel($config))->run();
         (new gServiceLaravel($config))->run();
-        
+        (new gViewLaravel($config))->run();
+        (new gViewMenuLaravel($config))->run();
         // (new jsModel())->run($config,"");
         //$this->rollBackAll( $config);
         //dd("pues si");
@@ -65,7 +74,10 @@ class gIndex extends BaseGenerator
             (new gView($config))->run();
             (new gViewMenu($config))->run();*/
     }
- 
+    public function rollback(){
+         $config = new gConfig($this->listTable, "admin1");
+        $this->rollBackAll( $config);
+    }
     public function rollBackAll($config)
     {
         $this->rollbackDir($config->dirFinalApiController);

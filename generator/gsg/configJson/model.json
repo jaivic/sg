@@ -479,7 +479,7 @@
         }
     },
     {
-        "enable": false,
+        "enable": true,
         "request": true,
         "realName": "post_tag",
         "name": "postTag",

@@ -29,7 +29,7 @@ class gRouteLaravel extends BaseGenerator
       //  preg_match_all("/\/\*<SG-autoRoute>\*\/\r\n(.*)\r\n\/\*<SG-autoRoute>\*\//s",$this->routeContents,$aver);
         $this->routeContents= preg_replace("/\/\*<SG-autoRoute>\*\/\r\n(.*)\r\n\/\*<SG-autoRoute>\*\//s", "", $this->routeContents);
             /*<SG-autoRoute>*/
-        ///asdasd
+        ///etiquetas que se usaran para remplazar todo
         /*<SG-autoRoute>*/
       
         $this->routeContents.= "/*<SG-autoRoute>*/\r\n";

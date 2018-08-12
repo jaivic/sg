@@ -46,13 +46,12 @@ class gModelIOS extends BaseGenerator
         $this->variables['$VAR$'] = "";
         foreach ($Table->fieldShowList as $key => $model) {
             if ($key!="this") {
-                  $this->variables['$STRUCT$'].= "var " . $key." : [". ucfirst($key)."]" . "\r\n";
+                $name = Str::singular($key);
+                  $this->variables['$STRUCT$'].= "\tvar " . $key.": [". ucfirst($name)."]" . "\r\n";
             } else {
                 foreach ($model as $item) {
                     $item = $this->searchItem($Table, $item);
-       
-        
-                    $this->variables['$VAR$'] .= "var ". $item->name . " : ".$this->typeSwift($item->type) . $this->requerido($item->rule) . "\r\n"  ;
+                    $this->variables['$VAR$'] .= "\tvar ". $item->name . ": ".$this->typeSwift($item->type) . $this->requerido($item->rule) . "\r\n"  ;
                 }
             }
         }
