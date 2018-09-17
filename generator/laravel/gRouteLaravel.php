@@ -27,26 +27,28 @@ class gRouteLaravel extends BaseGenerator
 
         //dd( $this->routeContents);
       //  preg_match_all("/\/\*<SG-autoRoute>\*\/\r\n(.*)\r\n\/\*<SG-autoRoute>\*\//s",$this->routeContents,$aver);
-        $this->routeContents= preg_replace("/\/\*<SG-autoRoute>\*\/\r\n(.*)\r\n\/\*<SG-autoRoute>\*\//s", "", $this->routeContents);
+        $this->routeContents = preg_replace("/\/\*<SG-autoRoute>\*\/\r\n(.*)\r\n\/\*<SG-autoRoute>\*\//s", "", $this->routeContents);
             /*<SG-autoRoute>*/
         ///etiquetas que se usaran para remplazar todo
         /*<SG-autoRoute>*/
-      
-        $this->routeContents.= "/*<SG-autoRoute>*/\r\n";
+
+        $this->routeContents .= "/*<SG-autoRoute>*/\r\n";
         foreach ($this->config->listTable as $table) {
             if ($table->enable == true) {
-                $name=$table->name;
+                $name = $table->name;
                 $templateData = $this->getTemplate($this->config->routeTemplate);
                 $variables = [
-                '$ROUTE_PREFIX$' => Str::lower($name),
-                '$PATH_PREFIX$' => $this->config->addDir,
-                '$MODEL_NAME$' => $name,
+                    '$ROUTE_PREFIX$' => Str::lower($name),
+                    '$PATH_PREFIX$' => $this->config->addDir,
+                    '$MODEL_NAME$' => $name,
                 ];
                 foreach ($variables as $variable => $value) {
                     $templateData = str_replace($variable, $value, $templateData);
                 }
                 $this->routeContents .= "\n" . $templateData;
             }
+
+
         }
         $this->routeContents .= "\r\n/*<SG-autoRoute>*/";
         //dd($this->routeContents);

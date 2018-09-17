@@ -19,4 +19,6 @@ class $MODEL_NAME$ extends Model
 
 
     $RELATIONS$
+
+    $SYNC$
 }

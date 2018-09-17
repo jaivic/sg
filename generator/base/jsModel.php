@@ -1,5 +1,6 @@
 <?php
 namespace generator\base;
+
 use DB;
 
 
@@ -12,54 +13,56 @@ use generator\gsg\oBase\fieldModel;
 
 class jsModel extends BaseGenerator
 {
-public $config;
-public $model;
+  public $config;
+  public $model;
+  public $relacionesExtras;
 //https://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/Column.html#method_getAutoincrement
-    public function run($config)
+  public function run($config)
   {
-    $this->config=$config;
-    $all=[];
-    foreach($this->config->listTable as $Table){
-      $this->model= new model($Table->getName());
+    $this->config = $config;
+    $all = [];
+    foreach ($this->config->listTable as $Table) {
+      $this->model = new model($Table->getName());
       $this->setForeignKeys($Table);
-      
+
       foreach ($Table->getColumns() as $field) {
-      
-        $fieldforSave=new fieldModel($field->getName(),$this->generateCasts($field->getType()) );
+
+        $fieldforSave = new fieldModel($field->getName(), $this->generateCasts($field->getType()));
         $fieldforSave->addRule($this->generateRule($field));
         $fieldforSave->setWebView("text");
         $this->model->addField($fieldforSave);
         $this->setFieldImportantForRelate($field->getName());
         $this->setFieldCreatedUpdate($field);
-        $this->setFieldShowList("this",$field->getName());
+        $this->setFieldShowList("this", $field->getName());
       }
-        $this->model->addIndex($this->getIndex($Table));
+      $this->model->addIndex($this->getIndex($Table));
         
       /*  if ($Table->getName()=="tickets"){
         dd($this->model);
         }*/
-        $all[]=$this->model;
-    
+      $all[] = $this->model;
+
     }
   // dd($all);
-    FileUtil::createFile($this->config->dirJsonFile,"model.json", json_encode($all));
+    FileUtil::createFile($this->config->dirJsonFile, "model.json", json_encode($all));
   }
 
-  public function setFieldImportantForRelate($field){
-   
+  public function setFieldImportantForRelate($field)
+  {
+
     $nombre = "";
     $tabla = "";
-    if (stripos($field, "_id")!=false){
-     
-      $post= stripos($field, "_id");
+    if (stripos($field, "_id") != false) {
+
+      $post = stripos($field, "_id");
       $this->schemaManager = DB::getDoctrineSchemaManager();
-      $nombreTabla= substr($field, 0, $post);
+      $nombreTabla = substr($field, 0, $post);
       $tabla = $this->schemaManager->listTableColumns($nombreTabla);
       if (count($tabla) == 0) {
-       
-          $tabla = $this->schemaManager->listTableColumns(Str::plural($nombreTabla) );
+
+        $tabla = $this->schemaManager->listTableColumns(Str::plural($nombreTabla));
       }
-      if(count($tabla)>0){
+      if (count($tabla) > 0) {
         foreach ($tabla as $field) {
           $this->setFieldShowList(Str::plural($nombreTabla), $field->getName());
            // if(($field->getName() == "title")&& ($field->getName() == "name")){
@@ -78,7 +81,7 @@ public $model;
             }
           }
         }
-      */
+         */
      /*   if ($nombre != "") {
         
           
@@ -87,39 +90,42 @@ public $model;
         }*/
       }
     }
-    
+
 
   }
 
-  public function setForeignKeys($Table){
+  public function setForeignKeys($Table)
+  {
    // https ://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/ForeignKeyConstraint.html
-  /** buscando relaciones de foreingkeys */
-   foreach ($Table->getForeignKeys() as $key => $value) {
-          $this->model->addForeignKeys(
-        Str::plural( $value->getForeignTableName()),
+    /** buscando relaciones de foreingkeys */
+    foreach ($Table->getForeignKeys() as $key => $value) {
+   
+      $this->model->addForeignKeys(
+        Str::plural($value->getForeignTableName()),
         $value->getLocalColumns(),
-          $value->getForeignTableName(),
-          $value->getForeignColumns());
+        $value->getForeignTableName(),
+        $value->getForeignColumns()
+      );
     }
     /*buscando tablas intermedias para relaciones */
     foreach ($this->config->listTable as $table2) {
-     
-      if (stripos($table2->getName(), "_". str::singular($Table->getName())) != false) {
-        $position=stripos($table2->getName(), "_" . str::singular($Table->getName()));
-       $nameTableForeign= substr($table2->getName(), 0, $position);
+
+      if (stripos($table2->getName(), "_" . str::singular($Table->getName())) != false) {
+        $position = stripos($table2->getName(), "_" . str::singular($Table->getName()));
+        $nameTableForeign = substr($table2->getName(), 0, $position);
         
 //$key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""
         $this->model->addForeignKeys(
           Str::plural($nameTableForeign),
-          [str::singular($Table->getName())."_id"],
+          [str::singular($Table->getName()) . "_id"],
           $nameTableForeign,
           [$nameTableForeign . "_id"],
           "1tm"
         );
       }
-     
-     
-      if (stripos($table2->getName(),  str::singular($Table->getName())."_") !== false) {
+
+
+      if (stripos($table2->getName(), str::singular($Table->getName()) . "_") !== false) {
         $nameTableForeign = substr($table2->getName(), strlen(str::singular($Table->getName()) . "_"));
         $this->model->addForeignKeys(
           Str::plural($nameTableForeign),
@@ -142,44 +148,47 @@ public $model;
   /*    $nombreTabla = substr($table2->getName(), 0, $post);
         if (count($nombreTabla) == 0) {
     }
-*/
+       */
     }
-}
-  public function setFieldCreatedUpdate( $field){
-      $this->model->addFieldForCreatedUpdate($field->getName());
-  } 
-  public function setFieldShowList($table, $field){
-    $this->model->addfieldShowList($table, $field);
-} 
-
-  public  function generateRule($field)
+  }
+  public function setFieldCreatedUpdate($field)
   {
-    $rule="";
-    $item=[];
-    if($field->getNotnull()==true){
+    $this->model->addFieldForCreatedUpdate($field->getName());
+  }
+  public function setFieldShowList($table, $field)
+  {
+    $this->model->addfieldShowList($table, $field);
+  }
+
+  public function generateRule($field)
+  {
+    $rule = "";
+    $item = [];
+    if ($field->getNotnull() == true) {
       $item[] = "required";
     }
 
-    if ($field->getType() == Type::getType('string')){
-      $item[] = "max:".$field->getLength();
+    if ($field->getType() == Type::getType('string')) {
+      $item[] = "max:" . $field->getLength();
     }
-    $rule= implode('|', $item)."";
+    $rule = implode('|', $item) . "";
     return $rule;
-    
+
 
   }
-  public function getIndex( $Table){
-    $primaryName=null;
+  public function getIndex($Table)
+  {
+    $primaryName = null;
     $indice = $Table->getPrimaryKey();
     if ($indice) {
       $primaryName = $indice->getColumns();
     }
-  
-return $primaryName;
+
+    return $primaryName;
   }
   public function generateCasts($type)
   {
-      $casts = [];
+    $casts = [];
         /*dd(Type::getTypesMap());
         "array" => "Doctrine\DBAL\Types\ArrayType"
         "simple_array" => "Doctrine\DBAL\Types\SimpleArrayType"
@@ -206,55 +215,55 @@ return $primaryName;
         "blob" => "Doctrine\DBAL\Types\BlobType"
         "guid" => "Doctrine\DBAL\Types\GuidType"
         "dateinterval" => "Doctrine\DBAL\Types\DateIntervalType"
-        */
+     */
         // $timestamps = TableFieldsGenerator::getTimestampFieldNames();
 
         /*    if (in_array($field->name, $timestamps)) {
         continue;
         }*/
 
-      $rule = "";
+    $rule = "";
 
-      switch ($type) {
-      
-        case Type::getType('bigint') :
+    switch ($type) {
+
+      case Type::getType('bigint'):
         $rule .= "'bigint'";
         break;
-        case Type::getType('integer'):
-          $rule .= "'integer'";
-          break;
-        case Type::getType('decimal'):
-          $rule .= "'double'";
-          break;
-        case Type::getType('float'):
-          $rule .= "'float'";
-          break;
-        case Type::getType('boolean'):
-          $rule .= "'boolean'";
-          break;
-        case Type::getType('datetime'):
-        case Type::getType ('datetimetz'):
-          $rule .= "'datetime'";
-          break;
-        case Type::getType('date'):
-          $rule .= "'date'";
-          break;
+      case Type::getType('integer'):
+        $rule .= "'integer'";
+        break;
+      case Type::getType('decimal'):
+        $rule .= "'double'";
+        break;
+      case Type::getType('float'):
+        $rule .= "'float'";
+        break;
+      case Type::getType('boolean'):
+        $rule .= "'boolean'";
+        break;
+      case Type::getType('datetime'):
+      case Type::getType('datetimetz'):
+        $rule .= "'datetime'";
+        break;
+      case Type::getType('date'):
+        $rule .= "'date'";
+        break;
        // case Type::getType('enum'):
-        case Type::getType ('string'):
+      case Type::getType('string'):
      //   case Type::getType ('char'):
-        case Type::getType ('text'):
-          $rule .= "'string'";
-          break;
-        default:
-          $rule = '';
-          break;
-      }
+      case Type::getType('text'):
+        $rule .= "'string'";
+        break;
+      default:
+        $rule = '';
+        break;
+    }
 
-      if (empty($rule)) {
+    if (empty($rule)) {
         //$casts[] = $rule;
-        return null;
-      }
-    
+      return null;
+    }
+
 
     return $rule;
   }

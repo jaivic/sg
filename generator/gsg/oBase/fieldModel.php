@@ -5,11 +5,7 @@ use Illuminate\Support\Str;
 
 
 class fieldModel extends \stdClass {
-  
- // public  $field;
-  
   public function __construct($name,$type){
-     // $this = new \stdClass();
       $this->name = $name;
       $this->type = $type;
       $this->humanName = Str::snake(Str::camel($name));

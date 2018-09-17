@@ -1,8 +1,8 @@
 <?php
 
-namespace generator\Utils;
+namespace App\Sg;
 
-class ResponseUtil
+class SgResponse
 {
     /**
      * @param string $message
@@ -10,7 +10,7 @@ class ResponseUtil
      *
      * @return array
      */
-    public static function makeResponse($message, $data)
+    public static function success($message, $data)
     {
         return [
             'success' => true,
@@ -25,7 +25,7 @@ class ResponseUtil
      *
      * @return array
      */
-    public static function makeError($message, array $data = [])
+    public static function error($message, array $data = [])
     {
         $res = [
             'success' => false,

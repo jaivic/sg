@@ -28,6 +28,9 @@ class gConfig
         $this->pathTemplateModelIOS = "generator/template/IOS/model.stub";
         $this->pathTemplateModelRelate = "generator/template/model/relationship.stub";
         $this->pathTemplateModelRelateMTOM = "generator/template/model/relationshipMTOM.stub";
+        $this->pathTemplateModelSyncMTOM = "generator/template/model/synMtom.stub";
+        $this->pathTemplateModelSync1to1 = "generator/template/model/syn1to1.stub";
+        $this->pathTemplateModelSync1tom = "generator/template/model/syn1tom.stub";
         $this->pathTemplateService = "generator/template/service/service.stub";
         $this->pathTemplateCreate = "generator/template/request/create_request.stub";
         $this->pathTemplateUpdate = "generator/template/request/update_request.stub";

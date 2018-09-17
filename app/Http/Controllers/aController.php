@@ -4,13 +4,27 @@ namespace App\Http\Controllers;
 
 use generator\base\gIndex;
 
-use App\Http\Models\admin1\posts;
 use App\Http\Models\admin1\tags;
+use App\Http\Models\admin1\posts;
+use App\Http\Models\admin1\users;
 use App\Http\Models\admin1\categories;
 
-class aController extends AppBaseController
-{
 
+class aController
+{
+    public function pruebasyn()
+    {
+
+        $x = posts::find(18);
+        $x->comments()->get();
+        dd($x->comments()->get());
+        $row[] = "admin";
+        $row[] = "gue";
+        $row[] = "juego";
+        $row[]="este no";
+        $x->syncCategories($row);
+       
+    }
     public function crearJsonIni()
     {
         $x = new gIndex();

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 $USECREATEREQUEST$
 $USEUPDATEREQUEST$
 use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
-use App\Http\Controllers\AppBaseController;
+use App\Sg\AppBaseController;
 
 class $MODAL_NAME$Controller extends AppBaseController
 {
@@ -38,8 +38,7 @@ class $MODAL_NAME$Controller extends AppBaseController
         
         //*$ADDMODELS$*/
         
-          return $this->sendResponse($result, 'success');
-      //  return $this->sendResponse($row->toArray(), 'success');
+        return $this->sendResponse($result, 'success');
     }
      public function all()
     {

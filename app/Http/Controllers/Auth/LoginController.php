@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 
+use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -17,7 +19,7 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
 
@@ -26,8 +28,9 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    public $redirectTo = '/home';
+    protected $RoleAdmin = User::ROLEADMIN;
+    public $redirectToAdminSite = '/admin';
     /**
      * Create a new controller instance.
      *
@@ -37,5 +40,22 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-  
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+        $user = $this->guard()->user();
+    
+        if ($user->hasRole("admin")) {
+            $this->redirectTo = $this->redirectToAdminSite;
+        }
+
+
+        return $this->authenticated($request, $this->guard()->user())
+            ? : redirect()->intended($this->redirectPath());
+      
+    
+    }
+
 }

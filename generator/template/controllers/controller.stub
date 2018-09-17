@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 $USECREATEREQUEST$
 $USEUPDATEREQUEST$
 use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
-use App\Http\Controllers\AppBaseController;
+use App\Sg\SgController;
 
-class $MODAL_NAME$Controller extends AppBaseController
+class $MODAL_NAME$Controller extends SgController
 {
     public $service;
   

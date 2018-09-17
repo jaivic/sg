@@ -5,7 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-use generator\Utils\ResponseUtil;
+use App\Sg\SgResponse;
 use Response;
 
 class Handler extends ExceptionHandler
@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if ($request->expectsJson()) {
-            return Response::json(ResponseUtil::makeError($exception->getMessage()), 500);
+            return Response::json(SgResponse::error($exception->getMessage()), 500);
         }
         return parent::render($request, $exception);
     }

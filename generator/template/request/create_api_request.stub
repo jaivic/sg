@@ -2,10 +2,10 @@
 
 namespace $NAMESPACE_API_REQUEST$;
 
-use App\Http\APIRequest;
 
+use App\Sg\SgRequest;
 
-class Create$MODEL_NAME$APIRequest extends APIRequest
+class Create$MODEL_NAME$APIRequest extends SgRequest
 {
 
     public function authorize()

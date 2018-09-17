@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http;
+namespace App\Sg;
 
 use Illuminate\Foundation\Http\FormRequest;
-use generator\Utils\ResponseUtil;
+use App\Sg\SgResponse;
 use Response;
 
-class APIRequest extends FormRequest
+class SgRequest extends FormRequest
 {
    
     public function response(array $errors)
@@ -14,6 +14,6 @@ class APIRequest extends FormRequest
        
         $messages = implode(' ', array_flatten($errors));
 
-        return Response::json(ResponseUtil::makeError($messages), 400);
+        return Response::json(SgResponse::error($messages), 400);
     }
 }

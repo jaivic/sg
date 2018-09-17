@@ -1,9 +1,10 @@
 <?php
 namespace $NAMESPACE_API_REQUEST$;
 
-use App\Http\APIRequest;
 
-class Update$MODEL_NAME$APIRequest extends APIRequest
+use App\Sg\SgRequest;
+
+class Update$MODEL_NAME$APIRequest extends SgRequest
 {
 
     public function authorize()

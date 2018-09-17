@@ -4,25 +4,33 @@ namespace $NAMESPACE$;
 
 use $NAMESPACE_MODEL$;
 
-class $CLASS_NAME$Service 
+use App\Sg\SgService;
+
+class $CLASS_NAME$Service  extends SgService
 {
 
     public function create($data)
     {
-        return $MODAL_NAME$::create($data);
+        $masterItem=$MODAL_NAME$::create($data);
+    
+         //*$ADDSINCRONIZACION$*/
+        return $masterItem;
     }
 
     public function update($data,$id)
     {
-        $$MODAL_NAME$ = $MODAL_NAME$::findOrFail($id);
-        $$MODAL_NAME$->update($data);
-        return $$MODAL_NAME$;
+         $masterItem = $MODAL_NAME$::findOrFail($id);
+         $masterItem->update($data);
+    
+        //*$ADDSINCRONIZACION$*/
+
+        return  $masterItem;
     }
     public function delete($id)
     {
-        $$MODAL_NAME$ = $MODAL_NAME$::findOrFail($id);
-        $$MODAL_NAME$->delete();
-        return $$MODAL_NAME$;
+         $masterItem = $MODAL_NAME$::findOrFail($id);
+         $masterItem->delete();
+        return  $masterItem;
     }
-
+    //*$ADDSINCRONIZACIONMETHOD$*/
 }

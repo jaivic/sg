@@ -17,34 +17,34 @@ class gModelEloquent extends BaseGenerator
     {
         parent::__construct();
 
-        $this->config= $config;
+        $this->config = $config;
       //  $this->rollbackDir( $this->config->dirFinalModel);
-  
-        $this->variables=[
-        '$NAMESPACE_MODEL$'=> $this->config->nameSpaceFinalModel,
-        '$NAMESPACE_MODEL_EXTEND$'=> "use Illuminate\Database\Eloquent\Model",
-        '$RELATIONS$' =>"",
-        '$PRIMARY$' => "",
-        '$TIMESTAMPS$' => "",
-        '$SOFT_DELETE_IMPORT$' => "",
-        '$SOFT_DELETE$' => "",
-        '$SOFT_DELETE_DATES$' => ""
+
+        $this->variables = [
+            '$NAMESPACE_MODEL$' => $this->config->nameSpaceFinalModel,
+            '$NAMESPACE_MODEL_EXTEND$' => "use Illuminate\Database\Eloquent\Model",
+            '$RELATIONS$' => "",
+            '$PRIMARY$' => "",
+            '$TIMESTAMPS$' => "",
+            '$SOFT_DELETE_IMPORT$' => "",
+            '$SOFT_DELETE$' => "",
+            '$SOFT_DELETE_DATES$' => ""
         ];
     }
- 
+
     public function run()
     {
         foreach ($this->config->listTable as $Table) {
          // dd($Table);
-            if ($Table->enable==true) {
+            if ($Table->enable == true) {
                 $this->variables['$MODEL_NAME$'] = $Table->name;
                 $this->variables['$TABLE_NAME$'] = $Table->realName;
                 $fillables = [];
                 foreach ($Table->field as $field) {
-                       $fieldName = $field->name;
-                       $deleted_at = false;
-                       $created_at = false;
-                       $updated_at = false;
+                    $fieldName = $field->name;
+                    $deleted_at = false;
+                    $created_at = false;
+                    $updated_at = false;
                     if ($fieldName == "created_at") {
                         $created_at = true;
                     }
@@ -54,12 +54,12 @@ class gModelEloquent extends BaseGenerator
                     if ($fieldName == "deleted_at") {
                         $deleted_at = true;
                     }
-                      
-      
+
+
                     if (!in_array($fieldName, $this->config->noColumn)) {
                         $fillables[] = $this->lnTb("'" . $fieldName . "'");
                     }
-       
+
 
                     $date = $this->generateDates($fieldName, $field->type);
                     $dates = [];
@@ -79,30 +79,32 @@ class gModelEloquent extends BaseGenerator
 
 
                 $this->variables['$RELATIONS$'] = $this->getRelationFunctionText($Table);
+                $this->variables['$SYNC$'] = $this->getRelationForSync($Table);
 
                 if (($created_at != true) && ($updated_at != true)) {
-                       $this->variables['$TIMESTAMPS$'] = "public \$timestamps = false;\n";
+                    $this->variables['$TIMESTAMPS$'] = "public \$timestamps = false;\n";
                 }
                 if ($deleted_at == true) {
-                       $this->variables['$SOFT_DELETE_IMPORT$'] = "use Illuminate\Database\Eloquent\SoftDeletes;";
-                       $this->variables['$SOFT_DELETE$'] = "use SoftDeletes;";
+                    $this->variables['$SOFT_DELETE_IMPORT$'] = "use Illuminate\Database\Eloquent\SoftDeletes;";
+                    $this->variables['$SOFT_DELETE$'] = "use SoftDeletes;";
                 } else {
-                       $this->variables['$SOFT_DELETE_IMPORT$'] = "";
-                       $this->variables['$SOFT_DELETE$'] = "";
+                    $this->variables['$SOFT_DELETE_IMPORT$'] = "";
+                    $this->variables['$SOFT_DELETE$'] = "";
                 }
 
                 $templateData = $this->getTemplate($this->config->pathTemplateModel);
+
                 $this->createFileWithTemplate($this->config->dirFinalModel, $Table->name . ".php", $this->variables, $templateData);
             }
         }
     }
- 
+
     public function generateDates($field, $type)
     {
-        $date=["created_at","updated_at", "deleted_at"];
+        $date = ["created_at", "updated_at", "deleted_at"];
         $rule = null;
         if (!in_array($field, $date)) {
-            if ($type== "datetime") {
+            if ($type == "datetime") {
                 $rule = "'" . $field . "'";
             }
         }
@@ -110,22 +112,21 @@ class gModelEloquent extends BaseGenerator
     }
     public function getRelationFunctionText($Table)
     {
-        $templatetotal="";
-        $arrayName=[];
+        $templatetotal = "";
+        $arrayName = [];
         foreach ($Table->foreignKeys as $relate) {
             $modelName = Str::plural($relate->fkTable);
-            $INTERMEDIA= $relate->interTable;
-            $FKEY= $relate->fkIndex[0];
-            $LKEY= $relate->localIndex[0];
+            $INTERMEDIA = $relate->interTable;
+            $FKEY = $relate->fkIndex[0];
+            $LKEY = $relate->localIndex[0];
 
-      
+
             if (!in_array($modelName, $arrayName)) {
-                $arrayName[]= $modelName;
+                $arrayName[] = $modelName;
             } else {
                 $arrayName[] = $relate->name;
-                $modelName= $relate->name;
-            }
-            ;
+                $modelName = $relate->name;
+            };
 
             switch ($relate->relation) {
                 case '1to1':
@@ -160,14 +161,14 @@ class gModelEloquent extends BaseGenerator
                     break;
             }
             if (!empty($functionName) and !empty($relation)) {
-             //   dd($relation);
-                if (($relation== "hasOne" )|| ($relation == "hasMany")) {
+
+                if (($relation == "hasOne") || ($relation == "hasMany") || ($relation == "belongsTo")) {
                     $template = $this->getTemplate($this->config->pathTemplateModelRelate);
                 }
                 if ($relation == "belongsToMany") {
                     $template = $this->getTemplate($this->config->pathTemplateModelRelateMTOM);
                 }
-      
+
                 $template = str_replace('$RELATIONSHIP_CLASS$', $relationClass, $template);
                 $template = str_replace('$FUNCTION_NAME$', $functionName, $template);
                 $template = str_replace('$RELATION$', $relation, $template);
@@ -177,7 +178,45 @@ class gModelEloquent extends BaseGenerator
                 $template = str_replace('$FKEY$', $FKEY, $template);
                 $template = str_replace('$LKEY$', $LKEY, $template);
             }
-            $templatetotal.= $template;
+            $templatetotal .= $template;
+        }
+        return $templatetotal;
+    }
+    public function getRelationForSync($Table)
+    {
+        $templatetotal = "";
+        $arrayName = [];
+        $template = "";
+        foreach ($Table->foreignKeys as $relate) {
+            $modelName = Str::plural($relate->fkTable);
+            $INTERMEDIA = $relate->interTable;
+            $FKEY = $relate->fkIndex[0];
+            $LKEY = $relate->localIndex[0];
+
+
+            if (!in_array($modelName, $arrayName)) {
+                $arrayName[] = $modelName;
+            } else {
+                $arrayName[] = $relate->name;
+                $modelName = $relate->name;
+            };
+            $functionName = str_plural($relate->name);
+            if ($relate->relation == 'mtm') {
+
+                $template = $this->getTemplate($this->config->pathTemplateModelSyncMTOM);
+            }
+            if ($relate->relation == '1to1') {
+
+                $template = $this->getTemplate($this->config->pathTemplateModelSync1to1);
+            }
+            if ($relate->relation == '1tm') {
+
+                $template = $this->getTemplate($this->config->pathTemplateModelSync1tom);
+            }
+            $template = str_replace('$UCASEMODELDETAILNAME$', ucfirst($functionName), $template);
+            $template = str_replace('$METHODNAME$', $functionName, $template);
+
+            $templatetotal .= $template;
         }
         return $templatetotal;
     }

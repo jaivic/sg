@@ -19,15 +19,15 @@ class gControllerLaravel extends BaseGenerator
         $this->config = $config;
        // $this->rollbackDir( $this->config->dirFinalApiController);
 
-        $this->variables=[
+        $this->variables = [
             '$NAMESPACE_CONTROLLER_API$' => $this->config->nameSpaceFinalApiController,
             '$NAMESPACE_CONTROLLER$' => $this->config->nameSpaceFinalController,
             '$NAMESPACE_SERVICE$' => $this->config->nameSpaceFinalService,
             '$NAMESPACE_REQUEST$' => $this->config->nameSpaceFinalRequest,
-            '$ADD_FOLDER$'=> $this->config->addDir,
-            '$USECREATEREQUEST$'=>"",
+            '$ADD_FOLDER$' => $this->config->addDir,
+            '$USECREATEREQUEST$' => "",
             '$USEUPDATEREQUEST$' => "",
-           
+
         ];
     }
     public function run()
@@ -38,7 +38,7 @@ class gControllerLaravel extends BaseGenerator
     public function validate($Table)
     {
         $name = $Table->name;
-        if ($Table->request == false) {
+        if ($Table->request == true) {
             $this->variables['$CREATEREQUEST$'] = "Create" . $name . "APIRequest";
             $this->variables['$UPDATEREQUEST$'] = "Update" . $name . "APIRequest";
             $this->variables['$USECREATEREQUEST$'] =
@@ -56,13 +56,13 @@ class gControllerLaravel extends BaseGenerator
     {
         foreach ($this->config->listTable as $Table) {
             if ($Table->enable == true) {
-                $name =  $Table->name;
+                $name = $Table->name;
                 $this->variables['$NAMESPACE_MODEL$'] = $this->config->nameSpaceFinalModel . "\\" . $name;
                 $this->variables['$MODAL_NAME$'] = $name;
                 $this->variables['$SERVICE_NAME$'] = $name;
                 $this->validate($Table);
                 $this->variables['$ROUTE$'] = Str::lower($name);
-                $this->variables['//*$ADDMODELS$*/']="";
+                $this->variables['//*$ADDMODELS$*/'] = "";
                 $this->variables['//*$ADDMODELSARRAY$*/'] = "";
 
                 $this->generateShowfunction($Table);
@@ -77,11 +77,11 @@ class gControllerLaravel extends BaseGenerator
     public function generateShowfunction($Table)
     {
         foreach ($Table->fieldShowList as $key => $model) {
-            if ($key!="this") {
-                  $templateData = $this->getTemplate($this->config->pathTemplateControllerPartResult);
-                  $this->variables['$MODEL$']=$key;
-                  $this->variables['$MODELFUNCTION$']=Str::plural($key);
-                  $this->variables['//*$ADDMODELS$*/'] .= $this->fillTemplate($this->variables, $templateData);
+            if ($key != "this") {
+                $templateData = $this->getTemplate($this->config->pathTemplateControllerPartResult);
+                $this->variables['$MODEL$'] = $key;
+                $this->variables['$MODELFUNCTION$'] = Str::plural($key);
+                $this->variables['//*$ADDMODELS$*/'] .= $this->fillTemplate($this->variables, $templateData);
             }
         }
     }

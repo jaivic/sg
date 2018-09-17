@@ -20,22 +20,34 @@ class gServiceLaravel extends BaseGenerator
 
         $this->config = $config;
     // $this->rollbackDir( $this->config->dirFinalService);
-        $this->variables=[
-        '$NAMESPACE$'=>$this->config->nameSpaceFinalService
+        $this->variables = [
+            '$NAMESPACE$' => $this->config->nameSpaceFinalService
         ];
     }
     public function run()
     {
         foreach ($this->config->listTable as $table) {
             if ($table->enable == true) {
-                $name= $table->name;
-                $this->variables['$NAMESPACE_MODEL$'] = $this->config->nameSpaceFinalModel."\\". $name;
-                $this->variables['$CLASS_NAME$']= $name;
+                $name = $table->name;
+                $this->variables['$NAMESPACE_MODEL$'] = $this->config->nameSpaceFinalModel . "\\" . $name;
+                $this->variables['$CLASS_NAME$'] = $name;
                 $this->variables['$MODAL_NAME$'] = $name;
-                $name .=  "Service.php";
-                $templateData=   $this->getTemplate($this->config->pathTemplateService);
+                $name .= "Service.php";
+                $templateData = $this->getTemplate($this->config->pathTemplateService);
                 $this->createFileWithTemplate($this->config->dirFinalService, $name, $this->variables, $templateData);
             }
         }
     }
+   
+    public function campos()
+    {
+      
+    }
+    public function createSyncBelongsToMany()
+    {
+    }
+    public function createSyncHasOne()
+    {
+    }
+
 }
