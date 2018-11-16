@@ -4,22 +4,32 @@ namespace Tests\Feature;
 
 use Faker\Factory as Faker;
 use Tests\TestCase;
-use App\Http\Models\admin1\categories;
-use App\Http\service\admin1\categoriesService;
+use App\Http\Models\admin1\roleUser;
+use App\Http\service\admin1\roleUserService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class categoriesTest extends TestCase
+class roleUserTest extends TestCase
 {
     use RefreshDatabase;
+public $role_id;
+public $user_id;
 
     public function createData()
     {
         $fake = Faker::create();
         // $row["name"] = $fake->name;
         $row=[
-       'name' => $fake->word
+       'user_id' => $fake->randomDigitNotNull,'role_id' => $fake->randomDigitNotNull
        ];
-       
+        if (!$this->role_id) {
+            $item = new rolesTest();
+            $response = $item->createItemBD($item->createData());
+            $this->role_id = $response->id;
+        } if (!$this->user_id) {
+            $item = new usersTest();
+            $response = $item->createItemBD($item->createData());
+            $this->user_id = $response->id;
+        }
         return $row;
     }
     public function buscarItem($row)
@@ -28,11 +38,11 @@ class categoriesTest extends TestCase
         foreach ($row as $key => $value) {
             $where[] = [$key, $value];
         }
-        return categories::where($where)->first();
+        return roleUser::where($where)->first();
     }
     public function createItemBD($row)
     {
-        $item = new categoriesService();
+        $item = new roleUserService();
         $response = $item->create($row);
         return $response;
     }
@@ -40,31 +50,31 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('roleUser', $row);
     }
     public function testUpdate()
     {
-        $item = new categoriesService();
+        $item = new roleUserService();
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
         $item->update($row, $data->id);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('roleUser', $row);
     }
     public function testDelete()
     {
-        $item = new categoriesService();
+        $item = new roleUserService();
         $row = $this->createData();
         $data = $this->createItemBD($row);
         $item->delete($data->id);
-        $this->assertDatabaseMissing('categories', $row);
+        $this->assertDatabaseMissing('roleUser', $row);
     }
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('categories/store', $row);
+        $response = $this->post('roleUser/store', $row);
         $x = $this->buscarItem($row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $x->id);
+        $this->assertDatabaseHas('roleUser', $row);
+        $response->assertRedirect("roleUser/edit/" . $x->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -72,9 +82,9 @@ class categoriesTest extends TestCase
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('categories/update/' . $data->id, $row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $data->id);
+        $response = $this->post('roleUser/update/' . $data->id, $row);
+        $this->assertDatabaseHas('roleUser', $row);
+        $response->assertRedirect("roleUser/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -82,27 +92,27 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('categories/delete/' . $data->id);
-        $this->assertDatabaseMissing('categories', $row);
-        $response->assertRedirect("categories/index");
+        $response = $this->delete('roleUser/delete/' . $data->id);
+        $this->assertDatabaseMissing('roleUser', $row);
+        $response->assertRedirect("roleUser/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/store', $row);
-        $this->assertDatabaseHas('categories', $row);
+        $response = $this->json('POST', 'roleUser/api/store', $row);
+        $this->assertDatabaseHas('roleUser', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories guardado exitosamente'
+                'message' => 'roleUser guardado exitosamente'
             ]);
     }
     public function testReadAPI()
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'roleUser/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)
@@ -114,11 +124,11 @@ class categoriesTest extends TestCase
 
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/update/' . $data->id, $row);
+        $response = $this->json('POST', 'roleUser/api/update/' . $data->id, $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories actualizado exitosamente'
+                'message' => 'roleUser actualizado exitosamente'
             ]);
 
     }
@@ -126,13 +136,13 @@ class categoriesTest extends TestCase
     public function testDeleteAPI()
     {
         $data = $this->createItemBD($this->createData());
-        $response = $this->json('POST', 'categories/api/delete/' . $data->id);
+        $response = $this->json('POST', 'roleUser/api/delete/' . $data->id);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories eliminado correctamente'
+                'message' => 'roleUser eliminado correctamente'
             ]);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'roleUser/api/detail/' . $data->id);
         $response->assertStatus(404)
             ->assertJsonFragment([
                 'success' => false,

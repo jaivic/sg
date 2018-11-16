@@ -1,5 +1,6 @@
 <?php
 namespace generator\base;
+
 use DB;
 
 use Illuminate\Support\Str;
@@ -11,12 +12,16 @@ use \Doctrine\DBAL\Types\Type;
 class gRoute extends BaseGenerator
 {
 
-public function __construct($config){
+  public function __construct($config)
+  {
     parent::__construct();
 
     $this->config = $config;
-  
-}
+
+  }
+  /**
+   * 
+   */
   public function run()
   {
     $this->path = base_path("routes/web.php");
@@ -38,7 +43,7 @@ public function __construct($config){
     }
     file_put_contents($this->path, $this->routeContents);
   }
- 
-  
-  
+
+
+
 }

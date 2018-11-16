@@ -4,11 +4,11 @@ namespace Tests\Feature;
 
 use Faker\Factory as Faker;
 use Tests\TestCase;
-use App\Http\Models\admin1\categories;
-use App\Http\service\admin1\categoriesService;
+use App\Http\Models\admin1\phones;
+use App\Http\service\admin1\phonesService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class categoriesTest extends TestCase
+class phonesTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -28,11 +28,11 @@ class categoriesTest extends TestCase
         foreach ($row as $key => $value) {
             $where[] = [$key, $value];
         }
-        return categories::where($where)->first();
+        return phones::where($where)->first();
     }
     public function createItemBD($row)
     {
-        $item = new categoriesService();
+        $item = new phonesService();
         $response = $item->create($row);
         return $response;
     }
@@ -40,31 +40,31 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('phones', $row);
     }
     public function testUpdate()
     {
-        $item = new categoriesService();
+        $item = new phonesService();
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
         $item->update($row, $data->id);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('phones', $row);
     }
     public function testDelete()
     {
-        $item = new categoriesService();
+        $item = new phonesService();
         $row = $this->createData();
         $data = $this->createItemBD($row);
         $item->delete($data->id);
-        $this->assertDatabaseMissing('categories', $row);
+        $this->assertDatabaseMissing('phones', $row);
     }
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('categories/store', $row);
+        $response = $this->post('phones/store', $row);
         $x = $this->buscarItem($row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $x->id);
+        $this->assertDatabaseHas('phones', $row);
+        $response->assertRedirect("phones/edit/" . $x->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -72,9 +72,9 @@ class categoriesTest extends TestCase
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('categories/update/' . $data->id, $row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $data->id);
+        $response = $this->post('phones/update/' . $data->id, $row);
+        $this->assertDatabaseHas('phones', $row);
+        $response->assertRedirect("phones/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -82,27 +82,27 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('categories/delete/' . $data->id);
-        $this->assertDatabaseMissing('categories', $row);
-        $response->assertRedirect("categories/index");
+        $response = $this->delete('phones/delete/' . $data->id);
+        $this->assertDatabaseMissing('phones', $row);
+        $response->assertRedirect("phones/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/store', $row);
-        $this->assertDatabaseHas('categories', $row);
+        $response = $this->json('POST', 'phones/api/store', $row);
+        $this->assertDatabaseHas('phones', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories guardado exitosamente'
+                'message' => 'phones guardado exitosamente'
             ]);
     }
     public function testReadAPI()
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'phones/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)
@@ -114,11 +114,11 @@ class categoriesTest extends TestCase
 
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/update/' . $data->id, $row);
+        $response = $this->json('POST', 'phones/api/update/' . $data->id, $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories actualizado exitosamente'
+                'message' => 'phones actualizado exitosamente'
             ]);
 
     }
@@ -126,13 +126,13 @@ class categoriesTest extends TestCase
     public function testDeleteAPI()
     {
         $data = $this->createItemBD($this->createData());
-        $response = $this->json('POST', 'categories/api/delete/' . $data->id);
+        $response = $this->json('POST', 'phones/api/delete/' . $data->id);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories eliminado correctamente'
+                'message' => 'phones eliminado correctamente'
             ]);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'phones/api/detail/' . $data->id);
         $response->assertStatus(404)
             ->assertJsonFragment([
                 'success' => false,

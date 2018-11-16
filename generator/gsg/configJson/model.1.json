@@ -1,0 +1,1621 @@
+[
+    {
+        "enable": true,
+        "request": true,
+        "realName": "categories",
+        "name": "categories",
+        "humanName": "categories",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "category_id"
+                ],
+                "fkTable": "post",
+                "fkIndex": [
+                    "post_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "comments",
+        "name": "comments",
+        "humanName": "comments",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "user_id",
+                "type": "'integer'",
+                "humanName": "user_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "comment",
+                "type": "'string'",
+                "humanName": "comment",
+                "rule": "required|max:250",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "approved",
+                "type": "'boolean'",
+                "humanName": "approved",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "users",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "users",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts",
+            "users"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "user_id",
+            "comment",
+            "approved",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "user_id",
+                "comment",
+                "approved",
+                "created_at",
+                "updated_at"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at",
+                "phone_id"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "migrations",
+        "name": "migrations",
+        "humanName": "migrations",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "migration",
+                "type": "'string'",
+                "humanName": "migration",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "batch",
+                "type": "'integer'",
+                "humanName": "batch",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "id",
+            "migration",
+            "batch"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "migration",
+                "batch"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "password_resets",
+        "name": "passwordResets",
+        "humanName": "password_resets",
+        "field": [
+            {
+                "name": "email",
+                "type": "'string'",
+                "humanName": "email",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "token",
+                "type": "'string'",
+                "humanName": "token",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": null,
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "email",
+            "token",
+            "created_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "email",
+                "token",
+                "created_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "permission_role",
+        "name": "permissionRole",
+        "humanName": "permission_role",
+        "field": [
+            {
+                "name": "permission_id",
+                "type": "'integer'",
+                "humanName": "permission_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "role_id",
+                "type": "'integer'",
+                "humanName": "role_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "permission_id",
+            "role_id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "permissions",
+                "localIndex": [
+                    "permission_id"
+                ],
+                "fkTable": "permissions",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "roles",
+                "localIndex": [
+                    "role_id"
+                ],
+                "fkTable": "roles",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "permissions",
+            "roles"
+        ],
+        "fieldShowList": {
+            "permissions": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ],
+            "this": [
+                "permission_id",
+                "role_id"
+            ],
+            "roles": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "permission_id",
+            "role_id"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "permissions",
+        "name": "permissions",
+        "humanName": "permissions",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "display_name",
+                "type": "'string'",
+                "humanName": "display_name",
+                "rule": "max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "description",
+                "type": "'string'",
+                "humanName": "description",
+                "rule": "max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "roles",
+                "localIndex": [
+                    "permission_id"
+                ],
+                "fkTable": "role",
+                "fkIndex": [
+                    "role_id"
+                ],
+                "relation": "mtm",
+                "interTable": "permission_role"
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "roles"
+        ],
+        "fieldShowList": {
+            "roles": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ],
+            "this": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "display_name",
+            "description",
+            "created_at",
+            "updated_at"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "phones",
+        "name": "phones",
+        "humanName": "phones",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "post_category",
+        "name": "postCategory",
+        "humanName": "post_category",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "category_id",
+                "type": "'integer'",
+                "humanName": "category_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "categories",
+                "localIndex": [
+                    "category_id"
+                ],
+                "fkTable": "categories",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "categories",
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "category_id"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "category_id"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "categories": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "post_tag",
+        "name": "postTag",
+        "humanName": "post_tag",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "post_id",
+                "type": "'integer'",
+                "humanName": "post_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "tag_id",
+                "type": "'integer'",
+                "humanName": "tag_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "posts",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "tags",
+                "localIndex": [
+                    "tag_id"
+                ],
+                "fkTable": "tags",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts",
+            "tags"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "post_id",
+            "tag_id"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "post_id",
+                "tag_id"
+            ],
+            "posts": [
+                "id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "user_id",
+                "created_at",
+                "updated_at"
+            ],
+            "tags": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "posts",
+        "name": "posts",
+        "humanName": "posts",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "user_id",
+                "type": "'integer'",
+                "humanName": "user_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "title",
+                "type": "'string'",
+                "humanName": "title",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "slug",
+                "type": "'string'",
+                "humanName": "slug",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "body",
+                "type": "'string'",
+                "humanName": "body",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "type",
+                "type": "'boolean'",
+                "humanName": "type",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "image",
+                "type": "'string'",
+                "humanName": "image",
+                "rule": "max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "postback",
+                "type": "'string'",
+                "humanName": "postback",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "visits",
+                "type": "'integer'",
+                "humanName": "visits",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "likes",
+                "type": "'integer'",
+                "humanName": "likes",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "status",
+                "type": "'boolean'",
+                "humanName": "status",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+             {
+                "name": "comments",
+                "localIndex": [
+                    "id"
+                ],
+                "fkTable": "comments",
+                "fkIndex": [
+                    "post_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            },
+            {
+                "name": "users",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "users",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "categories",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "category",
+                "fkIndex": [
+                    "category_id"
+                ],
+                "relation": "mtm",
+                "interTable": "post_category"
+            },
+            {
+                "name": "tags",
+                "localIndex": [
+                    "post_id"
+                ],
+                "fkTable": "tag",
+                "fkIndex": [
+                    "tag_id"
+                ],
+                "relation": "mtm",
+                "interTable": "post_tag"
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "users",
+            "categories",
+            "tags"
+        ],
+        "fieldShowList": {
+            "categories": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ],
+            "tags": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ],
+            "this": [
+                "id",
+                "user_id",
+                "title",
+                "slug",
+                "body",
+                "type",
+                "image",
+                "postback",
+                "visits",
+                "likes",
+                "status",
+                "created_at",
+                "updated_at"
+            ],
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at",
+                "phone_id"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "id",
+            "user_id",
+            "title",
+            "slug",
+            "body",
+            "type",
+            "image",
+            "postback",
+            "visits",
+            "likes",
+            "status",
+            "created_at",
+            "updated_at"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "role_user",
+        "name": "roleUser",
+        "humanName": "role_user",
+        "field": [
+            {
+                "name": "user_id",
+                "type": "'integer'",
+                "humanName": "user_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "role_id",
+                "type": "'integer'",
+                "humanName": "role_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "user_id",
+            "role_id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "roles",
+                "localIndex": [
+                    "role_id"
+                ],
+                "fkTable": "roles",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "users",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "users",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "roles",
+            "users"
+        ],
+        "fieldShowList": {
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at",
+                "phone_id"
+            ],
+            "this": [
+                "user_id",
+                "role_id"
+            ],
+            "roles": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "user_id",
+            "role_id"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "roles",
+        "name": "roles",
+        "humanName": "roles",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "display_name",
+                "type": "'string'",
+                "humanName": "display_name",
+                "rule": "max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "description",
+                "type": "'string'",
+                "humanName": "description",
+                "rule": "max:255",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "permissions",
+                "localIndex": [
+                    "role_id"
+                ],
+                "fkTable": "permission",
+                "fkIndex": [
+                    "permission_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            },
+            {
+                "name": "users",
+                "localIndex": [
+                    "role_id"
+                ],
+                "fkTable": "user",
+                "fkIndex": [
+                    "user_id"
+                ],
+                "relation": "mtm",
+                "interTable": "role_user"
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "permissions",
+            "users"
+        ],
+        "fieldShowList": {
+            "users": [
+                "id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at",
+                "phone_id"
+            ],
+            "this": [
+                "id",
+                "name",
+                "display_name",
+                "description",
+                "created_at",
+                "updated_at"
+            ]
+        },
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "display_name",
+            "description",
+            "created_at",
+            "updated_at"
+        ]
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "tags",
+        "name": "tags",
+        "humanName": "tags",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "posts",
+                "localIndex": [
+                    "tag_id"
+                ],
+                "fkTable": "post",
+                "fkIndex": [
+                    "post_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "posts"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "name",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    {
+        "enable": true,
+        "request": true,
+        "realName": "users",
+        "name": "users",
+        "humanName": "users",
+        "field": [
+            {
+                "name": "id",
+                "type": "'integer'",
+                "humanName": "id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "phone_id",
+                "type": "'integer'",
+                "humanName": "phone_id",
+                "rule": "required",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "name",
+                "type": "'string'",
+                "humanName": "name",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "email",
+                "type": "'string'",
+                "humanName": "email",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "password",
+                "type": "'string'",
+                "humanName": "password",
+                "rule": "required|max:191",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "remember_token",
+                "type": "'string'",
+                "humanName": "remember_token",
+                "rule": "max:100",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "created_at",
+                "type": "'datetime'",
+                "humanName": "created_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            },
+            {
+                "name": "updated_at",
+                "type": "'datetime'",
+                "humanName": "updated_at",
+                "rule": "",
+                "viewFill": {
+                    "name": "text",
+                    "data": ""
+                },
+                "viewShow": "text"
+            }
+        ],
+        "index": [
+            "id"
+        ],
+        "foreignKeys": [
+            {
+                "name": "phones",
+                "localIndex": [
+                    "phone_id"
+                ],
+                "fkTable": "phones",
+                "fkIndex": [
+                    "id"
+                ],
+                "relation": "1to1",
+                "interTable": ""
+            },
+            {
+                "name": "roles",
+                "localIndex": [
+                    "user_id"
+                ],
+                "fkTable": "role",
+                "fkIndex": [
+                    "role_id"
+                ],
+                "relation": "1tm",
+                "interTable": ""
+            }
+        ],
+        "fieldImportantRelate": [],
+        "foreignKeysname": [
+            "phones",
+            "roles"
+        ],
+        "fieldCreatedUpdate": [
+            "id",
+            "phone_id",
+            "name",
+            "email",
+            "password",
+            "remember_token",
+            "created_at",
+            "updated_at"
+        ],
+        "fieldShowList": {
+            "this": [
+                "id",
+                "phone_id",
+                "name",
+                "email",
+                "password",
+                "remember_token",
+                "created_at",
+                "updated_at"
+            ],
+            "phones": [
+                "id",
+                "name",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    }
+]

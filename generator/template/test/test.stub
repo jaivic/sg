@@ -1,58 +1,142 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+namespace Tests\Feature;
 
-class $MODEL_NAME$ApiTest extends TestCase
+use Faker\Factory as Faker;
+use Tests\TestCase;
+use App\Http\Models\admin1\$MODEL_NAME$;
+use App\Http\service\admin1\$MODEL_NAME$Service;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class $MODEL_NAME$Test extends TestCase
 {
-    use Make$MODEL_NAME$Trait, ApiTestTrait, WithoutMiddleware, DatabaseTransactions;
-
-    /**
-     * @test
-     */
-    public function testCreate$MODEL_NAME$()
+    use RefreshDatabase;
+/*$ADD_VAR$*/
+    public function createData()
     {
-        $$MODEL_NAME_CAMEL$ = $this->fake$MODEL_NAME$Data();
-        $this->json('POST', '/api/v1/$MODEL_NAME_PLURAL_CAMEL$', $$MODEL_NAME_CAMEL$);
-
-        $this->assertApiResponse($$MODEL_NAME_CAMEL$);
+        $fake = Faker::create();
+        // $row["name"] = $fake->name;
+        $row=[
+       /*$FIELDS$*/
+       ];
+       /*$ADD_DATA$*/
+        return $row;
+    }
+    public function buscarItem($row)
+    {
+        $where = [];
+        foreach ($row as $key => $value) {
+            $where[] = [$key, $value];
+        }
+        return $MODEL_NAME$::where($where)->first();
+    }
+    public function createItemBD($row)
+    {
+        $item = new $MODEL_NAME$Service();
+        $response = $item->create($row);
+        return $response;
+    }
+    public function testCreate()
+    {
+        $row = $this->createData();
+        $data = $this->createItemBD($row);
+        $this->assertDatabaseHas('$MODEL_NAME$', $row);
+    }
+    public function testUpdate()
+    {
+        $item = new $MODEL_NAME$Service();
+        $data = $this->createItemBD($this->createData());
+        $row = $this->createData();
+        $item->update($row, $data->id);
+        $this->assertDatabaseHas('$MODEL_NAME$', $row);
+    }
+    public function testDelete()
+    {
+        $item = new $MODEL_NAME$Service();
+        $row = $this->createData();
+        $data = $this->createItemBD($row);
+        $item->delete($data->id);
+        $this->assertDatabaseMissing('$MODEL_NAME$', $row);
+    }
+    public function testCreateController()
+    {
+        $row = $this->createData();
+        $response = $this->post('$MODEL_NAME$/store', $row);
+        $x = $this->buscarItem($row);
+        $this->assertDatabaseHas('$MODEL_NAME$', $row);
+        $response->assertRedirect("$MODEL_NAME$/edit/" . $x->id);
+        $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
-    /**
-     * @test
-     */
-    public function testRead$MODEL_NAME$()
+    public function testUpdateController()
     {
-        $$MODEL_NAME_CAMEL$ = $this->make$MODEL_NAME$();
-        $this->json('GET', '/api/v1/$MODEL_NAME_PLURAL_CAMEL$/'.$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$);
-
-        $this->assertApiResponse($$MODEL_NAME_CAMEL$->toArray());
+        $data = $this->createItemBD($this->createData());
+        $row = $this->createData();
+        $response = $this->post('$MODEL_NAME$/update/' . $data->id, $row);
+        $this->assertDatabaseHas('$MODEL_NAME$', $row);
+        $response->assertRedirect("$MODEL_NAME$/edit/" . $data->id);
+        $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
-    /**
-     * @test
-     */
-    public function testUpdate$MODEL_NAME$()
+    public function testDeleteController()
     {
-        $$MODEL_NAME_CAMEL$ = $this->make$MODEL_NAME$();
-        $edited$MODEL_NAME$ = $this->fake$MODEL_NAME$Data();
-
-        $this->json('PUT', '/api/v1/$MODEL_NAME_PLURAL_CAMEL$/'.$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$, $edited$MODEL_NAME$);
-
-        $this->assertApiResponse($edited$MODEL_NAME$);
+        $row = $this->createData();
+        $data = $this->createItemBD($row);
+        $response = $this->delete('$MODEL_NAME$/delete/' . $data->id);
+        $this->assertDatabaseMissing('$MODEL_NAME$', $row);
+        $response->assertRedirect("$MODEL_NAME$/index");
+        $response->assertSessionHas('status', 'Cambios agregada correctamente');
+    }
+    public function testCreateAPI()
+    {
+        $row = $this->createData();
+        $response = $this->json('POST', '$MODEL_NAME$/api/store', $row);
+        $this->assertDatabaseHas('$MODEL_NAME$', $row);
+        $response->assertStatus(200)
+            ->assertJsonFragment([
+                'success' => true,
+                'message' => '$MODEL_NAME$ guardado exitosamente'
+            ]);
+    }
+    public function testReadAPI()
+    {
+        $row = $this->createData();
+        $data = $this->createItemBD($row);
+        $response = $this->json('GET', '$MODEL_NAME$/api/detail/' . $data->id);
+        $row['success'] = true;
+        $row['message'] = 'success';
+        $response->assertStatus(200)
+            ->assertJsonFragment($row);
     }
 
-    /**
-     * @test
-     */
-    public function testDelete$MODEL_NAME$()
+    public function testUpdateAPI()
     {
-        $$MODEL_NAME_CAMEL$ = $this->make$MODEL_NAME$();
-        $this->json('DELETE', '/api/v1/$MODEL_NAME_PLURAL_CAMEL$/'.$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$);
 
-        $this->assertApiSuccess();
-        $this->json('GET', '/api/v1/$MODEL_NAME_PLURAL_CAMEL$/'.$$MODEL_NAME_CAMEL$->$PRIMARY_KEY_NAME$);
+        $data = $this->createItemBD($this->createData());
+        $row = $this->createData();
+        $response = $this->json('POST', '$MODEL_NAME$/api/update/' . $data->id, $row);
+        $response->assertStatus(200)
+            ->assertJsonFragment([
+                'success' => true,
+                'message' => '$MODEL_NAME$ actualizado exitosamente'
+            ]);
 
-        $this->assertResponseStatus(404);
+    }
+
+    public function testDeleteAPI()
+    {
+        $data = $this->createItemBD($this->createData());
+        $response = $this->json('POST', '$MODEL_NAME$/api/delete/' . $data->id);
+        $response->assertStatus(200)
+            ->assertJsonFragment([
+                'success' => true,
+                'message' => '$MODEL_NAME$ eliminado correctamente'
+            ]);
+        $response = $this->json('GET', '$MODEL_NAME$/api/detail/' . $data->id);
+        $response->assertStatus(404)
+            ->assertJsonFragment([
+                'success' => false,
+                'message' => 'No se encontro lo que se buscaba'
+            ]);
     }
 }

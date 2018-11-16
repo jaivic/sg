@@ -21,9 +21,9 @@ class aController
         $row[] = "admin";
         $row[] = "gue";
         $row[] = "juego";
-        $row[]="este no";
+        $row[] = "este no";
         $x->syncCategories($row);
-       
+
     }
     public function crearJsonIni()
     {

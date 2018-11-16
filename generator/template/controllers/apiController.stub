@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 $USECREATEREQUEST$
 $USEUPDATEREQUEST$
 use $NAMESPACE_SERVICE$\$MODAL_NAME$Service;
-use App\Sg\AppBaseController;
+use App\Sg\SgController;
 
-class $MODAL_NAME$Controller extends AppBaseController
+class $MODAL_NAME$Controller extends SgController
 {
     public $service;
   
@@ -33,13 +33,19 @@ class $MODAL_NAME$Controller extends AppBaseController
       return $this->sendResponse(null, '$MODAL_NAME$ eliminado correctamente');
     }
     public function show($id){
-        $row = $MODAL_NAME$::find($id);
-        $result= $row->toArray();
-        
-        //*$ADDMODELS$*/
-        
-        return $this->sendResponse($result, 'success');
+      $row = $MODAL_NAME$::find($id);
+        if ($row) {
+          $result= $row->toArray();
+      
+          //*$ADDMODELS$*/
+      
+          return $this->sendResponse($result, 'success');
+        }
+      return $this->sendError("No se encontro lo que se buscaba");
     }
+
+ 
+
      public function all()
     {
         $row = $MODAL_NAME$::all();

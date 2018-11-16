@@ -20,6 +20,7 @@ class BaseGenerator
     public $nameSpaceFinalController;
     public $pathTemplateModel;
     public $pathTemplateService;
+    public $pathTemplateTest;
 
     public function __construct()
     {
@@ -28,6 +29,7 @@ class BaseGenerator
         $this->pathTemplateCreate = "generator/template/request/create_api_request.stub";
         $this->pathTemplateUpdate = "generator/template/request/update_api_request.stub";
         $this->pathTemplateController = "generator/template/controllers/apiController.stub";
+        $this->pathTemplateTest = "generator/template/test/test.stub";
     }
     public function getTemplate($dirTemplate)
     {

@@ -49,6 +49,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+  
         if ($request->expectsJson()) {
             return Response::json(SgResponse::error($exception->getMessage()), 500);
         }

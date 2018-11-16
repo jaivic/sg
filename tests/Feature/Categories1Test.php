@@ -8,18 +8,14 @@ use App\Http\Models\admin1\categories;
 use App\Http\service\admin1\categoriesService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class categoriesTest extends TestCase
+class Categories1Test extends TestCase
 {
     use RefreshDatabase;
 
     public function createData()
     {
         $fake = Faker::create();
-        // $row["name"] = $fake->name;
-        $row=[
-       'name' => $fake->word
-       ];
-       
+        $row["name"] = $fake->name;
         return $row;
     }
     public function buscarItem($row)
@@ -61,7 +57,7 @@ class categoriesTest extends TestCase
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('categories/store', $row);
+        $response = $this->post('/categories/store', $row);
         $x = $this->buscarItem($row);
         $this->assertDatabaseHas('categories', $row);
         $response->assertRedirect("categories/edit/" . $x->id);
@@ -72,7 +68,7 @@ class categoriesTest extends TestCase
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('categories/update/' . $data->id, $row);
+        $response = $this->post('/categories/update/' . $data->id, $row);
         $this->assertDatabaseHas('categories', $row);
         $response->assertRedirect("categories/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
@@ -82,7 +78,7 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('categories/delete/' . $data->id);
+        $response = $this->delete('/categories/delete/' . $data->id);
         $this->assertDatabaseMissing('categories', $row);
         $response->assertRedirect("categories/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
@@ -90,7 +86,7 @@ class categoriesTest extends TestCase
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/store', $row);
+        $response = $this->json('POST', '/categories/api/store', $row);
         $this->assertDatabaseHas('categories', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
@@ -102,7 +98,7 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', '/categories/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)

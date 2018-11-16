@@ -28,6 +28,7 @@ use generator\laravel\gRequestLaravel;
 use generator\laravel\gServiceLaravel;
 use generator\laravel\gViewLaravel;
 use generator\laravel\gViewMenuLaravel;
+use generator\laravel\gTestLaravel;
 
 class gIndex extends BaseGenerator
 {
@@ -51,29 +52,31 @@ class gIndex extends BaseGenerator
     public function generadorAntiguo()
     {
         $config = new gConfig($this->listTable, "admin1");
-        (new gRoute($config))->run();
+        (new gTestLaravel($config))->run();
+       /* (new gRoute($config))->run();
         (new gModel($config))->run();
         (new gRequest($config))->run();
         (new gService($config))->run();
         (new gController($config))->run();
 
         (new gView($config))->run();
-        (new gViewMenu($config))->run();
+        (new gViewMenu($config))->run();*/
     }
 
     public function crearDesdeElJson()
     {
         $this->listTable = json_decode(file_get_contents(base_path("generator/gsg/configJson/model.json")));
         $config = new gConfig($this->listTable, "admin1");
+      
         (new gModelEloquent($config))->run();
         (new gControllerLaravel($config))->run();
         (new gModelIOS($config))->run();
         (new gRequestLaravel($config))->run();
         (new gRouteLaravel($config))->run();
         (new gServiceLaravel($config))->run();
-        
         (new gViewLaravel($config))->run();
         (new gViewMenuLaravel($config))->run();
+        (new gTestLaravel($config))->run();
     }
     public function rollback()
     {

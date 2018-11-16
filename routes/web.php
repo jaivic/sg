@@ -11,21 +11,23 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset/', 'Auth\ResetPasswordController@reset');
+Route::get('password/comment', 'Auth\ResetPasswordController@comment');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
-Route::get('/', 'GuestController@index')->name('home');
+Route::get('/', 'GuestController@index');
 
 Route::get('/pruebasyn', "aController@pruebasyn");
 
-Route::group(['middleware' => ['role:admin', 'auth']], function () {
+Route::group(['middleware' => ['role:admin|developer', 'auth']], function () {
     Route::get('/admin', 'AdminController@index')->name('admin');
+});
+
+Route::group(['middleware' => ['role:developer', 'auth']], function () {
     Route::get('/1crearjson', "aController@crearJsonIni");
     Route::get('/2generar', "aController@crearDesdeElJson");
-
     Route::get('/rollback', "aController@rollback");
-
 });
-Route::group(['middleware' => ['role:user|admin', 'auth']], function () {
+Route::group(['middleware' => ['role:user|admin|developer', 'auth']], function () {
     Route::get('/home', 'UserController@index')->name('home');
 
 
@@ -170,20 +172,20 @@ Route::group(['prefix' => 'phones'], function () {
 
 
 
-Route::group(['prefix' => 'postcategory'], function () {
-    Route::get('index', 'admin1\postCategoryController@index')->name('admin1.postcategory.index');
-    Route::get('create', 'admin1\postCategoryController@create')->name('admin1.postcategory.create');
-    Route::get('edit/{id}', 'admin1\postCategoryController@edit')->name('admin1.postcategory.edit');
-    Route::get('detail/{id}', 'admin1\postCategoryController@show')->name('admin1.postcategory.detail');
-    Route::post('store', 'admin1\postCategoryController@store')->name('admin1.postcategory.store');
-    Route::post('update/{id}', 'admin1\postCategoryController@update')->name('admin1.postcategory.update');
-    Route::delete('delete/{id}', 'admin1\postCategoryController@delete')->name('admin1.postcategory.delete');   
+Route::group(['prefix' => 'postcategories'], function () {
+    Route::get('index', 'admin1\postCategoriesController@index')->name('admin1.postcategories.index');
+    Route::get('create', 'admin1\postCategoriesController@create')->name('admin1.postcategories.create');
+    Route::get('edit/{id}', 'admin1\postCategoriesController@edit')->name('admin1.postcategories.edit');
+    Route::get('detail/{id}', 'admin1\postCategoriesController@show')->name('admin1.postcategories.detail');
+    Route::post('store', 'admin1\postCategoriesController@store')->name('admin1.postcategories.store');
+    Route::post('update/{id}', 'admin1\postCategoriesController@update')->name('admin1.postcategories.update');
+    Route::delete('delete/{id}', 'admin1\postCategoriesController@delete')->name('admin1.postcategories.delete');   
     Route::group(['prefix' => 'api'], function () {
-        Route::post('store', 'Api\admin1\postCategoryController@store')->name('api.postcategory.store');
-        Route::post('update/{id}', 'Api\admin1\postCategoryController@update')->name('api.postcategory.update');
-        Route::post('delete/{id}', 'Api\admin1\postCategoryController@delete')->name('api.postcategory.delete');   
-        Route::get('detail/{id}', 'Api\admin1\postCategoryController@show')->name('api.postcategory.detail');   
-        Route::get('all', 'Api\admin1\postCategoryController@all')->name('api.postcategory.all');
+        Route::post('store', 'Api\admin1\postCategoriesController@store')->name('api.postcategories.store');
+        Route::post('update/{id}', 'Api\admin1\postCategoriesController@update')->name('api.postcategories.update');
+        Route::post('delete/{id}', 'Api\admin1\postCategoriesController@delete')->name('api.postcategories.delete');   
+        Route::get('detail/{id}', 'Api\admin1\postCategoriesController@show')->name('api.postcategories.detail');   
+        Route::get('all', 'Api\admin1\postCategoriesController@all')->name('api.postcategories.all');
     });  
 });
 

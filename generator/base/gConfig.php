@@ -39,7 +39,8 @@ class gConfig
         $this->pathTemplateController = "generator/template/controllers/Controller.stub";
         $this->pathTemplateControllerPartResult = "generator/template/controllers/partResult.stub";
         $this->pathTemplateControllerPartResultArray = "generator/template/controllers/partResultArray.stub";
-        
+        $this->pathTemplateTest = "generator/template/test/test.stub";
+        $this->pathTemplateTestItem = "generator/template/test/item.stub";
         $this->pathTemplateApiController = "generator/template/controllers/apiController.stub";
         $this->pathTemplateViewCreate = "generator/template/view/create.stub";
         $this->pathTemplateViewUpdate = "generator/template/view/edit.stub";
@@ -52,6 +53,7 @@ class gConfig
         $this->nameSpaceFinalApiController = "App\Http\Controllers\Api";
         $this->nameSpaceFinalService = "App\Http\service";
         $this->dirFinalService = base_path("App\Http\service\\");
+        $this->dirFinalTest = base_path("tests\Feature\\");
         $this->nameSpaceFinalRequest = "App\Http\Requests";
         $this->dirFinalRequest = base_path("App\Http\Requests\\");
         $this->dirFinalBaseView = base_path("resources\\views\\");

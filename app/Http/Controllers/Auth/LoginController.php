@@ -29,8 +29,8 @@ class LoginController extends Controller
      * @var string
      */
     public $redirectTo = '/home';
-    protected $RoleAdmin = User::ROLEADMIN;
     public $redirectToAdminSite = '/admin';
+    public $redirectToDeveloperSite = '/developer';
     /**
      * Create a new controller instance.
      *
@@ -46,16 +46,18 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
         $user = $this->guard()->user();
-    
-        if ($user->hasRole("admin")) {
+
+        if ($user->hasRole(User::ROLE_ADMIN)) {
             $this->redirectTo = $this->redirectToAdminSite;
         }
-
+        if ($user->hasRole(User::ROLE_DEVELOPER)) {
+            $this->redirectTo = $this->redirectToDeveloperSite;
+        }
 
         return $this->authenticated($request, $this->guard()->user())
             ? : redirect()->intended($this->redirectPath());
-      
-    
+
+
     }
 
 }

@@ -4,22 +4,27 @@ namespace Tests\Feature;
 
 use Faker\Factory as Faker;
 use Tests\TestCase;
-use App\Http\Models\admin1\categories;
-use App\Http\service\admin1\categoriesService;
+use App\Http\Models\admin1\permissions;
+use App\Http\service\admin1\permissionsService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class categoriesTest extends TestCase
+class permissionsTest extends TestCase
 {
     use RefreshDatabase;
+public $permission_id;
 
     public function createData()
     {
         $fake = Faker::create();
         // $row["name"] = $fake->name;
         $row=[
-       'name' => $fake->word
+       'name' => $fake->word,'display_name' => $fake->word,'description' => $fake->word
        ];
-       
+        if (!$this->permission_id) {
+            $item = new rolesTest();
+            $response = $item->createItemBD($item->createData());
+            $this->permission_id = $response->id;
+        }
         return $row;
     }
     public function buscarItem($row)
@@ -28,11 +33,11 @@ class categoriesTest extends TestCase
         foreach ($row as $key => $value) {
             $where[] = [$key, $value];
         }
-        return categories::where($where)->first();
+        return permissions::where($where)->first();
     }
     public function createItemBD($row)
     {
-        $item = new categoriesService();
+        $item = new permissionsService();
         $response = $item->create($row);
         return $response;
     }
@@ -40,31 +45,31 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('permissions', $row);
     }
     public function testUpdate()
     {
-        $item = new categoriesService();
+        $item = new permissionsService();
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
         $item->update($row, $data->id);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('permissions', $row);
     }
     public function testDelete()
     {
-        $item = new categoriesService();
+        $item = new permissionsService();
         $row = $this->createData();
         $data = $this->createItemBD($row);
         $item->delete($data->id);
-        $this->assertDatabaseMissing('categories', $row);
+        $this->assertDatabaseMissing('permissions', $row);
     }
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('categories/store', $row);
+        $response = $this->post('permissions/store', $row);
         $x = $this->buscarItem($row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $x->id);
+        $this->assertDatabaseHas('permissions', $row);
+        $response->assertRedirect("permissions/edit/" . $x->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -72,9 +77,9 @@ class categoriesTest extends TestCase
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('categories/update/' . $data->id, $row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $data->id);
+        $response = $this->post('permissions/update/' . $data->id, $row);
+        $this->assertDatabaseHas('permissions', $row);
+        $response->assertRedirect("permissions/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -82,27 +87,27 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('categories/delete/' . $data->id);
-        $this->assertDatabaseMissing('categories', $row);
-        $response->assertRedirect("categories/index");
+        $response = $this->delete('permissions/delete/' . $data->id);
+        $this->assertDatabaseMissing('permissions', $row);
+        $response->assertRedirect("permissions/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/store', $row);
-        $this->assertDatabaseHas('categories', $row);
+        $response = $this->json('POST', 'permissions/api/store', $row);
+        $this->assertDatabaseHas('permissions', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories guardado exitosamente'
+                'message' => 'permissions guardado exitosamente'
             ]);
     }
     public function testReadAPI()
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'permissions/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)
@@ -114,11 +119,11 @@ class categoriesTest extends TestCase
 
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/update/' . $data->id, $row);
+        $response = $this->json('POST', 'permissions/api/update/' . $data->id, $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories actualizado exitosamente'
+                'message' => 'permissions actualizado exitosamente'
             ]);
 
     }
@@ -126,13 +131,13 @@ class categoriesTest extends TestCase
     public function testDeleteAPI()
     {
         $data = $this->createItemBD($this->createData());
-        $response = $this->json('POST', 'categories/api/delete/' . $data->id);
+        $response = $this->json('POST', 'permissions/api/delete/' . $data->id);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories eliminado correctamente'
+                'message' => 'permissions eliminado correctamente'
             ]);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'permissions/api/detail/' . $data->id);
         $response->assertStatus(404)
             ->assertJsonFragment([
                 'success' => false,

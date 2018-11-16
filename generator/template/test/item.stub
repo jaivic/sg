@@ -1,0 +1,5 @@
+ if (!$this->$KEY_FIELD$) {
+            $item = new $MODEL_NAME$Test();
+            $response = $item->createItemBD($item->createData());
+            $this->$KEY_FIELD$ = $response->id;
+        }

@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/x';
+    protected $redirectTo = 'password/comment';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,8 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
     //    $this->middleware('guest');
+    }
+    public function comment(){
+        return view('auth.passwordreset');
     }
 }

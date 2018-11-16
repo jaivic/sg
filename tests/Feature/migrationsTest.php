@@ -4,11 +4,11 @@ namespace Tests\Feature;
 
 use Faker\Factory as Faker;
 use Tests\TestCase;
-use App\Http\Models\admin1\categories;
-use App\Http\service\admin1\categoriesService;
+use App\Http\Models\admin1\migrations;
+use App\Http\service\admin1\migrationsService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class categoriesTest extends TestCase
+class migrationsTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -17,7 +17,7 @@ class categoriesTest extends TestCase
         $fake = Faker::create();
         // $row["name"] = $fake->name;
         $row=[
-       'name' => $fake->word
+       'migration' => $fake->word,'batch' => $fake->randomDigitNotNull
        ];
        
         return $row;
@@ -28,11 +28,11 @@ class categoriesTest extends TestCase
         foreach ($row as $key => $value) {
             $where[] = [$key, $value];
         }
-        return categories::where($where)->first();
+        return migrations::where($where)->first();
     }
     public function createItemBD($row)
     {
-        $item = new categoriesService();
+        $item = new migrationsService();
         $response = $item->create($row);
         return $response;
     }
@@ -40,31 +40,31 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('migrations', $row);
     }
     public function testUpdate()
     {
-        $item = new categoriesService();
+        $item = new migrationsService();
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
         $item->update($row, $data->id);
-        $this->assertDatabaseHas('categories', $row);
+        $this->assertDatabaseHas('migrations', $row);
     }
     public function testDelete()
     {
-        $item = new categoriesService();
+        $item = new migrationsService();
         $row = $this->createData();
         $data = $this->createItemBD($row);
         $item->delete($data->id);
-        $this->assertDatabaseMissing('categories', $row);
+        $this->assertDatabaseMissing('migrations', $row);
     }
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('categories/store', $row);
+        $response = $this->post('migrations/store', $row);
         $x = $this->buscarItem($row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $x->id);
+        $this->assertDatabaseHas('migrations', $row);
+        $response->assertRedirect("migrations/edit/" . $x->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -72,9 +72,9 @@ class categoriesTest extends TestCase
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('categories/update/' . $data->id, $row);
-        $this->assertDatabaseHas('categories', $row);
-        $response->assertRedirect("categories/edit/" . $data->id);
+        $response = $this->post('migrations/update/' . $data->id, $row);
+        $this->assertDatabaseHas('migrations', $row);
+        $response->assertRedirect("migrations/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -82,27 +82,27 @@ class categoriesTest extends TestCase
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('categories/delete/' . $data->id);
-        $this->assertDatabaseMissing('categories', $row);
-        $response->assertRedirect("categories/index");
+        $response = $this->delete('migrations/delete/' . $data->id);
+        $this->assertDatabaseMissing('migrations', $row);
+        $response->assertRedirect("migrations/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/store', $row);
-        $this->assertDatabaseHas('categories', $row);
+        $response = $this->json('POST', 'migrations/api/store', $row);
+        $this->assertDatabaseHas('migrations', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories guardado exitosamente'
+                'message' => 'migrations guardado exitosamente'
             ]);
     }
     public function testReadAPI()
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'migrations/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)
@@ -114,11 +114,11 @@ class categoriesTest extends TestCase
 
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->json('POST', 'categories/api/update/' . $data->id, $row);
+        $response = $this->json('POST', 'migrations/api/update/' . $data->id, $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories actualizado exitosamente'
+                'message' => 'migrations actualizado exitosamente'
             ]);
 
     }
@@ -126,13 +126,13 @@ class categoriesTest extends TestCase
     public function testDeleteAPI()
     {
         $data = $this->createItemBD($this->createData());
-        $response = $this->json('POST', 'categories/api/delete/' . $data->id);
+        $response = $this->json('POST', 'migrations/api/delete/' . $data->id);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'categories eliminado correctamente'
+                'message' => 'migrations eliminado correctamente'
             ]);
-        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
+        $response = $this->json('GET', 'migrations/api/detail/' . $data->id);
         $response->assertStatus(404)
             ->assertJsonFragment([
                 'success' => false,

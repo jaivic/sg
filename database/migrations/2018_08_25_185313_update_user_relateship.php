@@ -11,12 +11,13 @@ class updateUserRelateship extends Migration
      */
     public function up()
     {
-     
+
 
         Schema::table('users', function ($table) {
-            $table->foreign('phone_id')->references('id')->on('phones');
+            $table->string('phone_id');
+         //   $table->foreign('phone_id')->references('id')->on('phones');
         });
-       
+
     }
 
     /**
@@ -26,6 +27,6 @@ class updateUserRelateship extends Migration
      */
     public function down()
     {
-      
+
     }
 }

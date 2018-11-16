@@ -10,12 +10,13 @@ class User extends Authenticatable
 {
     use Notifiable;
     use EntrustUserTrait; // add this trait to your user model
-     const ROLEADMIN = "admin";
+    const ROLE_ADMIN = "admin";
+    const ROLE_DEVELOPER = "developer";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
-     */   
+     */
     protected $fillable = [
         'name', 'email', 'password',
     ];

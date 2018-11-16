@@ -16,10 +16,14 @@ class create_roles extends Seeder
         $admin->display_name = 'User Administrator'; // optional
         $admin->description = 'User administrador de la plataforma'; // optional
         $admin->save();
-
         $owner = new \App\Role();
         $owner->name = 'user';
         $owner->display_name = 'Owner'; // optional
+        $owner->description = 'usuario cliente de la plataforma'; // optional
+        $owner->save();
+        $owner = new \App\Role();
+        $owner->name = 'developer';
+        $owner->display_name = 'Developer'; // optional
         $owner->description = 'usuario cliente de la plataforma'; // optional
         $owner->save();
     }

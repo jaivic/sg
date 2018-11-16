@@ -11,13 +11,11 @@ class phones extends Migration
      */
     public function up()
     {
+      
      
-
-        // Create table for storing permissions
         Schema::create('phones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-         
             $table->timestamps();
         });
 
