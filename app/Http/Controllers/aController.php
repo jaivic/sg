@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use generator\base\gIndex;
-
+use generator\wizard\Supervisor;
 use App\Http\Models\admin1\tags;
 use App\Http\Models\admin1\posts;
 use App\Http\Models\admin1\users;
@@ -24,6 +24,13 @@ class aController
         $row[] = "este no";
         $x->syncCategories($row);
 
+    }
+    /** /1createTables */
+    public function crearJsonMasterTable()
+    {
+        $supervisor = new supervisor();
+
+        $supervisor->createTables();
     }
     public function crearJsonIni()
     {

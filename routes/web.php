@@ -23,6 +23,10 @@ Route::group(['middleware' => ['role:admin|developer', 'auth']], function () {
 });
 
 Route::group(['middleware' => ['role:developer', 'auth']], function () {
+    
+        Route::get('/1createTables', "aController@crearJsonMasterTable");
+    Route::get('/stepone', "wizard\WizardController@stepOne");
+    
     Route::get('/1crearjson', "aController@crearJsonIni");
     Route::get('/2generar', "aController@crearDesdeElJson");
     Route::get('/rollback', "aController@rollback");
@@ -77,44 +81,6 @@ Route::group(['prefix' => 'comments'], function () {
 
 
 
-Route::group(['prefix' => 'migrations'], function () {
-    Route::get('index', 'admin1\migrationsController@index')->name('admin1.migrations.index');
-    Route::get('create', 'admin1\migrationsController@create')->name('admin1.migrations.create');
-    Route::get('edit/{id}', 'admin1\migrationsController@edit')->name('admin1.migrations.edit');
-    Route::get('detail/{id}', 'admin1\migrationsController@show')->name('admin1.migrations.detail');
-    Route::post('store', 'admin1\migrationsController@store')->name('admin1.migrations.store');
-    Route::post('update/{id}', 'admin1\migrationsController@update')->name('admin1.migrations.update');
-    Route::delete('delete/{id}', 'admin1\migrationsController@delete')->name('admin1.migrations.delete');   
-    Route::group(['prefix' => 'api'], function () {
-        Route::post('store', 'Api\admin1\migrationsController@store')->name('api.migrations.store');
-        Route::post('update/{id}', 'Api\admin1\migrationsController@update')->name('api.migrations.update');
-        Route::post('delete/{id}', 'Api\admin1\migrationsController@delete')->name('api.migrations.delete');   
-        Route::get('detail/{id}', 'Api\admin1\migrationsController@show')->name('api.migrations.detail');   
-        Route::get('all', 'Api\admin1\migrationsController@all')->name('api.migrations.all');
-    });  
-});
-
-
-
-Route::group(['prefix' => 'passwordresets'], function () {
-    Route::get('index', 'admin1\passwordResetsController@index')->name('admin1.passwordresets.index');
-    Route::get('create', 'admin1\passwordResetsController@create')->name('admin1.passwordresets.create');
-    Route::get('edit/{id}', 'admin1\passwordResetsController@edit')->name('admin1.passwordresets.edit');
-    Route::get('detail/{id}', 'admin1\passwordResetsController@show')->name('admin1.passwordresets.detail');
-    Route::post('store', 'admin1\passwordResetsController@store')->name('admin1.passwordresets.store');
-    Route::post('update/{id}', 'admin1\passwordResetsController@update')->name('admin1.passwordresets.update');
-    Route::delete('delete/{id}', 'admin1\passwordResetsController@delete')->name('admin1.passwordresets.delete');   
-    Route::group(['prefix' => 'api'], function () {
-        Route::post('store', 'Api\admin1\passwordResetsController@store')->name('api.passwordresets.store');
-        Route::post('update/{id}', 'Api\admin1\passwordResetsController@update')->name('api.passwordresets.update');
-        Route::post('delete/{id}', 'Api\admin1\passwordResetsController@delete')->name('api.passwordresets.delete');   
-        Route::get('detail/{id}', 'Api\admin1\passwordResetsController@show')->name('api.passwordresets.detail');   
-        Route::get('all', 'Api\admin1\passwordResetsController@all')->name('api.passwordresets.all');
-    });  
-});
-
-
-
 Route::group(['prefix' => 'permissionrole'], function () {
     Route::get('index', 'admin1\permissionRoleController@index')->name('admin1.permissionrole.index');
     Route::get('create', 'admin1\permissionRoleController@create')->name('admin1.permissionrole.create');
@@ -148,25 +114,6 @@ Route::group(['prefix' => 'permissions'], function () {
         Route::post('delete/{id}', 'Api\admin1\permissionsController@delete')->name('api.permissions.delete');   
         Route::get('detail/{id}', 'Api\admin1\permissionsController@show')->name('api.permissions.detail');   
         Route::get('all', 'Api\admin1\permissionsController@all')->name('api.permissions.all');
-    });  
-});
-
-
-
-Route::group(['prefix' => 'phones'], function () {
-    Route::get('index', 'admin1\phonesController@index')->name('admin1.phones.index');
-    Route::get('create', 'admin1\phonesController@create')->name('admin1.phones.create');
-    Route::get('edit/{id}', 'admin1\phonesController@edit')->name('admin1.phones.edit');
-    Route::get('detail/{id}', 'admin1\phonesController@show')->name('admin1.phones.detail');
-    Route::post('store', 'admin1\phonesController@store')->name('admin1.phones.store');
-    Route::post('update/{id}', 'admin1\phonesController@update')->name('admin1.phones.update');
-    Route::delete('delete/{id}', 'admin1\phonesController@delete')->name('admin1.phones.delete');   
-    Route::group(['prefix' => 'api'], function () {
-        Route::post('store', 'Api\admin1\phonesController@store')->name('api.phones.store');
-        Route::post('update/{id}', 'Api\admin1\phonesController@update')->name('api.phones.update');
-        Route::post('delete/{id}', 'Api\admin1\phonesController@delete')->name('api.phones.delete');   
-        Route::get('detail/{id}', 'Api\admin1\phonesController@show')->name('api.phones.detail');   
-        Route::get('all', 'Api\admin1\phonesController@all')->name('api.phones.all');
     });  
 });
 

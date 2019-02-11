@@ -4,37 +4,22 @@ namespace Tests\Feature;
 
 use Faker\Factory as Faker;
 use Tests\TestCase;
-use App\Http\Models\admin1\posts;
-use App\Http\service\admin1\postsService;
+use App\Http\Models\admin1\categories;
+use App\Http\service\admin1\categoriesService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class postsTest extends TestCase
+class categoriesTest extends TestCase
 {
     use RefreshDatabase;
-public $user_id;
-public $post_id;
-public $post_id;
 
     public function createData()
     {
         $fake = Faker::create();
         // $row["name"] = $fake->name;
         $row=[
-       'user_id' => $fake->randomDigitNotNull,'title' => $fake->word,'slug' => $fake->word,'body' => $fake->word,'type' => $fake->randomDigitNotNull,'image' => $fake->word,'postback' => $fake->word,'visits' => $fake->randomDigitNotNull,'likes' => $fake->randomDigitNotNull,'status' => $fake->randomDigitNotNull
+       'name' => $fake->word
        ];
-        if (!$this->user_id) {
-            $item = new usersTest();
-            $response = $item->createItemBD($item->createData());
-            $this->user_id = $response->id;
-        } if (!$this->post_id) {
-            $item = new categoriesTest();
-            $response = $item->createItemBD($item->createData());
-            $this->post_id = $response->id;
-        } if (!$this->post_id) {
-            $item = new tagsTest();
-            $response = $item->createItemBD($item->createData());
-            $this->post_id = $response->id;
-        }
+       
         return $row;
     }
     public function buscarItem($row)
@@ -43,11 +28,11 @@ public $post_id;
         foreach ($row as $key => $value) {
             $where[] = [$key, $value];
         }
-        return posts::where($where)->first();
+        return categories::where($where)->first();
     }
     public function createItemBD($row)
     {
-        $item = new postsService();
+        $item = new categoriesService();
         $response = $item->create($row);
         return $response;
     }
@@ -55,31 +40,31 @@ public $post_id;
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $this->assertDatabaseHas('posts', $row);
+        $this->assertDatabaseHas('categories', $row);
     }
     public function testUpdate()
     {
-        $item = new postsService();
+        $item = new categoriesService();
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
         $item->update($row, $data->id);
-        $this->assertDatabaseHas('posts', $row);
+        $this->assertDatabaseHas('categories', $row);
     }
     public function testDelete()
     {
-        $item = new postsService();
+        $item = new categoriesService();
         $row = $this->createData();
         $data = $this->createItemBD($row);
         $item->delete($data->id);
-        $this->assertDatabaseMissing('posts', $row);
+        $this->assertDatabaseMissing('categories', $row);
     }
     public function testCreateController()
     {
         $row = $this->createData();
-        $response = $this->post('posts/store', $row);
+        $response = $this->post('categories/store', $row);
         $x = $this->buscarItem($row);
-        $this->assertDatabaseHas('posts', $row);
-        $response->assertRedirect("posts/edit/" . $x->id);
+        $this->assertDatabaseHas('categories', $row);
+        $response->assertRedirect("categories/edit/" . $x->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -87,9 +72,9 @@ public $post_id;
     {
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->post('posts/update/' . $data->id, $row);
-        $this->assertDatabaseHas('posts', $row);
-        $response->assertRedirect("posts/edit/" . $data->id);
+        $response = $this->post('categories/update/' . $data->id, $row);
+        $this->assertDatabaseHas('categories', $row);
+        $response->assertRedirect("categories/edit/" . $data->id);
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
 
@@ -97,27 +82,27 @@ public $post_id;
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->delete('posts/delete/' . $data->id);
-        $this->assertDatabaseMissing('posts', $row);
-        $response->assertRedirect("posts/index");
+        $response = $this->delete('categories/delete/' . $data->id);
+        $this->assertDatabaseMissing('categories', $row);
+        $response->assertRedirect("categories/index");
         $response->assertSessionHas('status', 'Cambios agregada correctamente');
     }
     public function testCreateAPI()
     {
         $row = $this->createData();
-        $response = $this->json('POST', 'posts/api/store', $row);
-        $this->assertDatabaseHas('posts', $row);
+        $response = $this->json('POST', 'categories/api/store', $row);
+        $this->assertDatabaseHas('categories', $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'posts guardado exitosamente'
+                'message' => 'categories guardado exitosamente'
             ]);
     }
     public function testReadAPI()
     {
         $row = $this->createData();
         $data = $this->createItemBD($row);
-        $response = $this->json('GET', 'posts/api/detail/' . $data->id);
+        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
         $row['success'] = true;
         $row['message'] = 'success';
         $response->assertStatus(200)
@@ -129,11 +114,11 @@ public $post_id;
 
         $data = $this->createItemBD($this->createData());
         $row = $this->createData();
-        $response = $this->json('POST', 'posts/api/update/' . $data->id, $row);
+        $response = $this->json('POST', 'categories/api/update/' . $data->id, $row);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'posts actualizado exitosamente'
+                'message' => 'categories actualizado exitosamente'
             ]);
 
     }
@@ -141,13 +126,13 @@ public $post_id;
     public function testDeleteAPI()
     {
         $data = $this->createItemBD($this->createData());
-        $response = $this->json('POST', 'posts/api/delete/' . $data->id);
+        $response = $this->json('POST', 'categories/api/delete/' . $data->id);
         $response->assertStatus(200)
             ->assertJsonFragment([
                 'success' => true,
-                'message' => 'posts eliminado correctamente'
+                'message' => 'categories eliminado correctamente'
             ]);
-        $response = $this->json('GET', 'posts/api/detail/' . $data->id);
+        $response = $this->json('GET', 'categories/api/detail/' . $data->id);
         $response->assertStatus(404)
             ->assertJsonFragment([
                 'success' => false,

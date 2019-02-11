@@ -11,22 +11,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class rolesTest extends TestCase
 {
     use RefreshDatabase;
-    public $role_id;
-
+public $role_id;
+public $role_id;
 
     public function createData()
     {
         $fake = Faker::create();
         // $row["name"] = $fake->name;
-        $row = [
-            'name' => $fake->word, 'display_name' => $fake->word, 'description' => $fake->word
-        ];
+        $row=[
+       'name' => $fake->word,'display_name' => $fake->word,'description' => $fake->word
+       ];
         if (!$this->role_id) {
             $item = new permissionsTest();
             $response = $item->createItemBD($item->createData());
             $this->role_id = $response->id;
-        }
-        if (!$this->role_id) {
+        } if (!$this->role_id) {
             $item = new usersTest();
             $response = $item->createItemBD($item->createData());
             $this->role_id = $response->id;

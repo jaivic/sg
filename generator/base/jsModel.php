@@ -96,7 +96,7 @@ class jsModel extends BaseGenerator
 
   public function setForeignKeys($Table)
   {
-   // https ://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/ForeignKeyConstraint.html
+    // https ://www.doctrine-project.org/api/dbal/2.7/Doctrine/DBAL/Schema/ForeignKeyConstraint.html
     /** buscando relaciones de foreingkeys */
     foreach ($Table->getForeignKeys() as $key => $value) {
    
@@ -114,7 +114,7 @@ class jsModel extends BaseGenerator
         $position = stripos($table2->getName(), "_" . str::singular($Table->getName()));
         $nameTableForeign = substr($table2->getName(), 0, $position);
         
-//$key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""
+    //$key,$idLocal,$tabla,$idforeign,$relate="1to1", $interTable=""
         $this->model->addForeignKeys(
           Str::plural($nameTableForeign),
           [str::singular($Table->getName()) . "_id"],
@@ -145,7 +145,7 @@ class jsModel extends BaseGenerator
       //  $this->model->addfieldImportantRelate("mtm_".Str::plural($nameTableForeign) . ":" . $nameTableForeign . "_id");
       }
       //str::singular
-  /*    $nombreTabla = substr($table2->getName(), 0, $post);
+   /*    $nombreTabla = substr($table2->getName(), 0, $post);
         if (count($nombreTabla) == 0) {
     }
        */

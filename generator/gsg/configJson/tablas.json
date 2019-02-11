@@ -1,0 +1,86 @@
+[
+    {
+        "name": "categories",
+        "humanName": "categories",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "comments",
+        "humanName": "comments",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "migrations",
+        "humanName": "migrations",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "passwordResets",
+        "humanName": "password_resets",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "permissionRole",
+        "humanName": "permission_role",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "permissions",
+        "humanName": "permissions",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "phones",
+        "humanName": "phones",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "postCategories",
+        "humanName": "post_categories",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "postTag",
+        "humanName": "post_tag",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "posts",
+        "humanName": "posts",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "roleUser",
+        "humanName": "role_user",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "roles",
+        "humanName": "roles",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "tags",
+        "humanName": "tags",
+        "enable": true,
+        "option": []
+    },
+    {
+        "name": "users",
+        "humanName": "users",
+        "enable": true,
+        "option": []
+    }
+]

@@ -11,22 +11,21 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class commentsTest extends TestCase
 {
     use RefreshDatabase;
-    public $post_id;
-    public $user_id;
+public $post_id;
+public $user_id;
 
     public function createData()
     {
         $fake = Faker::create();
         // $row["name"] = $fake->name;
-        $row = [
-            'post_id' => $fake->randomDigitNotNull, 'user_id' => $fake->randomDigitNotNull, 'comment' => $fake->word, 'approved' => $fake->randomDigitNotNull
-        ];
+        $row=[
+       'post_id' => $fake->randomDigitNotNull,'user_id' => $fake->randomDigitNotNull,'comment' => $fake->word,'approved' => $fake->randomDigitNotNull
+       ];
         if (!$this->post_id) {
             $item = new postsTest();
             $response = $item->createItemBD($item->createData());
             $this->post_id = $response->id;
-        }
-        if (!$this->user_id) {
+        } if (!$this->user_id) {
             $item = new usersTest();
             $response = $item->createItemBD($item->createData());
             $this->user_id = $response->id;

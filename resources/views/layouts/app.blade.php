@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+ 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- Styles -->
-    
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- #CSS Links -->
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen"  href="{{ asset('css/bootstrap.min.css') }}">
@@ -48,11 +48,11 @@
 		<link rel="apple-touch-startup-image"  href="{{url('/')}}/img/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
 		<link rel="apple-touch-startup-image"  href="{{url('/')}}/img/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
 		<link rel="apple-touch-startup-image"  href="{{url('/')}}/img/splash/iphone.png" media="screen and (max-device-width: 320px)">
-
+  		
 
 
 </head>
-<body>
+<body  >
   
 		<!-- #HEADER -->
 		<header id="header">
@@ -323,7 +323,7 @@
 		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
-		
+	
         </script>
     @yield('script') 
     
